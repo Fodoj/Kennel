@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class Admin::PetsController < Admin::ApplicationController
-  before_filter :find_photo, :except => [:index, :new, :create]
+  before_filter :find_pet, :except => [:index, :new, :create]
 
   def index
     @pets = Pet.all
@@ -11,13 +11,15 @@ class Admin::PetsController < Admin::ApplicationController
 
   def new
     @pet = Pet.new
-    @pet.kennel = Person.new
   end
 
   def create
     @pet = Pet.new(params[:pet])
 
-    @pet.save
+    if @pet.save
+      flash[:info] = "Добавлен питомец '#{@pet.name}'"
+    end
+
     redirect_to admin_pets_path
   end
 
@@ -26,15 +28,21 @@ class Admin::PetsController < Admin::ApplicationController
 
   def update
     if @pet.update_attributes(params[:pet])
-      flash[:info] = "Питомец успешно обновлен"
+      flash[:info] = "Питомец '#{@pet.name}' успешно обновлен"
     else
       flash[:error] = "Что-то пошло не так"
     end
     redirect_to admin_pets_path
   end
 
+  def destroy
+    @pet.destroy
+    flash[:error] = "Питомец '#{@pet.name}' удалён"
+    redirect_to :back
+  end
+
   private
-    def find_photo
+    def find_pet
       @pet = Pet.find(params[:id])
     end
 end

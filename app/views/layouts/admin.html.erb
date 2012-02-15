@@ -9,7 +9,11 @@
 <body id="admin">
 
   <%= render "admin/shared/header" %>
-
+  <div class="container">
+      <% flash.each do |name, msg| %>
+        <%= render "shared/notification", :name => name, :msg => msg %>
+      <% end %>
+  </div>
   <div class="container container-main">
     <%= yield %>
   </div>

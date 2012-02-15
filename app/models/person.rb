@@ -1,6 +1,5 @@
 class Person < ActiveRecord::Base
   include Rolify::Roles
-  # extend Rolify::Dynamic
   has_and_belongs_to_many :roles, :join_table => :people_roles
   has_many :pets
 

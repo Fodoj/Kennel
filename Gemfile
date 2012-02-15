@@ -44,7 +44,6 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'email_spec'
-  gem "autotest"
-  gem "autotest-rails"
+  gem "launchy"
 end
 
