@@ -1,0 +1,28 @@
+<% active ||= '' %>
+<div class="span2">
+    <div class="well" style="padding: 8px 0;">
+        <ul class="nav nav-list">
+          <li class="nav-header">Питомцы</li>
+
+          <li class="<%== 'active' if active == 'all-pets' %>">
+            <%= link_to "Все питомцы", admin_pets_path %>
+          </li>
+
+          <li class="<%== 'active' if active == 'new-pet' %>">
+            <%= link_to "Добавить питомца", new_admin_pet_path %>
+          </li>
+
+          <li class="<%== 'active' if active == 'owner' %>">
+            <%= link_to "Владельцы", admin_people_path(:role => "owner") %>
+          </li>
+
+          <li class="<%== 'active' if active == 'breeder' %>">
+            <%= link_to "Заводчики", admin_people_path(:role => "breeder") %>
+          </li>
+
+          <li class="<%== 'active' if active == 'kennel' %>">
+            <%= link_to "Питомники", admin_people_path(:role => "kennel") %>
+          </li>
+        </ul>
+    </div>
+</div>

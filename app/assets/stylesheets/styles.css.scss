@@ -1,0 +1,61 @@
+#admin {
+  background: #fafafa;
+  .container {
+    &.container-main {
+      background: white;
+      border-radius: 10px;
+      padding: 10px 15px;
+    }
+  }
+  h1 {
+    margin-bottom: 20px;
+  }
+  .caption {
+    p {
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+
+  .date-select {
+    select {
+      width: 100px;
+      &:first-child {
+        width: 50px;
+      }
+      &:last-child {
+        width: 70px;
+      }
+    }
+  }
+
+  .table {
+    td.pets-actions {
+      width: 72px;
+    }
+  }
+
+  .photos-block {
+    .thumbnail {
+      margin: 0 5px 10px 0;
+    }
+  }
+  .thumbnail {
+    position: relative;
+    .icon-remove-circle {
+      position: absolute;
+      right: 10px;
+      top: 6px;
+    }
+  }
+}
+
+.thumbnail {
+  &.span2 img { height: 120px; width: 160px; }
+}
+
+.person-creator-form {
+  input {
+    display: none;
+  }
+}

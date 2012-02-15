@@ -1,0 +1,12 @@
+<div class="row">
+  <%= render "sidenav", :active => "all-pets" %>
+
+  <div class="span10">
+    <h1>Питомцы</h1>
+    <div class="row">
+      <div class="span10">
+        <%= render "pets_table", :pets => @pets %>
+      </div>
+    </div>
+  </div>
+</div>

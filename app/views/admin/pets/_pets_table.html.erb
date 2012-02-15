@@ -1,0 +1,38 @@
+<table class="table table-bordered">
+  <tr>
+    <th>Кличка</th>
+    <th>Пол</th>
+    <th>Дата рождения</th>
+    <th>Окрас</th>
+    <th>Титулы</th>
+    <th>Владелец</th>
+    <th>Заводчик</th>
+    <th>Питомник</th>
+    <th></th>
+  </tr>
+  <% @pets.each do |pet| %>
+  <tr>
+    <td><%= pet.name %></td>
+
+    <td><%= pet_sex(pet) %></td>
+
+    <td><%= pet.born.strftime("%d.%m.%y") %></td>
+
+    <td><%= pet.color %></td>
+
+    <td><%= pet.title %></td>
+
+    <td><%= pet.owner_name if pet.owner.present? %></td>
+
+    <td><%= pet.breeder_name if pet.breeder.present? %></td>
+
+    <td><%= pet.kennel_name if pet.kennel.present? %></td>
+
+    <td class="pets-actions">
+      <%= link_to raw("<i class='icon-edit'></i>"), edit_admin_pet_path(pet), :class => "btn btn-small", :title => "Редактировать" %>
+      <%= link_to raw("<i class='icon-remove'></i>"), admin_pet_path(pet), :method => :delete, :class => "btn btn-small", :title => "Удалить" %>
+    </td>
+
+  </tr>
+  <% end %>
+</table>

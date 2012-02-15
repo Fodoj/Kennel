@@ -1,0 +1,50 @@
+source 'https://rubygems.org'
+
+gem 'rails', '3.2.0'
+
+gem 'pg'
+
+gem 'russian'
+
+gem 'cancan'
+
+gem 'kaminari'
+
+gem 'paperclip'
+
+gem 'nested_form', :git => "git://github.com/ryanb/nested_form.git"
+
+gem 'rolify'
+
+gem 'devise'
+
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+
+  gem 'execjs'
+  gem 'therubyracer'
+
+  gem 'uglifier', '>= 1.0.3'
+end
+
+gem 'jquery-rails'
+
+gem 'unicorn'
+
+group :development, :test do
+  gem 'forgery'
+  gem 'populator'
+  gem 'ruby-debug19'
+  gem 'unicorn'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'pickle'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'email_spec'
+  gem "autotest"
+  gem "autotest-rails"
+end
+

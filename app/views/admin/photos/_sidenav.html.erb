@@ -1,0 +1,14 @@
+<% active ||= '' %>
+<div class="span2">
+    <div class="well" style="padding: 8px 0;">
+        <ul class="nav nav-list">
+          <li class="nav-header">Фотографии</li>
+          <li class="<%== 'active' if active == 'all-photos' %>">
+            <%= link_to "Все фотографии", admin_photos_path %>
+          </li>
+          <li class="<%== 'active' if active == 'new-photo' %>">
+            <%= link_to "Добавить", new_admin_photo_path %>
+          </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+ru:
+  kennel:
+    one: Питомник
+    few: Питомника
+    many: Питомники
+    other: Питомники
+  owner:
+    one: Владелец
+    few: Владельца
+    many: Владельцы
+    other: Владельцы
+  breeder:
+    one: Заводчик
+    few: Заводчика
+    many: Заводчики
+    other: Заводчики

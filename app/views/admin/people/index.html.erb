@@ -1,0 +1,25 @@
+<div class="row">
+  <%= render "admin/pets/sidenav", :active => params[:role] %>
+
+  <div class="span10">
+    <h1><%= t(params[:role], :count => @people.count) %></h1>
+    <div class="row">
+      <div class="span10">
+        <table class="table table-bordered">
+        <% @people.each do |person| %>
+          <tr>
+            <td><%= person.name %></td>
+            <td><%= link_to 'Show', admin_person_path(person) %></td>
+            <td><%= link_to 'Edit', edit_admin_person_path(person, :role => params[:role]) %></td>
+            <td><%= link_to 'Destroy', admin_person_path(person), confirm: 'Are you sure?', method: :delete %></td>
+          </tr>
+        <% end %>
+        </table>
+      </div>
+    </div>
+    <%= link_to "Новый #{t(params[:role], :count => 1)}", new_admin_person_path(:role => params[:role]), :class => "btn btn-primary" %>
+
+  </div>
+</div>
+
+

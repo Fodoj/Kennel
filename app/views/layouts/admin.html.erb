@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body id="admin">
+
+  <%= render "admin/shared/header" %>
+
+  <div class="container container-main">
+    <%= yield %>
+  </div>
+
+</body>
+</html>

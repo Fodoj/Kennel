@@ -1,0 +1,2 @@
+module Admin::PhotosControllerHelper
+end
