@@ -43,5 +43,4 @@ describe "Managing pets" do
       page.should have_content("Питомец 'Bobby' удалён")
       Pet.find_by_name("Bobby").nil?.should be_true
     end
-
 end

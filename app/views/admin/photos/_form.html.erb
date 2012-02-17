@@ -1,25 +1,46 @@
 <%= form_for [:admin, photo], :validate => validate, :html => { :class => "form-horizontal" } do |f| %>
-  <div class="control-group">
-     <label class="control-label">Описание</label>
-     <div class="controls">
-       <%= f.text_area :caption, :rows => "4", :class => "span3" %>
-     </div>
-  </div>
 
-  <div class="control-group">
-     <label class="control-label">Альбом</label>
-     <div class="controls">
-       <%= f.select :album_id, Album.all.collect {|p| [ p.name, p.id ] }, { :prompt => "Без альбома"} %>
-     </div>
-  </div>
+<div class="row">
+    <div class="span4">
+      <div class="control-group">
+         <label class="control-label">Описание</label>
+         <div class="controls">
+           <%= f.text_area :caption, :rows => "4", :class => "span3" %>
+         </div>
+      </div>
 
-  <div class="control-group">
-     <label class="control-label">Файл</label>
-     <div class="controls">
-       <%= f.file_field :image, :class => "input-xlarge"  %>
-     </div>
-  </div>
+      <div class="control-group">
+         <label class="control-label">Альбом</label>
+         <div class="controls">
+           <%= f.select :album_id, Album.all.collect {|p| [ p.name, p.id ] }, { :prompt => "Без альбома"} %>
+         </div>
+      </div>
 
+      <div class="control-group">
+         <label class="control-label">Файл</label>
+         <div class="controls">
+           <%= f.file_field :image, :class => "input-xlarge"  %>
+         </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Собаки на фото</label>
+        <div class="controls">
+          <%= hidden_field_tag "photo[pet_ids][]", nil %>
+          <% Pet.all.each do |pet| %>
+              <label class="checkbox">
+                <%= check_box_tag "photo[pet_ids][]", pet.id, photo.pets.include?(pet), :id => dom_id(pet) %>
+                <%= "#{pet.name} #{pet.title}" %>
+              </label>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="span5">
+       <%= image_tag photo.image.url(:medium), :class => "thumbnail pull-right" unless photo.new_record? %>
+    </div>
+</div>
 
   <div class="form-actions">
     <%= f.submit "Сохранить", :class => 'btn btn-primary' %>
