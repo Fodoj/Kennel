@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'spec_helper'
 
-describe "Managing persons" do
+describe "Managing people" do
   before do
     visit admin_pets_path
   end

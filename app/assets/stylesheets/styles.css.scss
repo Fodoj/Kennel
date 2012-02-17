@@ -51,7 +51,24 @@
 }
 
 .thumbnail {
+  position: relative;
   &.span2 img { height: 120px; width: 160px; }
+  .no-image {
+    height: 168px;
+    font-size: 1.3em;
+    background: lightgray;
+    text-align: center;
+    line-height: 168px;
+  }
+  .photos-counter {
+    color: white;
+    background: black;
+    padding: 4px;
+    position: absolute;
+    opacity: 0.6;
+    left: 5px;
+    top: 5px;
+  }
 }
 
 .person-creator-form {

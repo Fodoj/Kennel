@@ -17,6 +17,8 @@ class Pet < ActiveRecord::Base
   belongs_to :kennel, :class_name => Person
   delegate :name, :to => :kennel, :prefix => true
 
+  validates :name, :presence => true
+
   scope :dogs, where(:sex => true)
   scope :bitches, where(:sex => false)
 

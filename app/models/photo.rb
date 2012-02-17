@@ -8,5 +8,5 @@ class Photo < ActiveRecord::Base
 
   has_many :pet_photos
   has_many :pets, :through => :pet_photos
-
+  belongs_to :album
 end

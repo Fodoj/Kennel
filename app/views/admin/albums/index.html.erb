@@ -1,0 +1,29 @@
+<div class="row">
+  <%= render "admin/photos/sidenav", :active => "all-albums" %>
+
+  <div class="span10">
+    <h1>Альбомы</h1>
+    <ul class="thumbnails">
+        <% @albums.each do |album| %>
+            <li class="span3">
+              <div class="thumbnail">
+                <% if album.photos.empty? %>
+                  <div class="no-image">Пустой альбом</div>
+                <% else %>
+                  <span class="photos-counter"><%= album.photos.count %></span>
+                  <%= image_tag album.photos.first.image.url(:medium) %>
+                <% end %>
+                <div class="caption">
+                  <p>
+                    <%= album.name%>
+                  </p>
+                  <p>
+                    <%= link_to "Редактировать", edit_admin_album_path(album), :class => "btn btn-small" %>
+                    <%= link_to "Удалить", admin_album_path(album), :method => :delete, :class => "btn btn-danger btn-small" %>
+                </div>
+              </div>
+            </li>
+        <% end %>
+      </ul>
+  </div>
+</div>

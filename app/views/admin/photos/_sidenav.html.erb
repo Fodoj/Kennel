@@ -4,10 +4,16 @@
         <ul class="nav nav-list">
           <li class="nav-header">Фотографии</li>
           <li class="<%== 'active' if active == 'all-photos' %>">
-            <%= link_to "Все фотографии", admin_photos_path %>
+            <%= link_to "Фотографии", admin_photos_path %>
           </li>
           <li class="<%== 'active' if active == 'new-photo' %>">
-            <%= link_to "Добавить", new_admin_photo_path %>
+            <%= link_to "Добавить фотографию", new_admin_photo_path %>
+          </li>
+          <li class="<%== 'active' if active == 'all-albums' %>">
+            <%= link_to "Альбомы", admin_albums_path %>
+          </li>
+          <li class="<%== 'active' if active == 'new-album' %>">
+            <%= link_to "Добавить альбом", new_admin_album_path %>
           </li>
         </ul>
     </div>

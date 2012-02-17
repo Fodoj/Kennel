@@ -1,0 +1,45 @@
+<%= nested_form_for [:admin, album], :html => { :class => "form-horizontal", :multipart => true  } do |f| %>
+
+  <div class="control-group">
+     <label class="control-label">Название</label>
+     <div class="controls">
+       <%= f.text_field :name, :class => "span3" %>
+     </div>
+   </div>
+
+  <div class="control-group">
+     <label class="control-label">Описание</label>
+     <div class="controls">
+       <%= f.text_area :description, :rows => "4", :class => "span3" %>
+     </div>
+  </div>
+
+  <div class="control-group">
+    <div class="span6">
+      <h3>Фотографии</h3>
+      <div class="row">
+         <%= f.fields_for :photos do |photo_form| %>
+            <% if photo_form.object.image.present? %>
+              <div class="thumbnail span2">
+                <%= photo_form.link_to_remove raw("<i class='icon-white icon-remove-circle'></i>") %>
+                <%= image_tag photo_form.object.image.url(:thumb) %>
+              </div>
+            <% else %>
+              <div class="control-group">
+                <%= photo_form.file_field :image %>
+                <%= photo_form.link_to_remove raw("<i class='icon-remove'></i>"), :class => "btn" %>
+              </div>
+            <% end %>
+         <% end %>
+        </div>
+        <div class="row">
+          <p><%= f.link_to_add "Добавить фото", :photos, :class => "btn btn-small" %></p>
+       </div>
+     </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit "Сохранить", :class => 'btn btn-primary' %>
+  </div>
+
+<% end %>
