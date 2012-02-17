@@ -6,7 +6,7 @@ class Pet < ActiveRecord::Base
   belongs_to :father, :class_name => Pet
   has_many :children, :class_name => Pet
 
-  accepts_nested_attributes_for :photos
+  accepts_nested_attributes_for :photos, :allow_destroy => true
 
   belongs_to :owner, :class_name => Person
   delegate :name, :to => :owner, :prefix => true
