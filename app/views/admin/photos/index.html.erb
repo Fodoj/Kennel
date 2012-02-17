@@ -3,22 +3,6 @@
 
   <div class="span10">
     <h1>Фотографии</h1>
-    <ul class="thumbnails">
-        <% @photos.each do |photo| %>
-            <li class="span3">
-              <div class="thumbnail">
-                <%= image_tag photo.image.url(:medium) %>
-                <div class="caption">
-                  <p>
-                    <%= photo.caption %>
-                  </p>
-                  <p>
-                    <%= link_to "Редактировать", edit_admin_photo_path(photo), :class => "btn btn-small" %>
-                    <%= link_to "Удалить", admin_photo_path(photo), :method => :delete, :class => "btn btn-danger btn-small" %>
-                </div>
-              </div>
-            </li>
-        <% end %>
-      </ul>
+    <%= render "admin/shared/photos", :photos => @photos %>
   </div>
 </div>

@@ -1,4 +1,4 @@
-<%= nested_form_for [:admin, pet], :html => { :class => "form-horizontal pet-form", :multipart => true } do |f| %>
+<%= nested_form_for [:admin, pet], :validate => true, :html => { :class => "form-horizontal pet-form", :multipart => true } do |f| %>
 
   <div class="row">
       <div class="span5">

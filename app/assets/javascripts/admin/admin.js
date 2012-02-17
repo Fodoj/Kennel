@@ -1,4 +1,5 @@
 //= require ./plugins/jquery.dataset.js
+//= require rails.validations
 //= require jquery_nested_form
 
 $(function() {

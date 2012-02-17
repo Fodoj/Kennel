@@ -3,7 +3,7 @@ class Admin::PhotosController < Admin::ApplicationController
   before_filter :find_photo, :except => [:index, :new, :create]
 
   def index
-    @photos = Photo.all
+      @photos = Photo.all
   end
 
   def show

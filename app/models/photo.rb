@@ -5,6 +5,8 @@ class Photo < ActiveRecord::Base
     :thumb => "160x120" }
   validates :caption, :length => { :maximum => 140}
   validates_attachment_presence :image
+  validates_presence_of :image
+
 
   has_many :pet_photos
   has_many :pets, :through => :pet_photos

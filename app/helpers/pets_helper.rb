@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 module PetsHelper
   def pet_sex(pet)
-    pet.sex ? "Мужской" : "Женский"
+    pet.sex ? "Кобель" : "Сука"
   end
 end

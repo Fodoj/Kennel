@@ -21,7 +21,7 @@ describe "Managing pets" do
       page.should have_content("Василий")
       page.should have_content("Пётр")
       page.should have_content("Иосиф")
-      page.should have_content("Мужской")
+      page.should have_content("Кобель")
       page.should have_content("Добавлен питомец 'Bobby'")
     end
 

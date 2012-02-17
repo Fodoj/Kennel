@@ -7,6 +7,12 @@
       padding: 10px 15px;
     }
   }
+
+  .message.alert {
+    display: inline;
+    padding: 3px;
+    margin-left: 5px;
+  }
   h1 {
     margin-bottom: 20px;
   }
@@ -48,6 +54,14 @@
       top: 6px;
     }
   }
+}
+
+.main-row {
+  margin-bottom: 15px;
+}
+
+.pull-right.actions {
+  margin: 5px;
 }
 
 .thumbnail {

@@ -25,11 +25,11 @@ class Admin::AlbumsController < Admin::ApplicationController
 
   def update
     if @album.update_attributes(params[:album])
-        flash[:info] = "Фотография успешно обновлена"
+        flash[:info] = "Альбом успешно обновлен"
     else
       flash[:error] = "Что-то пошло не так"
     end
-    redirect_to admin_albums_path
+    redirect_to admin_album_path(@album)
   end
 
   def destroy

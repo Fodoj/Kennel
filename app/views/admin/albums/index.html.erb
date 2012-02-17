@@ -10,8 +10,10 @@
                 <% if album.photos.empty? %>
                   <div class="no-image">Пустой альбом</div>
                 <% else %>
-                  <span class="photos-counter"><%= album.photos.count %></span>
-                  <%= image_tag album.photos.first.image.url(:medium) %>
+                  <%= link_to admin_album_path(album) do %>
+                    <span class="photos-counter"><%= album.photos.count %></span>
+                    <%= image_tag album.photos.first.image.url(:medium) %>
+                  <% end %>
                 <% end %>
                 <div class="caption">
                   <p>

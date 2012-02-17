@@ -16,6 +16,8 @@ gem 'nested_form', :git => "git://github.com/ryanb/nested_form.git"
 
 gem 'rolify'
 
+gem 'client_side_validations'
+
 gem 'devise'
 
 group :assets do

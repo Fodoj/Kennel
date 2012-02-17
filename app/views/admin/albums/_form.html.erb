@@ -1,4 +1,4 @@
-<%= nested_form_for [:admin, album], :html => { :class => "form-horizontal", :multipart => true  } do |f| %>
+<%= nested_form_for [:admin, album], :validate => true, :html => { :class => "form-horizontal", :multipart => true  } do |f| %>
 
   <div class="control-group">
      <label class="control-label">Название</label>
@@ -15,9 +15,9 @@
   </div>
 
   <div class="control-group">
-    <div class="span6">
-      <h3>Фотографии</h3>
-      <div class="row">
+    <h3>Фотографии</h3>
+    <div class="span9">
+      <div class="row main-row">
          <%= f.fields_for :photos do |photo_form| %>
             <% if photo_form.object.image.present? %>
               <div class="thumbnail span2">

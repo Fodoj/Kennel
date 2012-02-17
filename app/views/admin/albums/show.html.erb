@@ -2,6 +2,13 @@
   <%= render "admin/photos/sidenav" %>
 
   <div class="span10">
+    <div class="pull-right actions">
+        <%= link_to "Редактировать", edit_admin_album_path(@album), :class => "btn btn-small" %>
+        <%= link_to "Удалить", admin_album_path(@album), :method => :delete, :class => "btn btn-danger btn-small" %>
+    </div>
     <h1><%= @album.name %></h1>
+    <p><%= @album.description %></p>
+    <hr />
+    <%= render "admin/shared/photos", :photos => @album.photos %>
   </div>
 </div>
