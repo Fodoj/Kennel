@@ -9,9 +9,9 @@
   }
 
   .message.alert {
-    display: inline;
+    display: inline-block;
     padding: 3px;
-    margin-left: 5px;
+    margin: 0 0 0 5px;
   }
   h1 {
     margin-bottom: 20px;

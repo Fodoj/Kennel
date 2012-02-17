@@ -1,16 +1,25 @@
-<%= form_for [:admin, photo], :validate => true, :html => { :class => "form-horizontal" } do |f| %>
+<%= form_for [:admin, photo], :validate => validate, :html => { :class => "form-horizontal" } do |f| %>
   <div class="control-group">
      <label class="control-label">Описание</label>
      <div class="controls">
        <%= f.text_area :caption, :rows => "4", :class => "span3" %>
      </div>
   </div>
+
+  <div class="control-group">
+     <label class="control-label">Альбом</label>
+     <div class="controls">
+       <%= f.select :album_id, Album.all.collect {|p| [ p.name, p.id ] }, { :prompt => "Без альбома"} %>
+     </div>
+  </div>
+
   <div class="control-group">
      <label class="control-label">Файл</label>
      <div class="controls">
        <%= f.file_field :image, :class => "input-xlarge"  %>
      </div>
   </div>
+
 
   <div class="form-actions">
     <%= f.submit "Сохранить", :class => 'btn btn-primary' %>
