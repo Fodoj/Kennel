@@ -14,6 +14,20 @@
      </div>
   </div>
 
+  <% if album.new_record? %>
+  <div class="control-group">
+    <label class="control-label">Собаки в альбоме</label>
+    <div class="controls">
+      <% Pet.all.each do |pet| %>
+          <label class="checkbox">
+            <%= check_box_tag "album[pet_ids][]", pet.id, false, :id => dom_id(pet) %>
+            <%= "#{pet.name} #{pet.title}" %>
+          </label>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+
   <div class="control-group">
     <h3>Фотографии</h3>
     <div class="span9">

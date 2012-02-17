@@ -43,4 +43,13 @@ describe "Managing pets" do
       page.should have_content("Питомец 'Bobby' удалён")
       Pet.find_by_name("Bobby").nil?.should be_true
     end
+
+    it "should be able to unbind photo", :js => true do
+      pet = Factory(:pet, :name => "Bobby")
+      pet.photos << Factory(:photo, :image => File.new("#{Rails.root}/db/sample/images/samplimg.jpg"))
+      visit edit_admin_pet_path(pet)
+      click_link "Открепить фото"
+      click_button "Сохранить"
+      pet.photos.count.should eq(0)
+    end
 end

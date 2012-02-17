@@ -93,7 +93,7 @@
              <%= f.fields_for :photos do |photo_form| %>
                 <% if photo_form.object.image.present? %>
                   <div class="thumbnail span2">
-                    <%= photo_form.link_to_remove raw("<i class='icon-white icon-remove-circle'></i>") %>
+                    <%= photo_form.link_to_remove raw("<i class='icon-white icon-remove-circle'></i>"), :title => "Открепить фото" %>
                     <%= image_tag photo_form.object.image.url(:thumb) %>
                   </div>
                 <% else %>

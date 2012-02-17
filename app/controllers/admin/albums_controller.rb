@@ -18,9 +18,10 @@ class Admin::AlbumsController < Admin::ApplicationController
 
   def create
     @album = Album.new(params[:album])
-    @album.save
-
-    redirect_to admin_albums_path
+    if @album.save
+      @album.assign_pets(params[:album][:pet_ids])
+      redirect_to admin_albums_path
+    end
   end
 
   def update
