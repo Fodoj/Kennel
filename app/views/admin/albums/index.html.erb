@@ -6,7 +6,7 @@
     <ul class="thumbnails">
         <% @albums.each do |album| %>
             <li class="span3">
-              <div class="thumbnail">
+              <figure class="thumbnail thumbnail-album">
                 <% if album.photos.empty? %>
                   <div class="no-image">Пустой альбом</div>
                 <% else %>
@@ -15,15 +15,15 @@
                     <%= image_tag album.photos.first.image.url(:medium) %>
                   <% end %>
                 <% end %>
-                <div class="caption">
+                <figcaption class="caption">
                   <p>
                     <%= album.name%>
                   </p>
                   <p>
                     <%= link_to "Редактировать", edit_admin_album_path(album), :class => "btn btn-small" %>
                     <%= link_to "Удалить", admin_album_path(album), :method => :delete, :class => "btn btn-danger btn-small" %>
-                </div>
-              </div>
+                </figcaption>
+              </figure>
             </li>
         <% end %>
       </ul>

@@ -184,6 +184,7 @@ GEM
       ffi (~> 1.0.9)
       multi_json (~> 1.0.4)
       rubyzip
+    spork (0.8.5)
     sprockets (2.1.2)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -238,6 +239,7 @@ DEPENDENCIES
   ruby-debug19
   russian
   sass-rails (~> 3.2.3)
+  spork
   therubyracer
   uglifier (>= 1.0.3)
   unicorn

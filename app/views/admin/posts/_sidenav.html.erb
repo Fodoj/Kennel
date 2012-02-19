@@ -1,0 +1,14 @@
+<% active ||= '' %>
+<div class="span2">
+    <nav class="well" style="padding: 8px 0;">
+        <ul class="nav nav-list">
+          <li class="nav-header">Блог</li>
+          <li class="<%== 'active' if active == 'all-posts' %>">
+            <%= link_to "Все записи", admin_posts_path %>
+          </li>
+          <li class="<%== 'active' if active == 'new-post' %>">
+            <%= link_to "Добавить запись", new_admin_post_path %>
+          </li>
+        </ul>
+    </nav>
+</div>

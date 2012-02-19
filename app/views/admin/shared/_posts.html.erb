@@ -1,0 +1,20 @@
+<ul class="posts-list">
+  <% posts.each do |post| %>
+    <li class="row">
+      <%= image_tag post.photo.url(:thumb), :class => "span2 thumbnail" %>
+      <div class="span6">
+        <div class="main-row">
+          <h4><%== raw("<i class='icon-camera'></i>") if post.album.present? %> <%= post.title %></h4>
+          <p>
+            <%= truncate(post.body, :length => 200) %>
+          </p>
+        </div>
+
+        <div class="post-actions">
+          <%= link_to "Редактировать", edit_admin_post_path(post), :class => "btn btn-small" %>
+          <%= link_to "Удалить", admin_post_path(post), :method => :delete, :class => "btn btn-danger btn-small" %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>

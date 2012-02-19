@@ -9,11 +9,8 @@
         <li class="<%== 'active' if current_page?(admin_pets_path) %>">
           <%= link_to "Питомцы", admin_pets_path %>
         </li>
-        <li>
-          <a href="#">События</a>
-        </li>
-        <li>
-          <a href="#">Блог</a>
+        <li class="<%== 'active' if current_page?(admin_posts_path) %>">
+          <%= link_to "Блог", admin_posts_path %>
         </li>
       </ul>
     </div>

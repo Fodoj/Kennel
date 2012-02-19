@@ -19,6 +19,11 @@ class Pet < ActiveRecord::Base
 
   validates :name, :presence => true
 
+  has_attached_file :avatar, :styles => {
+    :large => "600x600",
+    :medium => "270x175#",
+    :thumb => "120x120" }
+
   scope :dogs, where(:sex => true)
   scope :bitches, where(:sex => false)
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120217002355) do
+ActiveRecord::Schema.define(:version => 20120219041732) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -49,10 +49,14 @@ ActiveRecord::Schema.define(:version => 20120217002355) do
     t.integer  "owner_id"
     t.integer  "breeder_id"
     t.integer  "kennel_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.integer  "mother_id"
     t.integer  "father_id"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "photos", :force => true do |t|
@@ -65,6 +69,18 @@ ActiveRecord::Schema.define(:version => 20120217002355) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "album_id"
+  end
+
+  create_table "posts", :force => true do |t|
+    t.string   "title"
+    t.integer  "album_id"
+    t.text     "body"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "roles", :force => true do |t|

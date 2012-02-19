@@ -48,7 +48,6 @@
              </div>
           </div>
 
-
           <div class="control-group">
              <label class="control-label">Владелец</label>
              <div class="controls">
@@ -88,22 +87,32 @@
       </div>
 
       <div class="span4 photos-block">
-       <h3>Фотографии</h3>
-       <div class="row">
-             <%= f.fields_for :photos do |photo_form| %>
-                <% if photo_form.object.image.present? %>
-                  <div class="thumbnail span2">
-                    <%= photo_form.link_to_remove raw("<i class='icon-white icon-remove-circle'></i>"), :title => "Открепить фото" %>
-                    <%= image_tag photo_form.object.image.url(:thumb) %>
-                  </div>
-                <% else %>
-                  <div class="control-group">
-                    <%= photo_form.file_field :image %>
-                    <%= photo_form.link_to_remove raw("<i class='icon-remove'></i>"), :class => "btn" %>
-                  </div>
-                <% end %>
-             <% end %>
+           <h3>Фото</h3>
+
+           <% if pet.avatar.present? %>
+               <div class="thumbnail">
+                 <%= image_tag pet.avatar.url(:medium) %>
+               </div>
+           <% end %>
+
+           <div class="main-row">
+             <%= f.file_field :avatar %>
+           </div>
+
+
+           <h3>Отмеченные фотографии</h3>
+           <% if pet.photos.empty? %>
+             <p>Питомец не отмечен на фотографиях</p>
+           <% else %>
+            <div class="row">
+                  <%= f.fields_for :photos do |photo_form| %>
+                       <div class="thumbnail span2">
+                         <%= photo_form.link_to_remove raw("<i class='icon-white icon-remove-circle'></i>"), :title => "Открепить фото" %>
+                         <%= image_tag photo_form.object.image.url(:thumb) %>
+                       </div>
+                  <% end %>
             </div>
+           <% end %>
       </div>
   </div>
 

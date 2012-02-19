@@ -48,10 +48,26 @@
   }
   .thumbnail {
     position: relative;
+    &.thumbnail-album {
+      margin: 0;
+    }
     .icon-remove-circle {
       position: absolute;
       right: 10px;
       top: 6px;
+    }
+  }
+
+  .posts-list {
+    list-style: none;
+    li {
+      position: relative;
+      margin-bottom: 40px;
+      .post-actions {
+        position: absolute;
+        left: 240px;
+        bottom: 0;
+      }
     }
   }
 }

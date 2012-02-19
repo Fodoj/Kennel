@@ -1,5 +1,6 @@
 class Album < ActiveRecord::Base
   has_many :photos
+  has_many :posts
   has_many :pets, :through => :photos, :uniq => true
   accepts_nested_attributes_for :photos
 

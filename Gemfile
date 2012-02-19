@@ -47,5 +47,5 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'email_spec'
   gem "launchy"
+  gem 'spork'
 end
-

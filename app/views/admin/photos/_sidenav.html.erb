@@ -1,6 +1,6 @@
 <% active ||= '' %>
 <div class="span2">
-    <div class="well" style="padding: 8px 0;">
+    <nav class="well" style="padding: 8px 0;">
         <ul class="nav nav-list">
           <li class="nav-header">Фотографии</li>
           <li class="<%== 'active' if active == 'all-photos' %>">
@@ -16,5 +16,5 @@
             <%= link_to "Добавить альбом", new_admin_album_path %>
           </li>
         </ul>
-    </div>
+    </nav>
 </div>
