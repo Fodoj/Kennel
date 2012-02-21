@@ -19,7 +19,7 @@
       <div class="control-group">
          <label class="control-label">Текст</label>
          <div class="controls">
-           <%= f.text_area :body, :rows => "10", :class => "span5" %>
+           <%= f.cktext_area :body, :toolbar => "Basic", :input_html => { :rows => "10", :class => "span5" } %>
          </div>
       </div>
 

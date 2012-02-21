@@ -8,4 +8,24 @@ class Post < ActiveRecord::Base
 
   validates :title, :presence => true
   validates :body, :presence => true
+
+
+  def cover
+    if has_photo?
+      photo
+    elsif has_album?
+      album.photos.first.image
+    else
+      nil
+    end
+  end
+
+  private
+    def has_photo?
+      photo.present?
+    end
+
+    def has_album?
+      album.present?
+    end
 end

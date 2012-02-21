@@ -1,5 +1,7 @@
 Kennel::Application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
+
   namespace :admin do
     root :to => "dashboard#home"
     resources :photos
