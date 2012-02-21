@@ -7,6 +7,7 @@ class Photo < ActiveRecord::Base
   validates_attachment_presence :image
   validates_presence_of :image
 
+  paginates_per 54
 
   has_many :pet_photos
   has_many :pets, :through => :pet_photos

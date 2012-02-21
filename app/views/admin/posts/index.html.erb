@@ -4,5 +4,6 @@
   <div class="span10">
     <h1>Блог</h1>
     <%= render "admin/shared/posts", :posts => @posts %>
+    <%= paginate @posts %>
   </div>
 </div>

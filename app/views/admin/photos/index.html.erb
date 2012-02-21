@@ -4,5 +4,6 @@
   <div class="span10">
     <h1>Фотографии</h1>
     <%= render "admin/shared/photos", :photos => @photos %>
+    <%= paginate @photos %>
   </div>
 </div>

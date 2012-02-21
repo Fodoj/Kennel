@@ -34,8 +34,6 @@ gem 'jquery-rails'
 
 gem 'unicorn'
 
-gem "ckeditor", "3.7.0.rc2"
-
 group :development, :test do
   gem 'forgery'
   gem 'populator'

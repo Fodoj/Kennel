@@ -9,6 +9,7 @@ class Post < ActiveRecord::Base
   validates :title, :presence => true
   validates :body, :presence => true
 
+  paginates_per 20
 
   def cover
     if has_photo?

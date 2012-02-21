@@ -3,7 +3,7 @@ class Admin::PostsController < Admin::ApplicationController
   before_filter :find_post, :except => [:index, :new, :create]
 
   def index
-      @posts = Post.all
+      @posts = Post.page params[:page]
   end
 
   def show

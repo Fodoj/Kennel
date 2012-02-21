@@ -2,16 +2,23 @@
   <%= render "admin/pets/sidenav", :active => params[:role] %>
 
   <div class="span10">
-    <h1><%= t(params[:role], :count => @people.count) %></h1>
+    <h1><%= t(params[:role], :count => 10) %></h1>
     <div class="row">
       <div class="span10">
-        <table class="table table-bordered">
+        <table class="table table-bordered people-table">
+          <tr>
+            <th>Имя</th>
+            <th>Количество питомцев</th>
+            <th></th>
+          </tr>
         <% @people.each do |person| %>
           <tr>
             <td><%= person.name %></td>
-            <td><%= link_to 'Show', admin_person_path(person) %></td>
-            <td><%= link_to 'Edit', edit_admin_person_path(person, :role => params[:role]) %></td>
-            <td><%= link_to 'Destroy', admin_person_path(person), confirm: 'Are you sure?', method: :delete %></td>
+            <td class="span3"><%= person.pets.count %></td>
+            <td class="double-actions">
+              <%= link_to raw("<i class='icon-edit'></i>"), edit_admin_person_path(person, :role => params[:role]), :class => "btn btn-small" %>
+              <%= link_to raw("<i class='icon-remove'></i>"), admin_person_path(person), confirm: 'Вы уверены?', :method => :delete, :class => "btn btn-small" %>
+            </td>
           </tr>
         <% end %>
         </table>
