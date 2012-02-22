@@ -52,4 +52,25 @@ describe "Managing pets" do
       click_button "Сохранить"
       pet.photos.count.should eq(0)
     end
+
+    it "should separate puppies and owned pets from others" do
+      Factory(:pet, :name => "LittlePuppy", :puppy => true)
+      Factory(:pet, :name => "SlaveDog", :owned => true)
+      Factory(:pet, :name => "SlavePuppy", :owned => true, :puppy => true)
+
+      visit admin_pets_path
+      page.should have_content "LittlePuppy"
+      page.should have_content "SlaveDog"
+      page.should have_content "SlavePuppy"
+
+      click_link "Щенки"
+      page.should have_content "LittlePuppy"
+      page.should_not have_content "SlaveDog"
+      page.should have_content "SlavePuppy"
+
+      click_link "Мои питомцы"
+      page.should_not have_content "LittlePuppy"
+      page.should have_content "SlaveDog"
+      page.should have_content "SlavePuppy"
+    end
 end
