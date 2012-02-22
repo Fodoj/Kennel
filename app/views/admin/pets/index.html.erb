@@ -1,12 +1,8 @@
 <div class="row">
-  <% if params[:owned] %>
-    <%= render "sidenav", :active => "my-pets" %>
-  <% else %>
-    <%= render "sidenav", :active => "all-pets" %>
-  <% end %>
+  <%= render "sidenav", :active => active_admin_pets_menu(params[:search]) %>
 
   <div class="span10">
-    <h1>Питомцы</h1>
+    <h1><%= admin_pets_header(params[:search]) %></h1>
     <div class="row">
       <div class="span10">
         <%= render "pets_table", :pets => @pets %>

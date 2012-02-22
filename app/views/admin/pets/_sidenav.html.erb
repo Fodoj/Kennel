@@ -4,12 +4,15 @@
         <ul class="nav nav-list">
           <li class="nav-header">Питомцы</li>
 
+          <li class="<%== 'active' if active == 'my-pets' %>">
+            <%= link_to "Мои питомцы", admin_pets_path(:search => {:owned => true}) %>
+          </li>
+
           <li class="<%== 'active' if active == 'all-pets' %>">
             <%= link_to "Все питомцы", admin_pets_path %>
           </li>
-
-          <li class="<%== 'active' if active == 'my-pets' %>">
-            <%= link_to "Мои питомцы", admin_pets_path(:owned => true) %>
+          <li class="<%== 'active' if active == 'puppy-pets' %>">
+            <%= link_to "Щенки", admin_pets_path(:search => {:puppy => true}) %>
           </li>
 
           <li class="<%== 'active' if active == 'new-pet' %>">
