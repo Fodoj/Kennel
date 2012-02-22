@@ -3,7 +3,7 @@ class Admin::AlbumsController < Admin::ApplicationController
   before_filter :find_album, :except => [:index, :new, :create]
 
   def index
-    @albums = Album.all
+    @albums = Album.sorted(params[:sort]).page params[:page]
   end
 
   def show
@@ -18,6 +18,7 @@ class Admin::AlbumsController < Admin::ApplicationController
 
   def create
     @album = Album.new(params[:album])
+    puts @album
     if @album.save
       @album.assign_pets(params[:album][:pet_ids])
       redirect_to admin_albums_path

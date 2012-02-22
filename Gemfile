@@ -34,6 +34,8 @@ gem 'jquery-rails'
 
 gem 'unicorn'
 
+gem 'sorted'
+
 group :development, :test do
   gem 'forgery'
   gem 'populator'

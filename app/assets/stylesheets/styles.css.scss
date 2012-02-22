@@ -76,6 +76,19 @@
       }
     }
   }
+  .sorted {
+    &.asc, &.desc {
+      span {
+        padding-left: 15px;
+      }
+    }
+    &.asc span {
+      background: image-url("asc.png") left no-repeat;
+    }
+    &.desc span {
+      background: image-url("desc.png") left no-repeat;
+    }
+  }
 }
 
 .main-row {

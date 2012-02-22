@@ -17,6 +17,13 @@
       </div>
 
       <div class="control-group">
+         <label class="control-label">Дата публикации</label>
+         <div class="controls date-select">
+           <%= f.date_select :created_at, :value => Date.today %>
+         </div>
+      </div>
+
+      <div class="control-group">
          <label class="control-label">Текст</label>
          <div class="controls">
            <%= f.text_area :body, :rows => "10", :class => "span7" %>
