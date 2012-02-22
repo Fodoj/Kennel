@@ -1,2 +1,17 @@
-<h1>Admin::Pets#show</h1>
-<p>Find me in app/views/admin/pets/show.html.erb</p>
+<div class="row">
+    <%= render "sidenav" %>
+
+  <div class="span10">
+    <div class="pull-right actions">
+      <%= link_to "Редактировать", edit_admin_pet_path(@pet), :class => "btn btn-small", :title => "Редактировать питомца '#{@pet.name}'" %>
+    </div>
+    <h1>
+      <%= @pet.name %>
+    </h1>
+    <div class="row">
+      <div class="span10">
+        <%= render "admin/shared/photos", :photos => @pet.photos %>
+      </div>
+    </div>
+  </div>
+</div>

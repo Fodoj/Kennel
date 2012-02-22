@@ -8,6 +8,10 @@
             <%= link_to "Все питомцы", admin_pets_path %>
           </li>
 
+          <li class="<%== 'active' if active == 'my-pets' %>">
+            <%= link_to "Мои питомцы", admin_pets_path(:owned => true) %>
+          </li>
+
           <li class="<%== 'active' if active == 'new-pet' %>">
             <%= link_to "Добавить питомца", new_admin_pet_path %>
           </li>

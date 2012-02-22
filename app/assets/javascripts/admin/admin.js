@@ -26,7 +26,14 @@ $(function() {
         subscript: false,
         undo: false,
         code: false,
-        cssWrap: false
+        cssWrap: false,
+        h1: false,
+        h2: false,
+        h3: false,
+        insertTable: false,
+        insertHorizontalRule: false,
+        increaseFontSize: {visible:  true },
+        decreaseFontSize: {visible:  true }
       }
 
     });

@@ -4,7 +4,11 @@
       <%= post_cover(post) %>
       <div class="span6">
         <div class="main-row">
-          <h4><%== raw("<i class='icon-camera'></i>") if post.album.present? %> <%= post.title %></h4>
+          <h4>
+            <%= raw("<i class='icon-camera'></i>") if post.album.present? %>
+            <small><%= post.created_at.strftime("%d.%m.%Y") %></small>
+            <%= post.title %>
+          </h4>
           <p>
             <%= raw(truncate(post.body, :length => 200)) %>
           </p>

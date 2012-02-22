@@ -3,7 +3,11 @@ class Admin::PetsController < Admin::ApplicationController
   before_filter :find_pet, :except => [:index, :new, :create]
 
   def index
-    @pets = Pet.all
+    if params[:owned].present?
+      @pets = Pet.my
+    else
+      @pets = Pet.all
+    end
   end
 
   def show

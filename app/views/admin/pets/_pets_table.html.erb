@@ -29,6 +29,7 @@
     <td><%= pet.kennel_name if pet.kennel.present? %></td>
 
     <td class="double-actions">
+      <%= link_to raw("<i class='icon-camera'></i>"), admin_pet_path(pet), :class => "btn btn-small", :title => "Фотографии с питомцем '#{pet.name}'" %>
       <%= link_to raw("<i class='icon-edit'></i>"), edit_admin_pet_path(pet), :class => "btn btn-small", :title => "Редактировать питомца '#{pet.name}'" %>
       <%= link_to raw("<i class='icon-remove'></i>"), admin_pet_path(pet), :method => :delete, :class => "btn btn-small", :title => "Удалить питомца 'Bobby'" %>
     </td>

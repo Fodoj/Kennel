@@ -1,5 +1,9 @@
 <div class="row">
-  <%= render "sidenav", :active => "all-pets" %>
+  <% if params[:owned] %>
+    <%= render "sidenav", :active => "my-pets" %>
+  <% else %>
+    <%= render "sidenav", :active => "all-pets" %>
+  <% end %>
 
   <div class="span10">
     <h1>Питомцы</h1>

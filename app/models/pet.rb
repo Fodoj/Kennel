@@ -26,5 +26,6 @@ class Pet < ActiveRecord::Base
 
   scope :dogs, where(:sex => true)
   scope :bitches, where(:sex => false)
+  scope :my, where(:owned => true)
 
 end

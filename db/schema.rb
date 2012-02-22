@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120219041732) do
+ActiveRecord::Schema.define(:version => 20120222102900) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -20,10 +20,28 @@ ActiveRecord::Schema.define(:version => 20120219041732) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "ckeditor_assets", :force => true do |t|
+    t.string   "data_file_name",                  :null => false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    :limit => 30
+    t.string   "type",              :limit => 30
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
+
   create_table "people", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "city"
+    t.string   "phone"
+    t.string   "url"
+    t.string   "email"
   end
 
   create_table "people_roles", :id => false, :force => true do |t|
@@ -57,6 +75,8 @@ ActiveRecord::Schema.define(:version => 20120219041732) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.boolean  "puppy"
+    t.boolean  "owned"
   end
 
   create_table "photos", :force => true do |t|

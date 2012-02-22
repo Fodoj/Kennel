@@ -1,11 +1,39 @@
-<%= form_for [:admin, @person], :html => { :class => "form-horizontal" } do |f| %>
+<%= form_for [:admin, @person], :validate => true, :html => { :class => "form-horizontal" } do |f| %>
   <div class="row">
-      <div class="span5">
+      <div class="span7">
           <div class="control-group">
              <label class="control-label">Имя</label>
              <div class="controls">
                <%= f.text_field :name %>
               <%= hidden_field_tag :role, params[:role] %>
+             </div>
+          </div>
+
+          <div class="control-group">
+             <label class="control-label">Город</label>
+             <div class="controls">
+               <%= f.text_field :city %>
+             </div>
+           </div>
+
+          <div class="control-group">
+             <label class="control-label">Телефон</label>
+             <div class="controls">
+               <%= f.text_field :phone %>
+             </div>
+           </div>
+
+          <div class="control-group">
+             <label class="control-label">Сайт</label>
+             <div class="controls">
+               <%= f.text_field :url %>
+             </div>
+          </div>
+
+          <div class="control-group">
+             <label class="control-label">Email</label>
+             <div class="controls">
+               <%= f.text_field :email %>
              </div>
           </div>
 
