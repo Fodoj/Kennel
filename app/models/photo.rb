@@ -12,4 +12,8 @@ class Photo < ActiveRecord::Base
   has_many :pet_photos
   has_many :pets, :through => :pet_photos
   belongs_to :album
+
+  scope :unsorted, where(:album_id => nil)
+  scope :with_album, where('album_id != 0')
+
 end

@@ -7,6 +7,8 @@ class Admin::PetsController < Admin::ApplicationController
   end
 
   def show
+    @albums_photos = @pet.photos.with_album.group_by(&:album)
+    @unsorted_photos = @pet.photos.unsorted
   end
 
   def new
