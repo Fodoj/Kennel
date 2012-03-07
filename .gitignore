@@ -1,3 +1,4 @@
+config/initializers/admin_credentials.rb
 .bundle
 db/*.sqlite3
 db/sample/images/*
