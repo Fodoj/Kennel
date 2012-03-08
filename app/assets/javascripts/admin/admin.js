@@ -13,6 +13,16 @@ $(function() {
       );
     });
 
+    $("#pet_owned").change(function() {
+      if ( $(this).is(":checked") ) {
+        $("#pet_owner_id").attr("disabled", true);
+        $("#pet_owner_id").val("");
+      }
+      else {
+        $("#pet_owner_id").attr("disabled", false);
+      }
+    });
+
     $("#post_body").wysiwyg({
       controls: {
         copy: false,
