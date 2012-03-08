@@ -15,7 +15,9 @@ Spork.prefork do
           config.mock_with :rspec
           config.use_transactional_fixtures = false
           config.infer_base_class_for_anonymous_controllers = false
-          config.before(:suite) { DatabaseCleaner.strategy = :truncation, {:except => %w[roles]} }
+          config.before(:suite) {
+            DatabaseCleaner.strategy = :truncation, {:except => %w[roles]}
+          }
           config.before(:each) { DatabaseCleaner.start }
           config.after(:each) { DatabaseCleaner.clean }
         end

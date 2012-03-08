@@ -2,6 +2,7 @@
 require 'spec_helper'
 
 describe "Managing albmums" do
+
   before do
     visit admin_photos_path
   end
