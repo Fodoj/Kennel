@@ -21,6 +21,7 @@ Spork.prefork do
           config.before(:each) { DatabaseCleaner.start }
           config.after(:each) { DatabaseCleaner.clean }
         end
+        Capybara.server_boot_timeout = 300
 end
 
 Spork.each_run do

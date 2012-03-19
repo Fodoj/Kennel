@@ -1,0 +1,302 @@
+/*
+ *= require bootstrap.css.scss
+*/
+
+@import 'bourbon';
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+@font-face {
+    font-family: 'LazyCrazy';
+    src: image-url('fonts/nicer-webfont.eot');
+    src: image-url('fonts/nicer-webfont.eot?#iefix') format('embedded-opentype'),
+         image-url('fonts/nicer-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Myriad';
+    src: image-url('fonts/MyriadPro-Regular.eot');
+    src: image-url('fonts/MyriadPro-Regular.eot?#iefix') format('embedded-opentype'),
+         image-url('fonts/MyriadPro-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+html[xmlns] .clearfix {
+	display: block;
+}
+
+* html .clearfix {
+	height: 1%;
+}
+
+body {
+  background: #f3f3f3;
+}
+
+h2, h3, h4, p {
+  font-family: 'Myriad';
+  font-weight: normal;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+.more-link {
+  font-family: 'LazyCrazy';
+  font-size: 1.3em;
+  color: black;
+  padding-bottom: 9px;
+  &:before {
+    content: image-url("more-icon.png");
+    margin-right: 4px;
+  }
+  &:hover {
+    background: image-url("more-line.png") no-repeat bottom;
+    color: #3a96c5;
+    text-decoration: none;
+  }
+}
+
+/* HEADER
+/* ==================================================================== */
+header {
+  width: 100%;
+  background: #f1f1f1;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  position: relative;
+  z-index: 2;
+  .navbar {
+    margin: 0 auto;
+    width: 840px;
+    .brand {
+      height: 78px;
+      line-height: 0;
+      padding: 0;
+      border-left: 1px dashed #d2d2d2;
+      border-right: 1px dashed #d2d2d2;
+    }
+    .nav {
+      li {
+        font-size: 1.1em;
+        text-transform: uppercase;
+        &:hover {
+          background: #c3c4c6 image-url("menu_arrow.png") 50% bottom no-repeat;
+          border-left: 1px solid white;
+          border-right: 1px solid white;
+          margin-top: -1px;
+          margin-bottom: -1px;
+          a {
+            color: white;
+            padding: 26px 17px 0 17px;
+          }
+        }
+        a {
+          line-height: 50px;
+          color: #737373;
+          display: inline-block;
+          padding: 24px 18px 0 18px;
+        }
+      }
+    }
+  }
+}
+/* END HEADER */
+
+/* FOOTER
+/* ==================================================================== */
+footer {
+  border-top: 2px solid white;
+  @include box-shadow(inset 0px 2px 5px 0px rgba(95, 87, 26, 0.3));
+  background: image-url("sliderbg.jpg");
+  p {
+    color: #636363;
+    font-size: 1.1em;
+    text-align: center;
+    padding: 24px 0;
+    margin: 0;
+  }
+}
+/* END FOOTER */
+
+
+
+/* SLIDER
+/* ==================================================================== */
+#slider-holder {
+  #slider-container {
+    background: image-url("waves.png") bottom center no-repeat;
+    height: 100%;
+    @include box-shadow(inset 0px 2px 5px 0px rgba(95, 87, 26, 0.3), inset 0px -2px 5px 0px #bcbcbc);
+  }
+  background: image-url("sliderbg.jpg");
+  height: 457px;
+  position: relative;
+   #destroyer, #destroyer-broker {
+    position: absolute;
+    background: #fdfdfd;
+    height: 254px;
+    top: 50%;
+    margin-top: -127px;
+    left: 0;
+    right: 0;
+   }
+   #destroyer {
+    border-top: 1px solid #ededed;
+    border-bottom: 1px solid #ededed;
+    @include box-shadow(inset  0px 1px 0px 0px #bdbdbd, inset  0px 2px 0px 0px #ededed, inset  0px -1px 0px 0px #bdbdbd, inset  0px -2px 0px 0px #ededed);
+    z-index: 5;
+   }
+   #destroyer > #tube {
+    position: absolute;
+    height: 252px;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin-top: -126px;
+    background: white;
+    z-index: 7;
+    }
+   #destroyer-broker {
+    border-left: 1px solid #bdbdbd;
+    border-right: 1px solid #bdbdbd;
+    width: 918px;
+    height: 256px;
+    margin-top: -128px;
+    left: 50%;
+    margin-left: -460px;
+    z-index: 6;
+   }
+
+   #slider {
+     border: 1px solid #ededed;
+     @include box-shadow( inset  0 0 0 1px #bdbdbd, inset 0 0 0 2px #ededed);
+     position: relative;
+     top: 30px;
+     margin: 0 auto;
+     width: 920px;
+     #slider-inner {
+      background: #fdfdfd;
+      padding: 9px 9px 6px 9px;
+      margin: 2px;
+      position: relative;
+      z-index: 7;
+     }
+   }
+}
+/* END SLIDER */
+
+
+
+/* MAIN PAGE CENTER
+/* ==================================================================== */
+.hero-text {
+  color: white;
+  @include border-radius(4px 4px 4px 4px);
+  @include linear-gradient(#c2c3c5 52%, #d4d5d7 84%);
+  text-shadow: -1px -1px 0 rgba(174, 178, 179, 1);
+  border-top: 1px solid #ababab;
+  border-left: 1px solid #adafae;
+  line-height: 30px;
+  font-size: 1.5em;
+  padding: 22px 22px 20px 22px;
+  float: none;
+  margin: 40px auto 26px auto;
+}
+
+.page-previews-holder {
+  border-bottom: 1px dashed #cccccc;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  width: 901px;
+}
+.page-preview {
+  margin-right: 35px;
+  width: 277px;
+  &:last-child {margin-right: 0;}
+  p {
+    color: #a1a8b0;
+    margin: 0 0 9px 0;
+  }
+  h3 {
+    margin-bottom: 5px;
+  }
+}
+
+.blue-gradient {
+  @include border-radius(4px 4px 4px 4px);
+  @include linear-gradient(#348db7 52%, #3897c5 84%);
+}
+
+.arrowed-header {
+  padding-bottom: 7px;
+  background: image-url('blue_arrow.png') no-repeat bottom center;
+  margin: 0 auto 30px auto;
+  width: 347px;
+  span {
+    border-top: 1px solid #2f7b9f;
+    border-left: 1px solid #3583a9;
+    display: block;
+    line-height: 100%;
+    color: white;
+    padding: 15px 0 10px 0;
+    text-align: center;
+  }
+}
+
+.thumbnail {
+  p {
+    color: #9fa8b1;
+    margin: 3px 0 0 0;
+  }
+  img {
+    border: 1px solid #eaeaea;
+    padding: 10px;
+    background: white;
+    @include border-radius(1px);
+  }
+}
+
+.thumbnail:hover {
+  text-decoration: none;
+  img {
+    border-color: #0088cc;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+    -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+    box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+  }
+}
+
+.moar-pets-button {
+  background: image-url("moarpets.png") no-repeat top left;
+  width: 146px;
+  height: 39px;
+  display: block;
+  margin: 30px auto;
+   &:hover {
+    background-position: bottom left;
+  }
+}
+
+.puppies-preview-block {
+  margin: 0 auto;
+  width: 642px;
+  li {
+    margin: 0 30px 0 0;
+    &:last-child { margin-right: 0; }
+  }
+}
+/* END MAIN PAGE CENTER */
+

@@ -1,0 +1,54 @@
+<section id="slider-holder">
+
+  <div id="slider-container">
+    <div id="destroyer">
+      <div id="tube"></div>
+      <div id="destroyer-broker"></div>
+    </div>
+    <div id="slider">
+      <div id="slider-inner">
+        <%= image_tag("test.jpg") %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container row">
+  <p class="span11 hero-text">
+    Питомник Velvet Chinarose выпускает в свет лучших короткошёрстых Чау-Чау России. Самые здоровые и крутые собаки, щенки и всё-всё про породу на этом сайте. Ура, значит.
+  </p>
+
+  <div class="span12 page-previews-holder">
+      <% @posts.each do |post| %>
+        <div class="page-preview pull-left">
+          <h3><%= post.title %></h3>
+          <p>
+            <%= post_preview(post) %>
+          </p>
+          <%= link_to "Читать далее", post_path(post), :class => "more-link" %>
+        </div>
+      <% end %>
+  </div>
+</section>
+
+<section class="container">
+  <h2 class="arrowed-header">
+    <span class="blue-gradient">Доступные щеночки</span>
+  </h2>
+  <ul class="puppies-preview-block thumbnails">
+    <% @puppies.each do |puppy| %>
+      <li>
+        <%= link_to pet_path(puppy), :class => "thumbnail" do %>
+          <%= image_tag(puppy.avatar.url(:thumb)) %>
+          <div class="caption">
+            <h5><%= puppy.name %></h5>
+            <p>
+              <%= puppy.kennel_name if puppy.kennel.present? %>
+            </p>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+  <%= link_to "", "", :class => "moar-pets-button"  %>
+</section>

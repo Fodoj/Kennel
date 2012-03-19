@@ -16,7 +16,7 @@
              </div>
           </div>
 
-          <div class="control-group">
+         <div class="control-group">
              <label class="control-label">Дата рождения</label>
              <div class="controls date-select">
                <%= f.date_select :born %>
@@ -104,8 +104,8 @@
            <h3>Фото</h3>
 
            <% if pet.avatar.present? %>
-               <div class="thumbnail">
-                 <%= image_tag pet.avatar.url(:medium) %>
+               <div class="row">
+                 <%= image_tag pet.avatar.url(:medium), :class => "thumbnail" %>
                </div>
            <% end %>
 
