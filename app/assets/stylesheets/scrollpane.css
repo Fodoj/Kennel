@@ -31,7 +31,7 @@
 
 .jspTrack {
   background: #363636;
-  padding: 2px 0;
+  padding-bottom: 2px;
   position: relative; }
 
 .jspDrag {
@@ -39,9 +39,15 @@
   position: relative;
   top: 0;
   left: 2px;
+  margin-top: -2px;
   cursor: pointer;
   width: 3px; }
 
 /* Yuk! CSS Hack for IE6 3 pixel bug :( */
 * html .jspCorner {
   margin: 0 -3px 0 0; }
+
+.jspDragTop {
+  height: 4px;
+  background: #363636;
+}

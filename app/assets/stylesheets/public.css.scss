@@ -41,6 +41,10 @@ html[xmlns] .clearfix {
 	height: 1%;
 }
 
+:focus {
+    outline: 0;
+}
+
 html, body { height: 100%; }
 
 #container {
@@ -327,11 +331,14 @@ footer {
 /* ==================================================================== */
 
 article {
+  .post-body * {
+    background: none !important;
+  }
   p {
     font-size: 1.2em;
-    background: none !important;
   }
   margin: 50px 0;
 }
+
 /* END POST */
 
