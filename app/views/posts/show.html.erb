@@ -2,12 +2,14 @@
   <article class="row">
     <aside class="span3 thumbnails-scroller">
       <ul class="thumbnails">
-        <% @post.photos.each do |photo| %>
-          <li class="span3">
-            <%= link_to "", :class => "thumbnail" do %>
-              <%= image_tag(photo.image.url(:thumb)) %>
-            <% end %>
-          </li>
+        <% if @post.album.present? %>
+          <% @post.photos.each do |photo| %>
+            <li class="span3">
+              <%= link_to "", :class => "thumbnail" do %>
+                <%= image_tag(photo.image.url(:thumb)) %>
+              <% end %>
+            </li>
+          <% end %>
         <% end %>
       </ul>
     </aside>

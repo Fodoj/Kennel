@@ -9,6 +9,6 @@ module PostsHelper
   end
 
   def post_preview(post)
-    strip_tags(post.body.first(200))
+    strip_tags(post.body).first(200)
   end
 end
