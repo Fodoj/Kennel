@@ -1,8 +1,11 @@
+//= require jquery
+//= require jquery_ujs
 //= require ./plugins/jquery.dataset.js
 //= require ./plugins/jquery.wysiwyg.js
 //= require ./plugins/wysiwyg.link.js
 //= require rails.validations
 //= require jquery_nested_form
+//= require bootstrap.js
 
 
 $(function() {

@@ -1,5 +1,6 @@
 /*
  *= require bootstrap.css.scss
+ *= require scrollpane.css
 */
 
 @import 'bourbon';
@@ -38,6 +39,14 @@ html[xmlns] .clearfix {
 
 * html .clearfix {
 	height: 1%;
+}
+
+html, body { height: 100%; }
+
+#container {
+  min-height: 100%;
+  margin-bottom: -63px;
+  position: relative;
 }
 
 body {
@@ -117,7 +126,12 @@ header {
 
 /* FOOTER
 /* ==================================================================== */
+
+.clearfooter {
+  height: 63px;
+}
 footer {
+  position: relative;
   border-top: 2px solid white;
   @include box-shadow(inset 0px 2px 5px 0px rgba(95, 87, 26, 0.3));
   background: image-url("sliderbg.jpg");
@@ -125,7 +139,7 @@ footer {
     color: #636363;
     font-size: 1.1em;
     text-align: center;
-    padding: 24px 0;
+    padding: 25px 0 20px 0;
     margin: 0;
   }
 }
@@ -271,6 +285,7 @@ footer {
 
 .thumbnail:hover {
   text-decoration: none;
+  border-color: #0088cc;
   img {
     border-color: #0088cc;
     -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
@@ -278,6 +293,7 @@ footer {
     box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   }
 }
+
 
 .moar-pets-button {
   background: image-url("moarpets.png") no-repeat top left;
@@ -293,10 +309,29 @@ footer {
 .puppies-preview-block {
   margin: 0 auto;
   width: 642px;
+  .thumbnail:hover {
+    -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+    -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+    box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+  }
   li {
     margin: 0 30px 0 0;
     &:last-child { margin-right: 0; }
   }
 }
 /* END MAIN PAGE CENTER */
+
+
+
+/* POST
+/* ==================================================================== */
+
+article {
+  p {
+    font-size: 1.2em;
+    background: none !important;
+  }
+  margin: 50px 0;
+}
+/* END POST */
 

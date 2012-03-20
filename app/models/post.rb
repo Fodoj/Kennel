@@ -6,6 +6,8 @@ class Post < ActiveRecord::Base
 
   belongs_to :album
 
+  delegate :photos, :to => :album
+
   validates :title, :presence => true
   validates :body, :presence => true
 
