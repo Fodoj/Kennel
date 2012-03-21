@@ -24,6 +24,13 @@
       </div>
 
       <div class="control-group">
+         <label class="control-label">Анонс</label>
+         <div class="controls">
+           <%= f.text_area :preview, :rows => "4", :class => "span5" %>
+         </div>
+      </div>
+
+      <div class="control-group">
          <label class="control-label">Текст</label>
          <div class="controls">
            <%= f.text_area :body, :rows => "30", :class => "span7" %>

@@ -23,7 +23,7 @@
         <div class="page-preview pull-left">
           <h3><%= post.title %></h3>
           <p>
-            <%= post_preview(post) %>
+            <%= post.preview %>
           </p>
           <%= link_to "Читать далее", post_path(post), :class => "more-link" %>
         </div>

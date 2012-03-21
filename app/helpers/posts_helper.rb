@@ -7,8 +7,4 @@ module PostsHelper
       image_tag "missing_#{style.to_s}.png", :class => "span2 thumbnail"
     end
   end
-
-  def post_preview(post)
-    strip_tags(post.body).first(200)
-  end
 end

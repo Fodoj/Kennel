@@ -4,12 +4,17 @@ class Post < ActiveRecord::Base
     :medium => "270x175#",
     :thumb => "160x120" }
 
+  before_save :trim_texts
+
   belongs_to :album
 
   delegate :photos, :to => :album
 
   validates :title, :presence => true
   validates :body, :presence => true
+  validates :preview, :length => { :maximum => 300}
+
+  scope :with_preview, where("preview != ''")
 
   paginates_per 20
 
@@ -30,5 +35,9 @@ class Post < ActiveRecord::Base
 
     def has_album?
       album.present?
+    end
+
+    def trim_texts
+      [self.body, self.preview].each(&:strip!)
     end
 end
