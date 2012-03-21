@@ -57,7 +57,7 @@ body {
   background: #f3f3f3;
 }
 
-h2, h3, h4, p {
+h2, h3, h4, p, a {
   font-family: 'Myriad';
   font-weight: normal;
 }
@@ -339,6 +339,37 @@ article {
   }
   margin: 50px 0;
 }
+
+aside {
+  position: relative;
+}
+
+#disqus_thread {
+  font-family: 'Arial'
+}
+
+.hider {
+  position: absolute;
+  background: image-url("hider.png") repeat-x;
+  height: 47px;
+  width: 100%;
+  margin-left: -7px;
+  z-index: 10;
+  &.hider-top {
+    background-position: top left;
+    top: 0;
+    left: 0;
+  }
+  &.hider-bottom {
+    background-position: bottom left;
+    bottom: 0;
+    left: 0;
+  }
+}
+.thumbnails-scroller .thumbnails {
+  padding: 20px 0;
+}
+
 
 /* END POST */
 
