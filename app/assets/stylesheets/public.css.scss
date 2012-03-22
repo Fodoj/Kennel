@@ -14,6 +14,7 @@
 	height: 0;
 }
 
+
 @font-face {
     font-family: 'LazyCrazy';
     src: image-url('fonts/nicer-webfont.eot');
@@ -30,7 +31,10 @@
          image-url('fonts/MyriadPro-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
 
+a:link, a:active, a:hover, a:visited {
+	outline: none;
 }
 
 html[xmlns] .clearfix {
@@ -57,7 +61,7 @@ body {
   background: #f3f3f3;
 }
 
-h2, h3, h4, p, a {
+h3, h4, p, a {
   font-family: 'Myriad';
   font-weight: normal;
 }
@@ -123,6 +127,28 @@ header {
           padding: 24px 18px 0 18px;
         }
       }
+    }
+  }
+}
+
+#slider-inner {
+  ul {
+    list-style: none;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    li {
+        display: block;
+        overflow: hidden;
+        padding: 0;
+        cursor: pointer;
+        height: 372px;
+        width: 128px;
+        img {
+          max-width: none;
+          height: 372px;
+          width: 568px;
+        }
     }
   }
 }
@@ -262,14 +288,14 @@ footer {
   padding-bottom: 7px;
   background: image-url('blue_arrow.png') no-repeat bottom center;
   margin: 0 auto 30px auto;
+  font-weight: normal;
   width: 347px;
   span {
     border-top: 1px solid #2f7b9f;
     border-left: 1px solid #3583a9;
     display: block;
-    line-height: 100%;
     color: white;
-    padding: 15px 0 10px 0;
+    padding: 15px;
     text-align: center;
   }
 }
@@ -279,12 +305,13 @@ footer {
     color: #9fa8b1;
     margin: 3px 0 0 0;
   }
-  img {
+}
+
+.thumbnail img, img.thumbnail {
     border: 1px solid #eaeaea;
     padding: 10px;
     background: white;
     @include border-radius(1px);
-  }
 }
 
 .thumbnail:hover {
@@ -327,7 +354,7 @@ footer {
 
 
 
-/* POST
+/* POSTS
 /* ==================================================================== */
 
 article {
@@ -366,10 +393,42 @@ aside {
     left: 0;
   }
 }
-.thumbnails-scroller .thumbnails {
-  padding: 20px 0;
+
+.thumbnails-scroller {
+  min-height: 500px !important;
+  .thumbnails {
+    padding: 35px 0;
+  }
+}
+
+.posts-list {
+  margin: 50px auto;
+  float: none;
+  padding: 0;
+  li {
+    list-style: none;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    position: relative;
+    > div {
+      padding-top: 10px;
+      width: 678px;
+    }
+  }
+  h4 {
+    a {
+      color: #333;
+    }
+    font-size: 1.4em;
+  }
+  .more-link {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
 }
 
 
-/* END POST */
+/* END POSTS */
 

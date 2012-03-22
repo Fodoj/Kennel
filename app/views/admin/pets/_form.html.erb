@@ -65,21 +65,21 @@
           <div class="control-group">
              <label class="control-label">Владелец</label>
              <div class="controls">
-               <%= f.select  :owner_id, Person.owners.collect {|p| [ p.name, p.id ] }, { :prompt => "Нет владельца"} %>
+               <%= f.select  :owner_id, Person.owners.collect {|p| [ p.name, p.id ] }, { :include_blank => "Нет владельца"} %>
              </div>
           </div>
 
           <div class="control-group">
              <label class="control-label">Заводчик</label>
              <div class="controls">
-               <%= f.select :breeder_id, Person.breeders.collect {|p| [ p.name, p.id ] }, { :prompt => "Нет заводчика"}  %>
+               <%= f.select :breeder_id, Person.breeders.collect {|p| [ p.name, p.id ] }, { :include_blank => "Нет заводчика"}  %>
              </div>
           </div>
 
           <div class="control-group">
              <label class="control-label">Питомник</label>
              <div class="controls">
-               <%= f.select :kennel_id, Person.kennels.collect {|p| [ p.name, p.id ] }, { :prompt => "Нет питомника"} %>
+               <%= f.select :kennel_id, Person.kennels.collect {|p| [ p.name, p.id ] }, { :include_blank => "Нет питомника"} %>
              </div>
           </div>
 
@@ -87,14 +87,14 @@
           <div class="control-group">
              <label class="control-label">Мать</label>
              <div class="controls">
-               <%= f.select :mother_id, Pet.bitches.where('id != ?', pet_id).collect {|p| [ p.name, p.id ] }, { :prompt => "Нет матери"}  %>
+               <%= f.select :mother_id, Pet.bitches.where('id != ?', pet_id).collect {|p| [ p.name, p.id ] }, { :include_blank => "Нет матери"}  %>
              </div>
           </div>
 
           <div class="control-group">
              <label class="control-label">Отец</label>
              <div class="controls">
-               <%= f.select :father_id, Pet.dogs.where('id != ?', pet_id).collect {|p| [ p.name, p.id ] }, { :prompt => "Нет отца"} %>
+               <%= f.select :father_id, Pet.dogs.where('id != ?', pet_id).collect {|p| [ p.name, p.id ] }, { :include_blank => "Нет отца"} %>
              </div>
           </div>
 

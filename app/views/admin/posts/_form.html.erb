@@ -40,7 +40,7 @@
       <div class="control-group">
          <label class="control-label">Прикрепить альбом</label>
          <div class="controls">
-           <%= f.select :album_id, Album.all.collect {|p| [ p.name, p.id ] }, { :prompt => "Без альбома"} %>
+           <%= f.select :album_id, Album.all.collect {|p| [ p.name, p.id ] }, { :include_blank => "Без альбома"} %>
          </div>
       </div>
 

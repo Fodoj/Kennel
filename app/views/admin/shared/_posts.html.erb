@@ -10,7 +10,7 @@
             <%= post.title %>
           </h4>
           <p>
-            <%= raw(truncate(post.body, :length => 200)) %>
+            <%= raw truncate(strip_tags(post.body), :length => 200) %>
           </p>
         </div>
 

@@ -1,0 +1,23 @@
+<section class="container">
+
+  <ul class="posts-list span11">
+    <% @posts.each do |post| %>
+      <li class="row">
+        <%= link_to post_cover(post), post_path(post) %>
+        <div class="span9">
+            <h4>
+              <%= raw("<i class='icon-camera'></i>") if post.album.present? %>
+              <%= link_to post.title, post_path(post) %>
+              <small class="pull-right"><%= post.created_at.strftime("%d.%m.%Y") %></small>
+            </h4>
+            <p>
+              <%= raw truncate(strip_tags(post.body), :length => 600) %>
+            </p>
+            <%= link_to "Читать далее", post_path(post), :class => "more-link pull-right" %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= paginate @posts %>
+</section>

@@ -1,9 +1,13 @@
 <header>
   <div class="navbar clearfix">
-    <%= link_to image_tag("logo2.png"), root_url, :id => "logo", :class => "brand" %>
+    <% if current_page?(root_url) %>
+      <%= link_to image_tag("logo2.png"), root_url, :id => "logo", :class => "brand" %>
+    <% else %>
+      <%= link_to image_tag("logoa.jpg"), root_url, :id => "logo", :class => "brand" %>
+    <% end %>
 
     <ul class="nav nav-pills">
-      <li><%= link_to "Новости", "" %></li>
+      <li><%= link_to "Новости", posts_path %></li>
       <li><%= link_to "Питомцы", "" %></li>
       <li><%= link_to "Галерея", "" %></li>
       <li><%= link_to "Про чау", "" %></li>

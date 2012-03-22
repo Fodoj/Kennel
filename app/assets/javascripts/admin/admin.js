@@ -16,14 +16,9 @@ $(function() {
       );
     });
 
+    check_owner();
     $("#pet_owned").change(function() {
-      if ( $(this).is(":checked") ) {
-        $("#pet_owner_id").attr("disabled", true);
-        $("#pet_owner_id").val("");
-      }
-      else {
-        $("#pet_owner_id").attr("disabled", false);
-      }
+      check_owner();
     });
 
     $("#post_body").wysiwyg({
@@ -51,3 +46,13 @@ $(function() {
 
     });
 });
+
+var check_owner = function() {
+  if ( $("#pet_owned").is(":checked") ) {
+    $("#pet_owner_id").attr("disabled", true);
+    $("#pet_owner_id").val("");
+  }
+  else {
+    $("#pet_owner_id").attr("disabled", false);
+  }
+}

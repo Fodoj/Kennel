@@ -7,7 +7,13 @@
     </div>
     <div id="slider">
       <div id="slider-inner">
-        <%= image_tag("test.jpg") %>
+        <ul>
+          <% Photo.last(7).each do |photo| %>
+            <li>
+              <%= image_tag photo.image.url(:large) %>
+            </li>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div>
@@ -31,24 +37,26 @@
   </div>
 </section>
 
-<section class="container">
-  <h2 class="arrowed-header">
-    <span class="blue-gradient">Доступные щеночки</span>
-  </h2>
-  <ul class="puppies-preview-block thumbnails">
-    <% @puppies.each do |puppy| %>
-      <li>
-        <%= link_to pet_path(puppy), :class => "thumbnail" do %>
-          <%= image_tag(puppy.avatar.url(:thumb)) %>
-          <div class="caption">
-            <h5><%= puppy.name %></h5>
-            <p>
-              <%= puppy.kennel_name if puppy.kennel.present? %>
-            </p>
-          </div>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
-  <%= link_to "", "", :class => "moar-pets-button"  %>
-</section>
+<% unless @puppies.empty? %>
+  <section class="container">
+    <h2 class="arrowed-header">
+      <span class="blue-gradient">Доступные щеночки</span>
+    </h2>
+    <ul class="puppies-preview-block thumbnails">
+      <% @puppies.each do |puppy| %>
+        <li>
+          <%= link_to pet_path(puppy), :class => "thumbnail" do %>
+            <%= image_tag(puppy.avatar.url(:thumb)) %>
+            <div class="caption">
+              <h5><%= puppy.name %></h5>
+              <p>
+                <%= puppy.kennel_name if puppy.kennel.present? %>
+              </p>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+    <%= link_to "", "", :class => "moar-pets-button"  %>
+  </section>
+<% end %>
