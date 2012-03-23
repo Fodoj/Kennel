@@ -4,7 +4,7 @@
     <% @posts.each do |post| %>
       <li class="row">
         <%= link_to post_cover(post), post_path(post) %>
-        <div class="span9">
+        <div class="span8">
             <h4>
               <%= raw("<i class='icon-camera'></i>") if post.album.present? %>
               <%= link_to post.title, post_path(post) %>

@@ -3,7 +3,7 @@ class Admin::PhotosController < Admin::ApplicationController
   before_filter :find_photo, :except => [:index, :new, :create]
 
   def index
-      @photos = Photo.page params[:page]
+      @photos = Photo.order('created_at DESC').page params[:page]
   end
 
   def show

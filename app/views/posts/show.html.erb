@@ -8,7 +8,7 @@
           <% if @post.album.present? %>
             <% @post.photos.each do |photo| %>
               <li class="span3">
-                <%= link_to "", :class => "thumbnail" do %>
+                <%= link_to photo_path(photo), :class => "thumbnail" do %>
                   <%= image_tag(photo.image.url(:thumb)) %>
                 <% end %>
               </li>

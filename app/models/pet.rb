@@ -22,6 +22,7 @@ class Pet < ActiveRecord::Base
   has_attached_file :avatar, :styles => {
     :large => "600x600",
     :medium => "270x175#",
+    :slider => "568x372#",
     :thumb => "172x140#" }
 
   scope :dogs, where(:sex => true)

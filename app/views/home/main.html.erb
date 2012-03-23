@@ -9,8 +9,8 @@
       <div id="slider-inner">
         <ul>
           <% Photo.last(7).each do |photo| %>
-            <li>
-              <%= image_tag photo.image.url(:large) %>
+            <li style="background: url('<%= photo.image.url(:slider) %>') center 0 no-repeat;">
+
             </li>
           <% end %>
         </ul>

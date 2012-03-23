@@ -4,6 +4,7 @@ Kennel::Application.routes.draw do
 
   resources :pets
   resources :posts
+  resources :photos
 
   namespace :admin do
     root :to => "dashboard#home"
