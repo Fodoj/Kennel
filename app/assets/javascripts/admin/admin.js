@@ -7,7 +7,6 @@
 //= require jquery_nested_form
 //= require bootstrap.js
 
-
 $(function() {
     $(".pet-form").submit(function() {
       form = $(this);

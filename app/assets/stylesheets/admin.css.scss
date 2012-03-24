@@ -1,7 +1,8 @@
 /*
  *= require bootstrap.css.scss
  *= require bootstrap-responsive.css
- *= require jquery.wysiwyg.css.scss
+ *= require plugins/jquery.wysiwyg.css.scss
+ *= require plugins/jquery.fileupload-ui.css
 */
 
 p {
@@ -73,9 +74,7 @@ h2 {
   }
   .thumbnail {
     position: relative;
-    &.thumbnail-album {
-      margin: 0;
-    }
+    margin: 0;
     .icon-remove-circle {
       position: absolute;
       right: 10px;

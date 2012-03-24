@@ -27,14 +27,4 @@ describe "Managing albmums" do
       visit admin_albums_path
       page.should have_content("3")
   end
-
-  it "should assign pets to photos", :js => true do
-      pet = Factory(:pet, :name => "Bobby")
-      visit new_admin_album_path
-      click_link "Добавить"
-      check "pet_1"
-      find("input[type=file]").native.send_keys(File.expand_path("#{Rails.root}/db/sample/images/samplimg.jpg"))
-      click_button "Сохранить"
-      Photo.last.pets.include?(pet).should be_true
-  end
 end

@@ -14,4 +14,10 @@ class Album < ActiveRecord::Base
       end
     end
   end
+
+  def assign_photos(photo_ids)
+    if photo_ids
+      photos << Photo.find(photo_ids)
+    end
+  end
 end

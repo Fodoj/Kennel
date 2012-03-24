@@ -1,6 +1,8 @@
 class Photo < ActiveRecord::Base
+  include Rails.application.routes.url_helpers
+
   has_attached_file :image, :styles => {
-    :large => "900>x430",
+    :large => "900x430#",
     :medium => "220x175#",
     :slider => "568x372#",
     :thumb => "160x120#" }
@@ -19,12 +21,13 @@ class Photo < ActiveRecord::Base
 
   def to_jq_upload
     {
-      "name" => read_attribute(:image),
-      "size" => image.size,
+      "name" => image_file_name,
+      "size" => image_file_size,
       "url" => image.url,
-      "thumbnail_url" => image.thumb.url,
-      "delete_url" => picture_path(:id => id),
-      "delete_type" => "DELETE"
+      "thumbnail_url" => image.url(:thumb),
+      "delete_url" => admin_photo_path(:id => id),
+      "delete_type" => "DELETE",
+      "id" => id
     }
   end
 

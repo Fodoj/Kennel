@@ -12,6 +12,9 @@ Kennel::Application.routes.draw do
     resources :posts
     resources :albums do
       resources :photos
+      collection do
+        post 'uploader'
+      end
     end
     resources :pets
     resources :people
