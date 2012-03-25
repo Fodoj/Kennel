@@ -537,3 +537,46 @@ aside {
 /* END PHOTOS */
 
 
+/* GALLERY
+/* ==================================================================== */
+
+figure {
+  margin: 0;
+}
+
+.thumbnails-album {
+  margin: 0 auto;
+  width: 766px;
+}
+
+.thumbnail-album {
+  position: relative;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  &:nth-child(3n) {
+    margin-right: 0;
+  }
+  figcaption {
+    height:1em;
+    overflow: hidden;
+    position: absolute;
+    bottom: 5px;
+    left: 1px;
+    right: 1px;
+    background: rgba(0, 0, 0, 0.8);
+    p {
+      color: white;
+    }
+  }
+  a {
+    display: block;
+  }
+}
+
+.thumbnail-album-title {
+  white-space: nowrap;
+  font-size: 1.2em;
+}
+
+/* END GALLERY */
+

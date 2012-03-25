@@ -1,0 +1,26 @@
+<section class="container container-thin">
+<h1>Альбомы</h1>
+    <ul class="thumbnails-album clearfix">
+        <% @albums.each do |album| %>
+            <li class="pull-left thumbnail thumbnail-album">
+              <figure>
+                <% if album.photos.empty? %>
+                  <div class="no-image">Пустой альбом</div>
+                <% else %>
+                  <%= link_to album_path(album) do %>
+                    <%= image_tag album.photos.first.image.url(:medium) %>
+                  <% end %>
+                <% end %>
+                <figcaption class="caption">
+                  <p class="thumbnail-album-title">
+                    <%= album.name %>
+                  </p>
+                  <p>
+                    <%= album.description %>
+                  </p>
+                </figcaption>
+              </figure>
+            </li>
+        <% end %>
+      </ul>
+</section>

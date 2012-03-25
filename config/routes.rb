@@ -6,6 +6,12 @@ Kennel::Application.routes.draw do
   resources :posts
   resources :photos
 
+  match 'gallery' => 'albums#index', :as => :gallery
+
+  resources :albums do
+    resources :photos
+  end
+
   namespace :admin do
     root :to => "dashboard#home"
     resources :photos

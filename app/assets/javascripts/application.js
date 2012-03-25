@@ -5,7 +5,7 @@
 //= require plugins/jquery.kwicks-1.5.1.js
 
 $(function() {
-  thumbnails_scroller = $('.thumnails-scroller');
+  thumbnails_scroller = $('.thumbnails-scroller');
   if (thumbnails_scroller.length != 0) {
     thumbnails_scroller.height($('.post-body').height());
     thumbnails_scroller.jScrollPane().data('jsp').reinitialise();
@@ -33,5 +33,20 @@ $(function() {
 		max : 567,
 		spacing : 0
   });
+
+  $('.thumbnail-album').hover(
+      function() {
+        $(this).find('.caption').animate({
+          height: '2em'
+        }, 100, function() {
+        });
+      },
+      function() {
+        $(this).find('.caption').animate({
+          height: '1em'
+        }, 100, function() {
+        });
+      }
+  );
 
 });

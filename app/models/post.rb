@@ -16,6 +16,8 @@ class Post < ActiveRecord::Base
 
   scope :with_preview, where("preview != ''")
 
+  scope :event, where('album_id != 0')
+
   paginates_per 20
 
   def cover
