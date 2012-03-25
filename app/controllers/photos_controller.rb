@@ -9,7 +9,7 @@ class PhotosController < ApplicationController
   def show
     if @photo.album.present?
       @album = @photo.album
-      @photos = @album.photos.where('id != ?', @photo.id)
+      @photos = @album.photos.order('id ASC')
     end
   end
 

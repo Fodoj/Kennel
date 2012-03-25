@@ -20,4 +20,5 @@ class Album < ActiveRecord::Base
       photos << Photo.find(photo_ids)
     end
   end
+
 end

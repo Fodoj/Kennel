@@ -2,7 +2,7 @@
 	Kwicks for jQuery (version 1.5.1)
 	Copyright (c) 2008 Jeremy Martin
 	http://www.jeremymartin.name/projects.php?project=kwicks
-	
+
 	Licensed under the MIT license:
 		http://www.opensource.org/licenses/mit-license.php
 
@@ -22,7 +22,7 @@
 		var o = $.extend(defaults, options);
 		var WoH = (o.isVertical ? 'height' : 'width'); // WoH = Width or Height
 		var LoT = (o.isVertical ? 'top' : 'left'); // LoT = Left or Top
-		
+
 		return this.each(function() {
 			container = $(this);
 			var kwicks = container.children('li');
@@ -37,12 +37,12 @@
 				container.css({
 					width : kwicks.eq(0).css('width'),
 					height : (normWoH * kwicks.size()) + (o.spacing * (kwicks.size() - 1)) + 'px'
-				});				
+				});
 			} else {
 				container.css({
 					width : (normWoH * kwicks.size()) + (o.spacing * (kwicks.size() - 1)) + 'px',
 					height : kwicks.eq(0).css('height')
-				});				
+				});
 			}
 
 			// pre calculate left or top values for all kwicks but the first and last
@@ -53,13 +53,13 @@
 				// don't need to calculate values for first or last kwick
 				for(j = 1; j < kwicks.size() - 1; j++) {
 					if(i == j) {
-						preCalcLoTs[i][j] = o.isVertical ? j * o.min + (j * o.spacing) : j * o.min + (j * o.spacing);
+						preCalcLoTs[i][j] = o.isVertical ? j * o.min + (j * o.spacing) : j * o.min + (j * o.spacing) - 1;
 					} else {
-						preCalcLoTs[i][j] = (j <= i ? (j * o.min) : (j-1) * o.min + o.max) + (j * o.spacing);
+						preCalcLoTs[i][j] = (j <= i ? (j * o.min) : (j-1) * o.min + o.max) + (j * o.spacing) - 1;
 					}
 				}
 			}
-			
+
 			// loop through all kwick elements
 			kwicks.each(function(i) {
 				var kwick = $(this);
@@ -67,17 +67,17 @@
 				// set first kwick
 				if(i === 0) {
 					kwick.css(LoT, '0px');
-				} 
+				}
 				// set last kwick
 				else if(i == kwicks.size() - 1) {
-					kwick.css(o.isVertical ? 'bottom' : 'right', '0px');
+					kwick.css(o.isVertical ? 'bottom' : 'right', '1px');
 				}
 				// set all other kwicks
 				else {
 					if(o.sticky) {
 						kwick.css(LoT, preCalcLoTs[o.defaultKwick][i]);
 					} else {
-						kwick.css(LoT, (i * normWoH) + (i * o.spacing));
+						kwick.css(LoT, (i * normWoH) + (i * o.spacing) - 1);
 					}
 				}
 				// correct size in sticky mode
@@ -93,7 +93,7 @@
 					margin: 0,
 					position: 'absolute'
 				});
-				
+
 				kwick.bind(o.event, function() {
 					// calculate previous width or heights and left or top values
 					var prevWoHs = []; // prevWoHs = previous Widths or Heights
@@ -114,7 +114,7 @@
 							// adjsut other elements based on percentage
 							kwicks.each(function(j) {
 								if(j != i) {
-									kwicks.eq(j).css(WoH, prevWoHs[j] - ((prevWoHs[j] - o.min) * percentage) + 'px');
+									kwicks.eq(j).css(WoH, prevWoHs[j] - ((prevWoHs[j] - o.min) * percentage) + 2 + 'px');
 								}
 								if(j > 0 && j < kwicks.size() - 1) { // if not the first or last kwick
 									kwicks.eq(j).css(LoT, prevLoTs[j] - ((prevLoTs[j] - preCalcLoTs[i][j]) * percentage) + 'px');

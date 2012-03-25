@@ -1,37 +1,58 @@
 <div class="patterned-block">
 
   <% if @photos.present? %>
-    <section class="photo-album-container horizontal-only">
+    <section class="photo-album-container horizontal-only container-thin">
       <ul class="thumbnails">
         <% @photos.each do |photo| %>
           <li class="span2">
-            <%= link_to image_tag(photo.image.url(:thumb)), photo_path(photo), :class => "thumbnail" %>
+            <% if photo != @photo %>
+              <%= link_to image_tag(photo.image.url(:thumb)), photo_path(photo), :class => "thumbnail" %>
+            <% else %>
+              <%= image_tag photo.image.url(:thumb), :class => "thumbnail photo-current" %>
+              <div class="photo-current-overlay"></div>
+            <% end %>
           </li>
         <% end %>
       </ul>
     </section>
   <% end %>
 
-  <section class="container photo-container">
+  <section class="container photo-container container-thin">
+    <%= link_to "", photo_path(@photo.prev_photo), :class => "photo-arrow photo-prev" %>
     <%= image_tag @photo.image.url(:large), :class => "photo-full" %>
+    <%= link_to "", photo_path(@photo.next_photo), :class => "photo-arrow photo-next" %>
   </section>
 
-  <section class="container photo-description">
+  <div class="container">
+    <ul class="nav photo-pills nav-pills pull-right">
+      <li>
+        <a href="#">вернуться в альбом</a>
+      </li>
+      <li>
+        <a href="#">открыть в полном размере</a>
+      </li>
+      <li>
+        <a href="#">показать все фото с этого события</a>
+      </li>
+    </ul>
+  </div>
+
+  <section class="container photo-description container-thin">
     <% unless @photo.pets.empty? %>
-      <p>
+      <p class="photo-pets-list">
         На этой фотографии присутствуют:
         <%= raw @photo.pets.map{ |p| link_to(p.name, "")}.join(", ") %>
       </p>
     <% end %>
 
     <p>
-
+      <%= @photo.caption %>
     </p>
   </section>
 
 </div>
 
-<section class="container">
+<section class="container container-thin">
 
   <div id="disqus_thread"></div>
   <script type="text/javascript">

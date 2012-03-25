@@ -31,6 +31,7 @@
          image-url('fonts/MyriadPro-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    text-shadow: 0 0 1px rgba(0,0,0,0.3);
 }
 
 a:link, a:active, a:hover, a:visited {
@@ -144,6 +145,11 @@ header {
         cursor: pointer;
         height: 372px;
         width: 128px;
+        a {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
     }
   }
 }
@@ -176,10 +182,12 @@ footer {
   @include box-shadow(inset 0px 2px 5px 0px rgba(95, 87, 26, 0.3), inset 0px -2px 5px 0px #bcbcbc);
   section {
     margin: 13px auto;
-    width: 920px;
   }
 }
 
+section.container-thin {
+    width: 920px;
+ }
 
 /* SLIDER
 /* ==================================================================== */
@@ -461,8 +469,10 @@ aside {
   li {
     margin-bottom: 0;
     margin-left: 18px;
+    position: relative;
     img {
       padding: 0;
+      width: 138px;
     }
   }
   height: 130px;
@@ -475,6 +485,53 @@ aside {
   p {
     padding: 30px;
   }
+}
+
+.photo-current-overlay {
+  position: absolute;
+  background: #3a96c5;
+  opacity: 0.5;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.photo-container {
+  position: relative;
+}
+
+.photo-arrow {
+  position: absolute;
+  top: 9px;
+  bottom: 9px;
+  width: 36px;
+  background-color: rgba(255, 255, 255, 0.2);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.photo-prev {
+  left: 9px;
+  background-image: image-url("prev_photo.png");
+}
+
+.photo-next {
+  right: 9px;
+  background-image: image-url("next_photo.png");
+}
+
+.photo-pets-list {
+  border-bottom: 1px dashed #cccccc;
+}
+
+.photo-pills {
+  margin: 0;
+  font-size: 1.1em;
 }
 
 /* END PHOTOS */

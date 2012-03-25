@@ -4,6 +4,7 @@ class Photo < ActiveRecord::Base
   has_attached_file :image, :styles => {
     :large => "900x430#",
     :medium => "220x175#",
+    :admin_thumb => "270x175#",
     :slider => "568x372#",
     :thumb => "160x120#" }
   validates :caption, :length => { :maximum => 140}
@@ -29,6 +30,18 @@ class Photo < ActiveRecord::Base
       "delete_type" => "DELETE",
       "id" => id
     }
+  end
+
+  def next_photo
+    photos = album.photos.order('id ASC')
+    photo = photos.where("id > ?", id).first
+    return photo.nil? ? photos.first : photo
+  end
+
+  def prev_photo
+    photos = album.photos.order('id DESC')
+    photo = photos.where("id < ?", id).first
+    return photo.nil? ? photos.first : photo
   end
 
 end

@@ -2,7 +2,7 @@
     <% photos.each do |photo| %>
         <li class="span3">
           <figure class="thumbnail">
-            <%= image_tag photo.image.url(:medium) %>
+            <%= image_tag photo.image.url(:admin_thumb) %>
             <figcaption class="caption">
               <p>
                 <%= caption(photo) %>
