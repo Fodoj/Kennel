@@ -1,12 +1,11 @@
-<section id="slider-holder">
-
-  <div id="slider-container">
-    <div id="destroyer">
-      <div id="tube"></div>
-      <div id="destroyer-broker"></div>
+<section class="patterned-block mega-holder">
+  <div class="mega-holder-container">
+    <div class="destroyer">
+      <div class="tube"></div>
+      <div class="destroyer-broker"></div>
     </div>
-    <div id="slider">
-      <div id="slider-inner">
+    <div class="mega-holder-content">
+      <div class="mega-holder-inner" id="slider-inner">
         <ul>
           <% Photo.last(7).each do |photo| %>
             <li style="background: url('<%= photo.image.url(:slider) %>') center 0 no-repeat;">

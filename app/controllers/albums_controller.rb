@@ -3,6 +3,7 @@ class AlbumsController < ApplicationController
   before_filter :find_album, :except => [:index, :new, :create, :uploader]
 
   def index
+    @photos = Photo.order('created_at DESC').all.last(19)
     @albums = Album.sorted(params[:sort]).page params[:page]
   end
 

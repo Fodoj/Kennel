@@ -6,7 +6,8 @@ class Photo < ActiveRecord::Base
     :medium => "220x175#",
     :admin_thumb => "270x175#",
     :slider => "568x372#",
-    :thumb => "160x120#" }
+    :thumb => "160x120#"
+    }
   validates :caption, :length => { :maximum => 140}
   validates_attachment_presence :image
   validates_presence_of :image
