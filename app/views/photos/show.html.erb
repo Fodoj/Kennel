@@ -19,9 +19,9 @@
 
     <a name="photo"></a>
   <section class="container photo-container container-thin">
-    <%= link_to "", photo_path(@photo.prev_photo) + "#photo", :class => "photo-arrow photo-prev" %>
+    <%= link_to("", photo_path(@photo.prev_photo) + "#photo", :class => "photo-arrow photo-prev") if @album.present? %>
     <%= image_tag @photo.image.url(:large), :class => "photo-full" %>
-    <%= link_to "", photo_path(@photo.next_photo) + "#photo", :class => "photo-arrow photo-next" %>
+    <%= link_to("", photo_path(@photo.next_photo) + "#photo", :class => "photo-arrow photo-next") if @album.present? %>
   </section>
 
   <div class="container">
