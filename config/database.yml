@@ -3,6 +3,7 @@ production:
   encoding: unicode
   database: 3lion_kennel96
   pool: 5
+  host: postgresql0.locum.ru
   username: 3lion_kennel96
   password: YDxx7ebB
 
