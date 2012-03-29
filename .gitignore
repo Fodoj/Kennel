@@ -9,3 +9,4 @@ coverage/
 .sass-cache/
 *.swp
 rails_best_practices_output.html
+config/database.yml
