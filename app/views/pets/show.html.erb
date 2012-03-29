@@ -65,15 +65,17 @@
     <ul class="span5 pet-parents">
       <% @parents.each do |parent| %>
         <li class="thumbnail span5">
-          <%= link_to pet_path(parent), :class => "span5 thumbnail" do %>
-            <%= image_tag(parent.avatar.url(:large)) %>
-            <div class="caption">
-              <h5><%= parent.name %></h5>
-              <p>
-                <%= parent.color %>
-                <%= pet_sex(parent) %>
-              </p>
-            </div>
+          <% if parent.present? %>
+            <%= link_to pet_path(parent), :class => "span5 thumbnail" do %>
+              <%= image_tag(parent.avatar.url(:large)) %>
+              <div class="caption">
+                <h5><%= parent.name %></h5>
+                <p>
+                  <%= parent.color %>
+                  <%= pet_sex(parent) %>
+                </p>
+              </div>
+            <% end %>
           <% end %>
         </li>
       <% end %>
@@ -82,15 +84,17 @@
     <ul class="span2 pet-grandparents">
       <% @grandparents.each do |grandparent| %>
         <li class="span2 thumbnail">
-          <%= link_to pet_path(grandparent), :class => "thumbnail" do %>
-            <%= image_tag(grandparent.avatar.url(:medium)) %>
-            <div class="caption">
-              <h5><%= grandparent.name %></h5>
-              <p>
-                <%= grandparent.color %>
-                <%= pet_sex(grandparent) %>
-              </p>
-            </div>
+          <% if grandparent.present? %>
+            <%= link_to pet_path(grandparent), :class => "thumbnail" do %>
+              <%= image_tag(grandparent.avatar.url(:medium)) %>
+              <div class="caption">
+                <h5><%= grandparent.name %></h5>
+                <p>
+                  <%= grandparent.color %>
+                  <%= pet_sex(grandparent) %>
+                </p>
+              </div>
+            <% end %>
           <% end %>
         </li>
       <% end %>
@@ -99,15 +103,17 @@
     <ul class="span3 pet-elders">
       <% @elders.each do |elder| %>
         <li class="thumbnail span3">
-          <%= link_to pet_path(elder), :class => "thumbnail" do %>
-            <%= image_tag elder.avatar.url(:medium) , :class => "span1" %>
-            <div class="caption span2">
-              <h5><%= elder.name %></h5>
-              <p>
-                <%= elder.color %>
-                <%= pet_sex(elder) %>
-              </p>
-            </div>
+          <% if elder.present? %>
+            <%= link_to pet_path(elder), :class => "thumbnail" do %>
+              <%= image_tag elder.avatar.url(:medium) , :class => "span1" %>
+              <div class="caption span2">
+                <h5><%= elder.name %></h5>
+                <p>
+                  <%= elder.color %>
+                  <%= pet_sex(elder) %>
+                </p>
+              </div>
+            <% end %>
           <% end %>
         </li>
       <% end %>

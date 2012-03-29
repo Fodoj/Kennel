@@ -34,7 +34,7 @@ class Pet < ActiveRecord::Base
   scope :my, where(:owned => true)
 
   def parents
-    [mother, father].compact
+    [mother, father]
   end
 
 
@@ -43,7 +43,7 @@ class Pet < ActiveRecord::Base
       elder = []
 
       pets.each do |pet|
-        elder += pet.parents
+        elder += pet.parents if pet.present?
       end
 
       elder
