@@ -76,6 +76,6 @@ class Pet < ActiveRecord::Base
 
   private
     def trim_texts
-      [self.description].each(&:strip!)
+      [self.description].each(&:strip!) if description.present?
     end
 end
