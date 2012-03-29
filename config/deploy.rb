@@ -76,11 +76,11 @@ set :repository,      "ssh://#{user}@#{deploy_server}/home/#{user}/git/#{applica
 ## dayabase.yml в shared-каталог проекта на сервере и раскомментируйте
 ## следующие строки.
 
-# after "deploy:update_code", :copy_database_config
-# task :copy_database_config, roles => :app do
-#   db_config = "#{shared_path}/database.yml"
-#   run "cp #{db_config} #{release_path}/config/database.yml"
-# end
+after "deploy:update_code", :copy_database_config
+task :copy_database_config, roles => :app do
+  db_config = "#{shared_path}/database.yml"
+  run "cp #{db_config} #{release_path}/config/database.yml"
+end
 
 ## --- Ниже этого места ничего менять скорее всего не нужно ---
 
@@ -90,7 +90,7 @@ task :set_current_release, :roles => :app do
 end
 
 
-  set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec unicorn_rails -Dc #{unicorn_conf})"
+  set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle install; rvm use #{rvm_ruby_string} do bundle exec unicorn_rails -Dc #{unicorn_conf})"
 
 
 
