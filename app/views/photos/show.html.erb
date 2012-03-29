@@ -49,7 +49,7 @@
     <% unless @photo.pets.empty? %>
       <p class="photo-pets-list">
         На этой фотографии присутствуют:
-        <%= raw @photo.pets.map{ |p| link_to(p.name, "")}.join(", ") %>
+        <%= raw @photo.pets.map{ |p| link_to(p.name, pet_path(p))}.join(", ") %>
       </p>
     <% end %>
 
