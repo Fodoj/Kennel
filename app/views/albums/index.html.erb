@@ -6,7 +6,7 @@
     </div>
     <div class="mega-holder-content">
       <div class="mega-holder-inner ridus clearfix">
-            <%= link_to image_tag(@photos.first.image.url(:large)), photo_path(@photos.first) %>
+            <%= link_to(image_tag(@photos.first.image.url(:large)), photo_path(@photos.first)) unless @photos.empty? %>
 
             <% @photos.last(18).each_slice(2) do |pair| %>
               <div class="ridus-block">
@@ -25,7 +25,11 @@
         <% @albums.each do |album| %>
             <li>
               <%= link_to album_path(album), :class => "thumbnail" do %>
-                <%= image_tag album.photos.first.image.url(:thumb) %>
+                <% if album.photos.empty? %>
+                  <div class="no-image">Пустой альбом</div>
+                <% else %>
+                  <%= image_tag(album.photos.first.image.url(:thumb)) %>
+                <% end %>
                     <div class="caption">
                       <h4 class="thumbnail-album-title">
                         <%= truncate(album.name, :length => 25) %>
