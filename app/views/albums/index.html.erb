@@ -24,12 +24,10 @@
     <ul class="thumbnails-album clearfix thumbnails sub-row-reversed">
         <% @albums.each do |album| %>
             <li>
-              <%= link_to album_path(album), :class => "thumbnail" do %>
-                <% if album.photos.empty? %>
+              <% if album.photos.empty? %>
                   <div class="no-image">Пустой альбом</div>
-                <% else %>
-                  <%= image_tag(album.photos.first.image.url(:thumb)) %>
-                <% end %>
+              <% else %>
+                <%= link_to photo_path(album.photos.first), :class => "thumbnail" do %>
                     <div class="caption">
                       <h4 class="thumbnail-album-title">
                         <%= truncate(album.name, :length => 25) %>
@@ -39,6 +37,8 @@
                       </p>
                     </div>
                 <% end %>
+                <%= image_tag(album.photos.first.image.url(:thumb)) %>
+              <% end %>
             </li>
         <% end %>
       </ul>

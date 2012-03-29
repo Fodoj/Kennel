@@ -133,10 +133,13 @@
             // Initialize the jQuery File Upload widget:
             $('#fileupload').fileupload({
               autoUpload: true
-              }).bind('fileuploaddone', function (e, data) {
+            }).bind('fileuploaddone', function (e, data) {
               var new_id = data.result[0].id;
               $("#new_photos").append("<input id='new_photos_' name='new_photos[]' type='hidden' value='"+new_id+"'>");
-            });
+            }).bind('fileuploaddestroy', function (e, data) {
+              var id = data.url.match(/\d/g).join('');
+              $("input[value="+id+"]").remove();
+            });;
             //
             // Load existing files:
             $.getJSON($('#fileupload').prop('action'), function (files) {
