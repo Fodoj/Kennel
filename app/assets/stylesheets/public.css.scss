@@ -750,4 +750,27 @@ aside {
   }
 }
 
+.pets-list {
+  margin: 0 auto;
+  width: 851px;
+  li {
+    float: left;
+    margin: 0 25px 35px 0;
+    &:nth-child(4n) {
+      margin-right: 0px;
+    }
+  }
+  img {
+    height: 157px;
+    width: 172px;
+  }
+}
+
 /* END PETS */
+
+
+.navbar .nav .active > a, .navbar .nav .active > a:hover {
+  color: white;
+  text-decoration: none;
+  background-color: #f1f1f1;
+}

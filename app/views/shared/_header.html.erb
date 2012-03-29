@@ -7,9 +7,15 @@
     <% end %>
 
     <ul class="nav nav-pills">
-      <li><%= link_to "Новости", posts_path %></li>
-      <li><%= link_to "Питомцы", "" %></li>
-      <li><%= link_to "Галерея", gallery_path %></li>
+      <li class=" <%== 'active' if current_page?(posts_path) %>">
+        <%= link_to "Новости", posts_path %>
+      </li>
+      <li class=" <%== 'active' if current_page?(pets_path) %>">
+        <%= link_to "Питомцы", pets_path %>
+      </li>
+      <li class=" <%== 'active' if current_page?(gallery_path) %>">
+        <%= link_to "Галерея", gallery_path %>
+      </li>
       <li><%= link_to "Про чау", "" %></li>
       <li><%= link_to "Про нас", "" %></li>
     </ul>

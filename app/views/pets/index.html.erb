@@ -1,0 +1,19 @@
+<div class="patterned-block"></div>
+<section class="container container-thin">
+  <ul class="thumbnails sub-row-reversed pets-list">
+    <% @pets.each do |pet| %>
+      <li>
+          <%= link_to pet_path(pet), :class => "thumbnail" do %>
+            <%= image_tag(pet.avatar.url(:thumb)) %>
+            <div class="caption">
+              <h5><%= pet.name %></h5>
+              <p>
+                <%= pet.color %>
+                <%= pet_sex(pet) %>
+              </p>
+            </div>
+          <% end %>
+      </li>
+    <% end %>
+  </ul>
+</section>
