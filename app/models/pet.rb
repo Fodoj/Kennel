@@ -4,9 +4,10 @@ class Pet < ActiveRecord::Base
   has_many :pet_photos
   has_many :photos, :through => :pet_photos
 
-  belongs_to :mother, :class_name => Pet
-  belongs_to :father, :class_name => Pet
-  has_many :children, :class_name => Pet
+  belongs_to :mother, :class_name => "Pet"
+  belongs_to :father, :class_name => "Pet"
+  has_many :children_of_father, :class_name => "Pet", :foreign_key => 'father_id'
+  has_many :children_of_mother, :class_name => "Pet", :foreign_key => 'mother_id'
 
   accepts_nested_attributes_for :photos, :allow_destroy => true
 
@@ -36,6 +37,7 @@ class Pet < ActiveRecord::Base
     [mother, father].compact
   end
 
+
   class << self
     def extend_parents(pets)
       elder = []
@@ -46,6 +48,20 @@ class Pet < ActiveRecord::Base
 
       elder
     end
+  end
+
+  def descendants
+    descendants = self.children
+
+    children.each do |child|
+      descendants += child.children
+    end
+
+    descendants
+  end
+
+  def children
+     children_of_mother + children_of_father
   end
 
   private

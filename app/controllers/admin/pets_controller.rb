@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 class Admin::PetsController < Admin::ApplicationController
   before_filter :find_pet, :except => [:index, :new, :create]
+  before_filter :relatives, :only => [:edit, :new]
 
   def index
     @pets = Pet.where(params[:search])
@@ -46,5 +47,16 @@ class Admin::PetsController < Admin::ApplicationController
   private
     def find_pet
       @pet = Pet.find(params[:id])
+    end
+
+    def relatives
+      if @pet.new_record?
+        @mothers = Pet.bitches
+        @fathers = Pet.dogs
+      else
+        descendants = @pet.descendants
+        @mothers = Pet.bitches.where('id != ?', @pet.id) - descendants
+        @fathers = Pet.dogs.where('id != ?', @pet.id) - descendants
+      end
     end
 end

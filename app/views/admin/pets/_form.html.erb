@@ -83,18 +83,17 @@
              </div>
           </div>
 
-          <% pet_id = pet.new_record? ? 0 : pet.id %>
           <div class="control-group">
              <label class="control-label">Мать</label>
              <div class="controls">
-               <%= f.select :mother_id, Pet.bitches.where('id != ?', pet_id).collect {|p| [ p.name, p.id ] }, { :include_blank => "Нет матери"}  %>
+               <%= f.select :mother_id, @mothers.collect {|p| [ p.name, p.id ] }, { :include_blank => "Нет матери"}  %>
              </div>
           </div>
 
           <div class="control-group">
              <label class="control-label">Отец</label>
              <div class="controls">
-               <%= f.select :father_id, Pet.dogs.where('id != ?', pet_id).collect {|p| [ p.name, p.id ] }, { :include_blank => "Нет отца"} %>
+               <%= f.select :father_id, @fathers.collect {|p| [ p.name, p.id ] }, { :include_blank => "Нет отца"} %>
              </div>
           </div>
 
