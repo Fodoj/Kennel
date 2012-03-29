@@ -1,3 +1,11 @@
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: 3lion_kennel96
+  pool: 5
+  username: 3lion_kennel96
+  password: YDxx7ebB
+
 development:
   adapter: postgresql
   encoding: unicode
@@ -14,10 +22,3 @@ test:
   username: postgres
   password: qweqwe
 
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: kennel_production
-  pool: 5
-  username: postgres
-  password: qweqwe
