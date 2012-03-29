@@ -1,11 +1,11 @@
 production:
   adapter: postgresql
   encoding: unicode
-  database: 3lion_kennel96
+  database: 3lion_kennel24
   pool: 5
   host: postgresql0.locum.ru
-  username: 3lion_kennel96
-  password: YDxx7ebB
+  username: 3lion_kennel24
+  password: AxHE9qyN
 
 development:
   adapter: postgresql
