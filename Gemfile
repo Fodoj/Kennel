@@ -24,7 +24,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
 
-  gem "bourbon", "~> 0.2.1"
+  gem "bourbon", "~> 1.4.0"
 
   gem 'execjs'
   gem 'therubyracer'
