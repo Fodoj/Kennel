@@ -28,6 +28,7 @@
                   <div class="no-image">Пустой альбом</div>
               <% else %>
                 <%= link_to photo_path(album.photos.first), :class => "thumbnail" do %>
+                    <%= image_tag(album.photos.first.image.url(:thumb)) %>
                     <div class="caption">
                       <h4 class="thumbnail-album-title">
                         <%= truncate(album.name, :length => 25) %>
@@ -37,7 +38,6 @@
                       </p>
                     </div>
                 <% end %>
-                <%= image_tag(album.photos.first.image.url(:thumb)) %>
               <% end %>
             </li>
         <% end %>
