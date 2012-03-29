@@ -2,7 +2,9 @@ Kennel::Application.routes.draw do
 
   root :to => "home#main"
 
-  resources :pets
+  resources :pets do
+    resources :photos
+  end
   resources :posts
   resources :photos
 

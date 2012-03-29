@@ -7,9 +7,15 @@ class PhotosController < ApplicationController
 
   def show
     @photo = Photo.find(params[:id])
-    if @photo.album.present?
-      @album = @photo.album
-      @photos = @album.photos.order('id ASC')
+    if params[:pet_id]
+      @pet = Pet.find(params[:pet_id])
+      @photos = @pet.photos.order('id ASC')
+    else
+        puts "yes"
+      if @photo.album.present?
+        @album = @photo.album
+        @photos = @album.photos.order('id ASC')
+      end
     end
   end
 

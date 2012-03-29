@@ -64,6 +64,16 @@ class Pet < ActiveRecord::Base
      children_of_mother + children_of_father
   end
 
+  def next_photo(photo)
+    photo = photos.where("photo_id > ?", photo.id).first
+    return photo.nil? ? photos.first : photo
+  end
+
+  def prev_photo(photo)
+    photo = photos.where("photo_id < ?", photo.id).first
+    return photo.nil? ? photos.first : photo
+  end
+
   private
     def trim_texts
       [self.description].each(&:strip!)

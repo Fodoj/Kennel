@@ -1,0 +1,45 @@
+<% if photos.present? %>
+  <section class="photo-album-container horizontal-only container-thin">
+    <ul class="thumbnails">
+      <% photos.each do |pho| %>
+        <li class="span2">
+          <% if pho != photo %>
+            <%= link_to image_tag(pho.image.url(:thumb)), photo_path(pho), :class => "thumbnail" %>
+          <% else %>
+            <%= image_tag pho.image.url(:thumb), :class => "thumbnail photo-current" %>
+            <div class="photo-current-overlay"></div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+<% end %>
+
+  <a name="photo"></a>
+<section class="container photo-container container-thin">
+  <%= link_to("", photo_path(photo.prev_photo) + "#photo", :class => "photo-arrow photo-prev") if album.present? %>
+  <%= image_tag photo.image.url(:large), :class => "photo-full" %>
+  <%= link_to("", photo_path(photo.next_photo) + "#photo", :class => "photo-arrow photo-next") if album.present? %>
+</section>
+
+<div class="container">
+  <ul class="nav photo-pills nav-pills pull-right">
+    <% if photos.present? %>
+
+    <li>
+      <%= link_to "вернуться в галерею", album_path(album) %>
+    </li>
+
+      <% if @album %>
+        <li>
+          <%= link_to "показать все фото с этого события", album_path(album) %>
+        </li>
+      <% end %>
+
+    <% end %>
+    <li>
+      <%= link_to "открыть в полном размере", photo.image.url(:original) %>
+    </li>
+  </ul>
+</div>
+

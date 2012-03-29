@@ -4,7 +4,7 @@
     <ul class="span1 photo-pet-thumbs">
       <% @pet.photos.last(4).each do |photo| %>
         <li class='thumbnail'>
-          <%= link_to image_tag(photo.image.url(:thumb)), photo_path(photo) %>
+          <%= link_to image_tag(photo.image.url(:thumb)), pet_photo_path(@pet, photo) %>
         </li>
       <% end %>
     </ul>
