@@ -14,3 +14,10 @@ test:
   username: postgres
   password: qweqwe
 
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: kennel_production
+  pool: 5
+  username: postgres
+  password: qweqwe
