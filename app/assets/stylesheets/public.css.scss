@@ -78,7 +78,7 @@ html, body { height: 100%; }
   position: relative;
 }
 
-body {
+body, .well {
   background: #f3f3f3;
 }
 
@@ -372,7 +372,7 @@ section.container-thin {
 }
 
 
-.thumbnails-album, .puppies-preview-block {
+.pet-parents, .pet-grandparents, .pet-elders, .thumbnails-album, .puppies-preview-block {
   .thumbnail:hover {
     -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
     -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
@@ -641,3 +641,113 @@ aside {
 }
 
 /* END GALLERY */
+
+
+
+/* PETS
+/* ==================================================================== */
+
+.photo-pet-avatar {
+    padding: 9px !important;
+    margin: 0;
+    height: 255px;
+}
+
+.photo-pet-thumbs {
+  width: 72px;
+  li {
+    margin-bottom: 11px;
+  }
+  img {
+    padding: 5px;
+    width: 60px;
+  }
+}
+
+.well {
+  padding: 3px;
+}
+
+.pet-stats {
+  height: 265px;
+  width: 400px;
+  dl {
+    margin: 10px;
+    font-size: 1.2em;
+    dt, dd {
+      line-height: 28px;
+    }
+  }
+}
+
+.pet-description {
+  padding: 20px 20px 40px 20px;
+}
+
+.more-description {
+  display: none;
+}
+
+.pet-parents, .pet-grandparents, .pet-elders {
+  margin: 40px 0 40px 40px;
+}
+
+.pet-parents {
+  margin-left: 0;
+  li {
+    margin: 0 0 90px 0;
+    width: 380px;
+    a {
+      margin: 0;
+    }
+    img {
+      height: 278px;
+      width: 358px;
+    }
+  }
+}
+
+.pet-grandparents {
+  width: 190px;
+  li {
+    height: 170px;
+    width: 190px;
+    margin-bottom: 10px;
+    margin-left: 0;
+    &:nth-child(2n) {
+      margin-bottom: 90px;
+    }
+    img {
+      height: 96px;
+      width: 168px;
+    }
+    .caption {
+      white-space: nowrap;
+    }
+    overflow: hidden;
+  }
+}
+
+.pet-elders {
+  a { margin: 0; }
+  .caption {
+    width: 110px;
+  }
+  width: 280px;
+  li {
+    height: 80px;
+    margin: 0 0 10px 0;;
+    width: 280px;
+    &:nth-child(4n) {
+      margin-bottom: 90px;
+    }
+    img {
+      width: 100px;
+      height: 68px;
+      padding: 5px;
+      margin: 0;
+    }
+  }
+}
+
+/* END PETS */

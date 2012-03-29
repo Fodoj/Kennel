@@ -504,7 +504,7 @@ html: '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.o
 			formHeight: 270,
 			formWidth: 440,
 			iFrameClass: null,
-			initialContent: "<p>Initial content</p>",
+			initialContent: null,
 			maxHeight: 10000,			// see autoGrow
 			maxLength: 0,
 			messages: {

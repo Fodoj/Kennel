@@ -3337,3 +3337,13 @@ button.btn.small, input[type="submit"].btn.small {
 .invisible {
   visibility: hidden;
 }
+
+.dl-horizontal dt {
+  float: left;
+  clear: left;
+  width: 145px;
+  text-align: left;
+}
+.dl-horizontal dd {
+  float: left;
+}

@@ -6,7 +6,6 @@
 //= require rails.validations
 //= require jquery_nested_form
 //= require bootstrap.js
-
 $(function() {
     $(".pet-form").submit(function() {
       form = $(this);
@@ -20,7 +19,7 @@ $(function() {
       check_owner();
     });
 
-    $("#post_body").wysiwyg({
+    $(".editor").wysiwyg({
       controls: {
         copy: false,
         cut: false,

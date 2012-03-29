@@ -98,6 +98,13 @@
              </div>
           </div>
 
+          <div class="control-group">
+             <label class="control-label">Описание</label>
+             <div class="controls">
+               <%= f.text_area :description, :rows => "20", :class => "editor span7" %>
+             </div>
+          </div>
+
       </div>
 
       <div class="span4 photos-block">
@@ -114,20 +121,21 @@
            </div>
 
 
-           <h3>Отмеченные фотографии</h3>
+      </div>
+  </div>
+
+  <div class="row">
+           <h3 class="main-row">Отмеченные фотографии</h3>
            <% if pet.photos.empty? %>
              <p>Питомец не отмечен на фотографиях</p>
            <% else %>
-            <div class="row">
                   <%= f.fields_for :photos do |photo_form| %>
-                       <div class="thumbnail span2">
+                       <div class="thumbnail span2 pet-thumb">
                          <%= photo_form.link_to_remove raw("<i class='icon-white icon-remove-circle'></i>"), :title => "Открепить фото" %>
                          <%= image_tag photo_form.object.image.url(:thumb) %>
                        </div>
                   <% end %>
-            </div>
            <% end %>
-      </div>
   </div>
 
 

@@ -1,0 +1,116 @@
+<div class="patterned-block">
+  <section class="container container-thin">
+    <%= link_to image_tag(@pet.avatar.url(:large), :class => "thumbnail span5 photo-pet-avatar"), @pet.avatar.url(:original) %>
+    <ul class="span1 photo-pet-thumbs">
+      <% @pet.photos.last(4).each do |photo| %>
+        <li class='thumbnail'>
+          <%= link_to image_tag(photo.image.url(:thumb)), photo_path(photo) %>
+        </li>
+      <% end %>
+    </ul>
+
+    <div class="well span5 pet-stats">
+      <dl class="dl-horizontal">
+
+        <dt>Имя:</dt>
+        <dd><%= @pet.name %></dd>
+
+        <dt>Пол:</dt>
+        <dd><%= pet_sex(@pet) %></dd>
+
+        <dt>Дата рождения:</dt>
+        <dd></dd>
+
+        <dt>Окрас:</dt>
+        <dd><%= @pet.color %></dd>
+
+        <dt>Титулы:</dt>
+        <dd><%= @pet.title %></dd>
+
+        <dt>Владелец:</dt>
+        <dd><%= @pet.owner_name if @pet.owner.present? %></dd>
+
+        <dt>Заводчик:</dt>
+        <dd><%= @pet.breeder_name if @pet.breeder.present?%></dd>
+
+        <dt>Питомник:</dt>
+        <dd><%= @pet.kennel_name if @pet.kennel.present?%></dd>
+      </dl>
+    </div>
+  </section>
+
+  <% if @pet.description.present? && strip_tags(@pet.description).length > 0 %>
+    <section class="container photo-description container-thin">
+      <div class="pet-description">
+
+        <div class="short-description">
+         <%= raw truncate(strip_tags(@pet.description), :length => 200) %>
+          <% if @pet.description.length > 200 %>
+            <a href='#' class="more-pet">подробнее</a>
+          <% end %>
+        </div>
+
+
+        <div class="more-description">
+          <%= raw @pet.description %>
+          <a href='#' class="less-pet pull-right">закрыть</a>
+        </div>
+      </div>
+    </section>
+  <% end %>
+</div>
+
+<% if @parents.present? %>
+  <section class="container">
+    <ul class="span5 pet-parents">
+      <% @parents.each do |parent| %>
+        <li class="thumbnail span5">
+          <%= link_to pet_path(parent), :class => "span5 thumbnail" do %>
+            <%= image_tag(parent.avatar.url(:large)) %>
+            <div class="caption">
+              <h5><%= parent.name %></h5>
+              <p>
+                <%= parent.color %>
+                <%= pet_sex(parent) %>
+              </p>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+
+    <ul class="span2 pet-grandparents">
+      <% @grandparents.each do |grandparent| %>
+        <li class="span2 thumbnail">
+          <%= link_to pet_path(grandparent), :class => "thumbnail" do %>
+            <%= image_tag(grandparent.avatar.url(:medium)) %>
+            <div class="caption">
+              <h5><%= grandparent.name %></h5>
+              <p>
+                <%= grandparent.color %>
+                <%= pet_sex(grandparent) %>
+              </p>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+
+    <ul class="span3 pet-elders">
+      <% @elders.each do |elder| %>
+        <li class="thumbnail span3">
+          <%= link_to pet_path(elder), :class => "thumbnail" do %>
+            <%= image_tag elder.avatar.url(:medium) , :class => "span1" %>
+            <div class="caption span2">
+              <h5><%= elder.name %></h5>
+              <p>
+                <%= elder.color %>
+                <%= pet_sex(elder) %>
+              </p>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+<% end %>

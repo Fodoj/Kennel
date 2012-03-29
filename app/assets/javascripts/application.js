@@ -49,4 +49,18 @@ $(function() {
       }
   );
 
+  $(".more-pet").click(function() {
+      var descs = $(this).closest('.pet-description');
+      descs.find('.more-description').show();
+      descs.find('.short-description').hide();
+      return false;
+  });
+
+  $(".less-pet").click(function() {
+      var descs = $(this).closest('.pet-description');
+      descs.find('.more-description').hide();
+      descs.find('.short-description').show();
+      return false;
+  })
+
 });

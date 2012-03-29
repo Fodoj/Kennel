@@ -12,6 +12,8 @@ gem 'kaminari'
 
 gem 'paperclip'
 
+gem 'capistrano'
+
 gem 'nested_form', :git => "git://github.com/ryanb/nested_form.git"
 
 gem 'rolify'
