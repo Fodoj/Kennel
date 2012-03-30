@@ -372,7 +372,7 @@ section.container-thin {
 }
 
 
-.pet-parents, .pet-grandparents, .pet-elders, .thumbnails-album, .puppies-preview-block {
+.pet-parents, .pet-grandparents, .pet-elders, .thumbnails-album, .puppies-preview-block, .pets-list {
   .thumbnail:hover {
     -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
     -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
@@ -383,6 +383,7 @@ section.container-thin {
   margin: 0 auto;
   width: 642px;
   li {
+    width: 194px;
     margin: 0 30px 0 0;
     &:last-child { margin-right: 0; }
   }
@@ -716,11 +717,9 @@ aside {
   }
 }
 
-.pet-grandparents, .pet-elders {
-  li {
-    overflow: hidden;
-  }
+.pet-grandparents, .pet-elders, .pets-list, .thumbnails-album {
   .caption {
+    overflow: hidden;
     white-space: nowrap;
   }
 }
@@ -770,6 +769,8 @@ aside {
   li {
     float: left;
     margin: 0 25px 35px 0;
+    width: 194px;
+    white-space: nowrap;
     &:nth-child(4n) {
       margin-right: 0px;
     }
@@ -784,7 +785,7 @@ aside {
 
 
 .navbar .nav .active > a, .navbar .nav .active > a:hover {
-  color: white;
+  color: #3a96c5;
   text-decoration: none;
   background: none;
 }

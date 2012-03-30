@@ -6,7 +6,7 @@
           <%= link_to pet_path(pet), :class => "thumbnail" do %>
             <%= image_tag(pet.avatar.url(:thumb)) %>
             <div class="caption">
-              <h5><%= pet.name %></h5>
+              <h5 rel="tooltip" data-original-title="<%= pet.name %>"><%= pet.name %></h5>
               <p>
                 <%= pet.color %>
                 <%= pet_sex(pet) %>
