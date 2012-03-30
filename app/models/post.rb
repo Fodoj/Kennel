@@ -23,7 +23,7 @@ class Post < ActiveRecord::Base
   def cover
     if has_photo?
       photo
-    elsif has_album?
+    elsif has_album? && !album.photos.empty?
       album.photos.first.image
     else
       nil
