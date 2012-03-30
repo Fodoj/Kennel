@@ -2,7 +2,7 @@
 class PetsController < ApplicationController
 
   def index
-    @pets = Pet.where(params[:search])
+    @pets = Pet.my
   end
 
   def show

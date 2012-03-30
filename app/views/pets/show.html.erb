@@ -67,7 +67,7 @@
         <li class="thumbnail span5">
           <% if parent.present? %>
             <%= link_to pet_path(parent), :class => "span5 thumbnail" do %>
-              <%= image_tag(parent.avatar.url(:large)) %>
+              <%= image_tag(parent.avatar.url(:pedigree_parent)) %>
               <div class="caption">
                 <h5><%= parent.name %></h5>
                 <p>
@@ -86,7 +86,7 @@
         <li class="span2 thumbnail">
           <% if grandparent.present? %>
             <%= link_to pet_path(grandparent), :class => "thumbnail" do %>
-              <%= image_tag(grandparent.avatar.url(:medium)) %>
+              <%= image_tag(grandparent.avatar.url(:pedigree_grandparent)) %>
               <div class="caption">
                 <h5 rel="tooltip" data-original-title="<%= grandparent.name %>"><%= grandparent.name %></h5>
                 <p>
@@ -105,7 +105,7 @@
         <li class="thumbnail span3">
           <% if elder.present? %>
             <%= link_to pet_path(elder), :class => "thumbnail" do %>
-              <%= image_tag elder.avatar.url(:medium) , :class => "span1" %>
+              <%= image_tag elder.avatar.url(:pedigree_elder) , :class => "span1" %>
               <div class="caption span2">
                 <h5 rel="tooltip" data-original-title="<%= elder.name %>"><%= elder.name %></h5>
                 <p>
