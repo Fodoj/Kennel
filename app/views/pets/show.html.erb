@@ -1,6 +1,6 @@
 <div class="patterned-block">
   <section class="container container-thin">
-    <%= link_to image_tag(@pet.avatar.url(:large), :class => "thumbnail span5 photo-pet-avatar"), @pet.avatar.url(:original) %>
+    <%= link_to image_tag(@pet.avatar.url(:title), :class => "thumbnail span5 photo-pet-avatar"), @pet.avatar.url(:original) %>
     <ul class="span1 photo-pet-thumbs">
       <% @pet.photos.last(4).each do |photo| %>
         <li class='thumbnail'>

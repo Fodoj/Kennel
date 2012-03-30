@@ -26,6 +26,7 @@ class Pet < ActiveRecord::Base
     :large => "600x600",
     :medium => "270x175#",
     :slider => "568x372#",
+    :title => "380x255#",
     :thumb => "172x140#" }, :default_url => "missing_thumb.png"
 
   scope :dogs, where(:sex => true)
