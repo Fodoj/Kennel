@@ -3346,4 +3346,7 @@ button.btn.small, input[type="submit"].btn.small {
 }
 .dl-horizontal dd {
   float: left;
+  white-space: nowrap;
+  width: 225px;
+  overflow: hidden;
 }
