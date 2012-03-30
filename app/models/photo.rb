@@ -19,6 +19,7 @@ class Photo < ActiveRecord::Base
   belongs_to :album
 
   scope :unsorted, where(:album_id => nil)
+  scope :main, where(:on_main => true)
   scope :with_album, where('album_id != 0')
 
   def to_jq_upload

@@ -17,6 +17,14 @@
       </div>
 
       <div class="control-group">
+         <label class="control-label">Показывать на главной странице</label>
+         <div class="controls">
+           <%= f.check_box :on_main %>
+         </div>
+      </div>
+
+
+      <div class="control-group">
          <label class="control-label">Файл</label>
          <div class="controls">
            <%= f.file_field :image, :class => "input-xlarge"  %>
