@@ -3,6 +3,7 @@
 //= require plugins/jquery.mousewheel.js
 //= require plugins/jquery.jscrollpane.min.js
 //= require plugins/jquery.kwicks-1.5.1.js
+//= require plugins/bootstrap-tooltip.js
 
 $(function() {
   thumbnails_scroller = $('.thumbnails-scroller');
@@ -61,6 +62,8 @@ $(function() {
       descs.find('.more-description').hide();
       descs.find('.short-description').show();
       return false;
-  })
+  });
+
+  $("[rel=tooltip]").tooltip();
 
 });

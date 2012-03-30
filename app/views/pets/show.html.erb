@@ -88,7 +88,7 @@
             <%= link_to pet_path(grandparent), :class => "thumbnail" do %>
               <%= image_tag(grandparent.avatar.url(:medium)) %>
               <div class="caption">
-                <h5><%= grandparent.name %></h5>
+                <h5 rel="tooltip" title="<%= grandparent.name %>"><%= grandparent.name %></h5>
                 <p>
                   <%= grandparent.color %>
                   <%= pet_sex(grandparent) %>
@@ -107,7 +107,7 @@
             <%= link_to pet_path(elder), :class => "thumbnail" do %>
               <%= image_tag elder.avatar.url(:medium) , :class => "span1" %>
               <div class="caption span2">
-                <h5><%= elder.name %></h5>
+                <h5 rel="tooltip" title="<%= elder.name %>"><%= elder.name %></h5>
                 <p>
                   <%= elder.color %>
                   <%= pet_sex(elder) %>

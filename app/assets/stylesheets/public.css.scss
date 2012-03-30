@@ -716,6 +716,15 @@ aside {
   }
 }
 
+.pet-grandparents, .pet-elders {
+  li {
+    overflow: hidden;
+  }
+  .caption {
+    white-space: nowrap;
+  }
+}
+
 .pet-grandparents {
   width: 190px;
   li {
@@ -730,10 +739,6 @@ aside {
       height: 96px;
       width: 168px;
     }
-    .caption {
-      white-space: nowrap;
-    }
-    overflow: hidden;
   }
 }
 
