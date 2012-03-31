@@ -23,23 +23,21 @@
 <section class="container container-thin centered">
     <ul class="thumbnails-album clearfix thumbnails sub-row-reversed">
         <% @albums.each do |album| %>
-            <li>
-              <% if album.photos.empty? %>
-                  <div class="no-image">Пустой альбом</div>
-              <% else %>
-                <%= link_to photo_path(album.photos.first), :class => "thumbnail" do %>
-                    <%= image_tag(album.photos.first.image.url(:thumb)) %>
-                    <div class="caption">
-                      <h4 class="thumbnail-album-title">
-                        <%= truncate(album.name, :length => 25) %>
-                      </h4>
-                      <p>
-                        <%= "#{album.photos.count}  #{t('photo', :count => album.photos.count)}" %>
-                      </p>
-                    </div>
-                <% end %>
-              <% end %>
-            </li>
+            <% unless album.photos.empty? %>
+              <li>
+                  <%= link_to photo_path(album.photos.first), :class => "thumbnail" do %>
+                      <%= image_tag(album.photos.first.image.url(:thumb)) %>
+                      <div class="caption">
+                        <h4 class="thumbnail-album-title">
+                          <%= truncate(album.name, :length => 25) %>
+                        </h4>
+                        <p>
+                          <%= "#{album.photos.count}  #{t('photo', :count => album.photos.count)}" %>
+                        </p>
+                      </div>
+                  <% end %>
+              </li>
+            <% end %>
         <% end %>
       </ul>
 </section>
