@@ -8,10 +8,9 @@
 $(function() {
   var thumbnails_scroller = $('.thumbnails-scroller');
   if (thumbnails_scroller.length != 0) {
-    thumbnails_scroller.height($('.post-body').height()).jScrollPane().data('jsp').reinitialise();
-    setTimeout(function(){
-      thumbnails_scroller.data('jsp').reinitialise();
-    }, 500);
+    thumbnails_scroller.height($('.post-body').height()).jScrollPane({
+      autoReinitialise: true
+    });
   }
 
   var photo_album_previews = $('.photo-album-container ul');
