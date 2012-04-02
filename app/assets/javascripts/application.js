@@ -26,9 +26,17 @@ $(function() {
             if (photo_album_container.data('jsp') != undefined) {
               photo_album_container.data('jsp').scrollToX(
                 $('.photo-current').parent().position().left - 372, true);
+              photo_album_container.bind(
+              'mousewheel',
+                      function (event, delta, deltaX, deltaY)
+                      {
+                          photo_album_container.data('jsp').scrollByX(delta*-80);
+                          return false;
+                      }
+              );
             }
         }
-    ).jScrollPane().data('jsp').reinitialise();
+    ).jScrollPane().data('jsp').reinitialise()
   }
 
   $('#slider-inner ul').kwicks({
