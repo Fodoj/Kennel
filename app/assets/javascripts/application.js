@@ -23,14 +23,16 @@ $(function() {
     photo_album_container.bind('jsp-initialised',
         function(event, isScrollable)
         {
-            if (photo_album_container.data('jsp') != undefined) {
-              photo_album_container.data('jsp').scrollToX(
+            var api = photo_album_container.data('jsp');
+            if (api != undefined) {
+              api.scrollToX(
                 $('.photo-current').parent().position().left - 372, true);
+              api.reinitialise();
               photo_album_container.bind(
               'mousewheel',
                       function (event, delta, deltaX, deltaY)
                       {
-                          photo_album_container.data('jsp').scrollByX(delta*-80);
+                          api.scrollByX(delta*-80);
                           return false;
                       }
               );
