@@ -20,11 +20,9 @@ $(function() {
 
   var photo_album_container = $('.photo-album-container');
   if (photo_album_container.length != 0) {
-    photo_album_container.bind('jsp-initialised',
-        function(event, isScrollable)
-        {
-        }
-    ).jScrollPane().data('jsp').reinitialise();
+    photo_album_container.jScrollPane({
+      autoReinitialise: true
+    }).data('jsp');
 
     var api = photo_album_container.data('jsp');
 
