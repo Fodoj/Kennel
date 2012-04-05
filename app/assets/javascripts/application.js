@@ -23,22 +23,25 @@ $(function() {
     photo_album_container.bind('jsp-initialised',
         function(event, isScrollable)
         {
-            var api = photo_album_container.data('jsp');
-            if (api != undefined) {
-              api.scrollToX(
-                $('.photo-current').parent().position().left - 372, true);
-              api.reinitialise();
-              photo_album_container.bind(
+        }
+    ).jScrollPane().data('jsp').reinitialise();
+
+    var api = photo_album_container.data('jsp');
+
+    api.scrollToX(
+      $('.photo-current').parent().position().left - 372, true);
+
+
+    photo_album_container.bind(
               'mousewheel',
                       function (event, delta, deltaX, deltaY)
                       {
                           api.scrollByX(delta*-80);
                           return false;
                       }
-              );
-            }
-        }
-    ).jScrollPane().data('jsp').reinitialise()
+    );;
+
+    api.reinitialise();
   }
 
   $('#slider-inner ul').kwicks({
