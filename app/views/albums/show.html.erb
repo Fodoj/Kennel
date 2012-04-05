@@ -1,0 +1,16 @@
+<div class="patterned-block">
+</div>
+
+<section class="container container-thin centered">
+  <div class="photos-composer main-row-reversed main-row">
+    <% @album.photos.each_slice(10).reverse_each do |photos_block| %>
+      <div class="clearfix photo-block-<%= photos_block.count %>">
+        <% photos_block.each do |photo| %>
+          <div class="photo-composer-thumb">
+            <%= link_to image_tag(photo.image.url(:large)), photo_path(photo) %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</section>

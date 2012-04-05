@@ -25,7 +25,7 @@
         <% @albums.each do |album| %>
             <% unless album.photos.empty? %>
               <li>
-                  <%= link_to photo_path(album.photos.first), :class => "thumbnail" do %>
+                  <%= link_to album_path(album), :class => "thumbnail" do %>
                       <%= image_tag(album.photos.first.image.url(:thumb)) %>
                       <div class="caption">
                         <h4 class="thumbnail-album-title">

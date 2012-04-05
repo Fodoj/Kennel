@@ -129,7 +129,7 @@
              <p>Питомец не отмечен на фотографиях</p>
            <% else %>
                   <%= f.fields_for :photos do |photo_form| %>
-                       <div class="thumbnail span2 pet-thumb">
+                       <div class="thumbnail span2 attached-thumb">
                          <%= photo_form.link_to_remove raw("<i class='icon-white icon-remove-circle'></i>"), :title => "Открепить фото" %>
                          <%= image_tag photo_form.object.image.url(:thumb) %>
                        </div>

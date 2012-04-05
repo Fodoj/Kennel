@@ -582,7 +582,7 @@ aside {
   }
 }
 
-.ridus a {
+.ridus a, .photo-composer-thumb a {
   display: block;
   -moz-box-sizing: border-box; /* Для Firefox */
    box-sizing: border-box; /* Ширина блока с полями */
@@ -653,6 +653,152 @@ aside {
 
 
 /* END GALLERY */
+
+
+
+/* PHOTO COMPOSER
+/* ==================================================================== */
+
+.photos-composer {
+  margin: 0 auto;
+  width: 704px;
+  > div {
+    position: relative;
+    a {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+.photo-composer-thumb {
+  float: left;
+}
+
+@mixin large-composer-block {
+  height: 352px;
+  width: 704px;
+  img {
+    top: -10%;
+    left: -20%;
+    max-width: none;
+  }
+}
+
+@mixin medium-composer-block {
+    height: 352px;
+    width: 352px;
+    img {
+      top: -10%;
+      left: -50%;
+      max-width: none;
+    }
+}
+
+@mixin small-composer-block {
+    height: 176px;
+    width: 176px;
+    img {
+      top: 0%;
+      max-width: 370px;
+    }
+}
+
+.photo-block-10 {
+  div:first-child, div:last-child {
+    @include medium-composer-block;
+  }
+  div {
+    @include small-composer-block;
+  }
+  div:last-child {
+    float: right;
+  }
+  div:nth-child(8), div:nth-child(9) {
+    float: none;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+  div:nth-child(9) {
+    left: 176px;
+  }
+}
+
+.photo-block-1 {
+  div {
+    @include large-composer-block;
+  }
+}
+
+.photo-block-2 {
+  div {
+    @include medium-composer-block;
+  }
+}
+
+.photo-block-3 {
+  div:first-child {
+    @include large-composer-block;
+  }
+  div {
+    @include medium-composer-block;
+  }
+}
+
+.photo-block-4 {
+  div {
+    @include medium-composer-block;
+  }
+}
+
+.photo-block-5 {
+  div:first-child {
+    @include medium-composer-block;
+  }
+  div {
+    @include small-composer-block;
+  }
+}
+
+.photo-block-6 {
+  div:first-child {
+    @include large-composer-block;
+  }
+  div:nth-child(2) {
+    @include medium-composer-block;
+  }
+  div {
+    @include small-composer-block;
+  }
+}
+
+.photo-block-7 {
+  div:first-child, div:nth-child(2), div:nth-child(3) {
+    @include medium-composer-block;
+  }
+  div {
+    @include small-composer-block;
+  }
+}
+
+.photo-block-8 {
+  div {
+    @include small-composer-block;
+  }
+}
+
+.photo-block-9 {
+  div:first-child {
+    @include large-composer-block;
+  }
+  div {
+    @include small-composer-block;
+  }
+}
+
+
+/* END PHOTO COMPOSER*/
 
 
 

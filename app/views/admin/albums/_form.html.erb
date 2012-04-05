@@ -1,4 +1,4 @@
-<%= form_for [:admin, album], :validate => true, :html => { :class => "form-horizontal", :multipart => true  } do |f| %>
+<%= nested_form_for [:admin, album], :validate => true, :html => { :class => "form-horizontal", :multipart => true  } do |f| %>
 
   <div class="pull-right">
     <%= f.submit "Сохранить", :class => 'btn btn-primary btn-large' %>
@@ -35,9 +35,24 @@
 
   <div class="control-group">
     <h3>Фотографии</h3>
-    <div class="span9">
+    <div class="span10">
       <div id="new_photos">
       </div>
+      <div class="row main-row">
+         <%= f.fields_for :photos do |photo_form| %>
+            <% if photo_form.object.image.present? %>
+              <div class="thumbnail span2 attached-thumb">
+                <%= photo_form.link_to_remove raw("<i class='icon-white icon-remove-circle'></i>") %>
+                <%= image_tag photo_form.object.image.url(:thumb) %>
+              </div>
+            <% else %>
+              <div class="control-group">
+                <%= photo_form.file_field :image %>
+                <%= photo_form.link_to_remove raw("<i class='icon-remove'></i>"), :class => "btn" %>
+              </div>
+            <% end %>
+         <% end %>
+        </div>
     </div>
   </div>
 
