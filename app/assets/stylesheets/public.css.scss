@@ -680,6 +680,8 @@ aside {
   width: 704px;
   img {
     max-width: none;
+    top: 0;
+    left: 0;
   }
 }
 
@@ -688,6 +690,7 @@ aside {
     width: 352px;
     img {
       left: -50%;
+      top: 0;
       max-width: none;
     }
 }
