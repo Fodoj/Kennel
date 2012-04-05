@@ -5,11 +5,7 @@
   <div class="photos-composer main-row-reversed main-row">
     <% @album.photos.each_slice(10).reverse_each do |photos_block| %>
       <div class="clearfix photo-block-<%= photos_block.count %>">
-        <% photos_block.each do |photo| %>
-          <div class="photo-composer-thumb">
-            <%= link_to image_tag(photo.image.url(:composer_large)), photo_path(photo) %>
-          </div>
-        <% end %>
+        <%= composer_block(photos_block) %>
       </div>
     <% end %>
   </div>

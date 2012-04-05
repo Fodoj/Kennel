@@ -673,35 +673,26 @@ aside {
 
 .photo-composer-thumb {
   float: left;
-}
-
-@mixin large-composer-block {
-  height: 352px;
-  width: 704px;
-  img {
+  a img {
     max-width: none;
     top: 0;
     left: 0;
   }
 }
 
+@mixin large-composer-block {
+  height: 352px;
+  width: 704px;
+}
+
 @mixin medium-composer-block {
     height: 352px;
     width: 352px;
-    img {
-      left: -50%;
-      top: 0;
-      max-width: none;
-    }
 }
 
 @mixin small-composer-block {
     height: 176px;
     width: 176px;
-    img {
-      top: 0%;
-      max-width: 370px;
-    }
 }
 
 .photo-block-10 {
