@@ -3,6 +3,7 @@ class Photo < ActiveRecord::Base
 
   has_attached_file :image, :styles => {
     :large => "900x430#",
+    :composer_large => "704x352#",
     :medium => "220x175#",
     :admin_thumb => "270x175#",
     :slider => "568x372#",

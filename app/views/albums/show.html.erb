@@ -7,7 +7,7 @@
       <div class="clearfix photo-block-<%= photos_block.count %>">
         <% photos_block.each do |photo| %>
           <div class="photo-composer-thumb">
-            <%= link_to image_tag(photo.image.url(:large)), photo_path(photo) %>
+            <%= link_to image_tag(photo.image.url(:composer_large)), photo_path(photo) %>
           </div>
         <% end %>
       </div>
