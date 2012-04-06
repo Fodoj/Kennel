@@ -2,18 +2,18 @@
 class PhotosController < ApplicationController
 
   def index
-      @photos = Photo.order('created_at DESC').page params[:page]
+    @pet = Pet.find(params[:pet_id])
+    @photos = @pet.photos
   end
 
   def show
     @photo = Photo.find(params[:id])
+    @album = @photo.album
     if params[:pet_id]
       @pet = Pet.find(params[:pet_id])
       @photos = @pet.photos.order('id ASC')
     else
-        puts "yes"
-      if @photo.album.present?
-        @album = @photo.album
+      if @album.present?
         @photos = @album.photos.order('id ASC')
       end
     end

@@ -24,18 +24,10 @@
 
 <div class="container">
   <ul class="nav photo-pills nav-pills pull-right">
-    <% if photos.present? %>
-
-    <li>
-      <%= link_to "вернуться в галерею", album_path(album) %>
-    </li>
-
-      <% if @album %>
-        <li>
-          <%= link_to "показать все фото с этого события", album_path(album) %>
-        </li>
-      <% end %>
-
+    <% if @album.present? %>
+      <li>
+        <%= link_to "вернуться в галерею", album_path(album) %>
+      </li>
     <% end %>
     <li>
       <%= link_to "открыть в полном размере", photo.image.url(:original) %>

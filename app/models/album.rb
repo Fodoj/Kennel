@@ -1,6 +1,6 @@
 class Album < ActiveRecord::Base
   has_many :photos
-  belongs_to :post
+  has_one :post
   has_many :pets, :through => :photos, :uniq => true
   accepts_nested_attributes_for :photos, :allow_destroy => true
 
