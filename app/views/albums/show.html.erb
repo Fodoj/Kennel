@@ -2,8 +2,8 @@
 </div>
 
 <section class="container container-thin centered">
-  <h1 class="main-row-reversed sub-row"><%= @album.name %></h1>
   <div class="photos-composer main-row">
+    <h1 class="main-row-reversed sub-row"><%= @album.name %></h1>
     <% @photos.each_slice(10).reverse_each do |photos_block| %>
       <div class="clearfix photo-block-<%= photos_block.count %>">
         <%= composer_block(photos_block) %>
