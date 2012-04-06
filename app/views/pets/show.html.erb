@@ -1,10 +1,15 @@
 <div class="patterned-block">
   <section class="container container-thin">
-    <%= link_to image_tag(@pet.avatar.url(:title), :class => "thumbnail span5 photo-pet-avatar"), @pet.avatar.url(:original) %>
+  <%= link_to image_tag(@pet.avatar.url(:title),
+                        :class => "thumbnail span5 photo-pet-avatar",
+                        :data => {:original_photo => @pet.avatar.url(:title)}
+                       ), @pet.avatar.url(:original) %>
     <ul class="span1 photo-pet-thumbs">
       <% @pet.photos.last(4).each do |photo| %>
         <li class='thumbnail'>
-          <%= link_to image_tag(photo.image.url(:thumb)), pet_photo_path(@pet, photo) %>
+          <%= link_to image_tag(photo.image.url(:thumb)), pet_photo_path(@pet, photo),
+            :class => "pet-avatar-switcher",
+            :data => { :title_photo => photo.image.url(:pet_title)} %>
         </li>
       <% end %>
     </ul>
@@ -38,6 +43,14 @@
       </dl>
     </div>
   </section>
+
+  <div class="container">
+    <ul class="nav photo-pills nav-pills pull-right">
+      <li>
+        <%= link_to "все фото с питомцем", pet_photos_path(@pet) %>
+      </li>
+    </ul>
+  </div>
 
   <% if @pet.description.present? && strip_tags(@pet.description).length > 0 %>
     <section class="container photo-description container-thin">

@@ -6,6 +6,8 @@
 //= require plugins/bootstrap-tooltip.js
 
 $(function() {
+
+  //Photos scroller on blog post page
   var thumbnails_scroller = $('.thumbnails-scroller');
   if (thumbnails_scroller.length != 0) {
     thumbnails_scroller.height($('.post-body').height()).jScrollPane({
@@ -13,6 +15,7 @@ $(function() {
     });
   }
 
+  //Photos scroller on photo viewer page
   var photo_album_previews = $('.photo-album-container ul');
   $(photo_album_previews).width(
     $(photo_album_previews).find('li').length*$(photo_album_previews).find('li:last-child').outerWidth(true)
@@ -26,10 +29,11 @@ $(function() {
 
     var api = photo_album_container.data('jsp');
 
+    //Scroll to opened photo on load
     api.scrollToX(
       $('.photo-current').parent().position().left - 372, true);
 
-
+    //Horizontal scrolling for mouse wheel
     photo_album_container.bind(
               'mousewheel',
                       function (event, delta, deltaX, deltaY)
@@ -38,30 +42,16 @@ $(function() {
                           return false;
                       }
     );;
-
-    api.reinitialise();
   }
 
+  //Main page slider
   $('#slider-inner ul').kwicks({
 		max : 567,
 		spacing : 0
   });
 
-  $('.thumbnail-album').hover(
-      function() {
-        $(this).find('.caption').animate({
-          height: '2em'
-        }, 100, function() {
-        });
-      },
-      function() {
-        $(this).find('.caption').animate({
-          height: '1em'
-        }, 100, function() {
-        });
-      }
-  );
 
+  //Switchers for more\less description on pet page
   $(".more-pet").click(function() {
       var descs = $(this).closest('.pet-description');
       descs.find('.more-description').show();
@@ -76,6 +66,18 @@ $(function() {
       return false;
   });
 
+  //Tooltip everything that moves
   $("[rel=tooltip]").tooltip();
+
+  //Pet page avatar switcher on thumb hover
+  $('.pet-avatar-switcher').hover(
+      function() {
+        var replacer = $(this).data('title-photo');
+        $('.photo-pet-avatar').attr('src', replacer);
+      },
+      function() {
+        $('.photo-pet-avatar').attr('src', $('.photo-pet-avatar').data('original-photo'));
+      }
+  )
 
 });
