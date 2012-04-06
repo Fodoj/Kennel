@@ -5,7 +5,7 @@
                         :data => {:thumb_photo => @pet.avatar.url(:thumb)}
                        ), @pet.avatar.url(:original) %>
     <ul class="span1 photo-pet-thumbs">
-      <% @pet.photos.last(4).each do |photo| %>
+      <% @previews.each do |photo| %>
         <li class='thumbnail'>
           <%= link_to image_tag(photo.image.url(:thumb)), pet_photo_path(@pet, photo),
             :class => "pet-avatar-switcher",
