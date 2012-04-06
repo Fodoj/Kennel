@@ -5,7 +5,7 @@ class Photo < ActiveRecord::Base
     :large => "900x430#",
     :composer_large => "704x352#",
     :composer_medium => "352x352#",
-    :composer_small => "352x176#",
+    :composer_small => "176x176#",
     :medium => "220x175#",
     :admin_thumb => "270x175#",
     :slider => "568x372#",
