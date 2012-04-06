@@ -8,7 +8,7 @@ class AlbumsController < ApplicationController
 
   def show
     @album = Album.find(params[:id])
-    @photos = @album.photos
+    @photos = @album.photos.order("image_file_name ASC")
   end
 
 end

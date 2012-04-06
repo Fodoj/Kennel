@@ -3,7 +3,7 @@ class PhotosController < ApplicationController
 
   def index
     @pet = Pet.find(params[:pet_id])
-    @photos = @pet.photos
+    @photos = @pet.photos.order("image_file_name ASC")
   end
 
   def show

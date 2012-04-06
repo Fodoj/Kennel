@@ -48,5 +48,4 @@ class Photo < ActiveRecord::Base
     photo = photos.where("id < ?", id).first
     return photo.nil? ? photos.first : photo
   end
-
 end
