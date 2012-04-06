@@ -2,7 +2,7 @@
   <section class="container container-thin">
   <%= link_to image_tag(@pet.avatar.url(:title),
                         :class => "thumbnail span5 photo-pet-avatar",
-                        :data => {:original_photo => @pet.avatar.url(:title)}
+                        :data => {:thumb_photo => @pet.avatar.url(:thumb)}
                        ), @pet.avatar.url(:original) %>
     <ul class="span1 photo-pet-thumbs">
       <% @pet.photos.last(4).each do |photo| %>
@@ -45,7 +45,7 @@
   </section>
 
   <div class="container">
-    <ul class="nav photo-pills nav-pills pull-right">
+    <ul class="nav photo-pills nav-pills pull-left">
       <li>
         <%= link_to "все фото с питомцем", pet_photos_path(@pet) %>
       </li>

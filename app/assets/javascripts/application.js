@@ -70,14 +70,20 @@ $(function() {
   $("[rel=tooltip]").tooltip();
 
   //Pet page avatar switcher on thumb hover
-  $('.pet-avatar-switcher').hover(
+  $('.pet-avatar-switcher').click(
       function() {
-        var replacer = $(this).data('title-photo');
-        $('.photo-pet-avatar').attr('src', replacer);
-      },
-      function() {
-        $('.photo-pet-avatar').attr('src', $('.photo-pet-avatar').data('original-photo'));
+        var new_photo = $(this).data('title-photo');
+        var new_thumb = $(this).find('img').attr('src');
+        var avatar = $('.photo-pet-avatar');
+
+        $(this).data('title-photo', avatar.attr('src'));
+        $(this).find('img').attr('src', avatar.data('thumb-photo'));
+
+
+        avatar.attr('src', new_photo);
+        avatar.data('thumb-photo', new_thumb);
+        return false;
       }
-  )
+  );
 
 });

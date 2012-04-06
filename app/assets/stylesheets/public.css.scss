@@ -197,7 +197,7 @@ footer {
 /* END FOOTER */
 
 .patterned-block {
-  padding: 30px 0;
+  padding: 30px 0 15px 0;
   position: relative;
   background: image-url("sliderbg.jpg");
   @include box-shadow(inset 0px 2px 5px 0px rgba(95, 87, 26, 0.3), inset 0px -2px 5px 0px #bcbcbc);
@@ -799,15 +799,19 @@ aside {
 .photo-pet-avatar {
     padding: 9px !important;
     margin: 0;
-    height: 255px;
+    height: 253px;
 }
 
 .photo-pet-thumbs {
   width: 72px;
+  margin-bottom: 0;
   li {
-    margin-bottom: 11px;
+    margin-bottom: 15px;
+    &:last-child { margin: 0; }
+    height: 57px;
   }
   img {
+    display: block;
     padding: 5px;
     width: 60px;
   }
@@ -820,6 +824,7 @@ aside {
 .pet-stats {
   height: 265px;
   width: 400px;
+  margin-bottom: 0;
   dl {
     margin: 10px;
     font-size: 1.2em;
