@@ -6,7 +6,7 @@
     <h1 class="main-row-reversed sub-row"><%= link_to @pet.name, pet_path(@pet) %></h1>
     <% @photos.each_slice(10).reverse_each do |photos_block| %>
       <div class="clearfix photo-block-<%= photos_block.count %>">
-        <%= composer_block(photos_block) %>
+        <%= composer_block(photos_block, @pet) %>
       </div>
     <% end %>
   </div>

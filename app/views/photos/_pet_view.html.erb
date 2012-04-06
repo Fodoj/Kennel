@@ -29,9 +29,9 @@
       <%= link_to "вернуться в галерею", pet_photos_path(pet) %>
     </li>
 
-    <% if @album.post.present? %>
+    <% if @album.present? && @album.post.present? %>
       <li>
-        <%= link_to "показать все фото с этого события", pet_path(pet) %>
+        <%= link_to "показать все фото с этого события", album_path(@album) %>
       </li>
     <% end %>
 
