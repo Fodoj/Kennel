@@ -25,7 +25,7 @@ class Admin::PeopleController < Admin::ApplicationController
     @person = Person.new(params[:person])
     role = params[:role]
     if @person.save
-      @person.has_role role
+      @person.add_role role
       redirect_to admin_people_path(:role => role), notice: 'Person was successfully created.'
     else
       render action: "new"

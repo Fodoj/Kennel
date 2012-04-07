@@ -13,6 +13,8 @@ class Pet < ActiveRecord::Base
 
   belongs_to :owner, :class_name => "Person"
   delegate :name, :to => :owner, :prefix => true
+  accepts_nested_attributes_for :owner
+
 
   belongs_to :breeder, :class_name => "Person"
   delegate :name, :to => :breeder, :prefix => true
@@ -78,8 +80,27 @@ class Pet < ActiveRecord::Base
     return photo.nil? ? photos.first : photo
   end
 
+  def assign_persons(owner_name, breeder_name, kennel_name)
+    if owner_name.present?
+      self.update_attribute(:owner, Person.create(:name => owner_name))
+      self.owner.add_role "owner"
+    end
+
+    if breeder_name.present?
+      self.update_attribute(:breeder, Person.create(:name => breeder_name))
+      self.breeder.add_role "breeder"
+      puts self.breeder
+    end
+
+    if kennel_name.present?
+      self.update_attribute(:kennel, Person.create(:name => kennel_name))
+      self.kennel.add_role "kennel"
+    end
+  end
+
   private
     def trim_texts
       [self.description].each(&:strip!) if description.present?
     end
+
 end

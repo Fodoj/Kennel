@@ -43,14 +43,26 @@ $(function() {
       }
 
     });
+
+    //Show new person form on pet new/edit page
+    $('.pet-new-person').click(function(e) {
+      var holder = $(this).closest('.controls');
+      holder.find('select').hide();
+      holder.find('input').show();
+      $("#pet_owned");
+      $(this).hide();
+      return false;
+    })
 });
 
 var check_owner = function() {
   if ( $("#pet_owned").is(":checked") ) {
     $("#pet_owner_id").attr("disabled", true);
+    $("#new_owner_name").attr("disabled", true);
     $("#pet_owner_id").val("");
   }
   else {
     $("#pet_owner_id").attr("disabled", false);
+    $("#new_owner_name").attr("disabled", false);
   }
 }

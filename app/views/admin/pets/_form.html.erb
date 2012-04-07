@@ -66,6 +66,8 @@
              <label class="control-label">Владелец</label>
              <div class="controls">
                <%= f.select  :owner_id, Person.owners.collect {|p| [ p.name, p.id ] }, { :include_blank => "Нет владельца"} %>
+               <%= text_field_tag :new_owner_name, "", :class => "new-person-input" %>
+               <a href="" class="pull-right pet-new-person">Добавить нового</a>
              </div>
           </div>
 
@@ -73,6 +75,8 @@
              <label class="control-label">Заводчик</label>
              <div class="controls">
                <%= f.select :breeder_id, Person.breeders.collect {|p| [ p.name, p.id ] }, { :include_blank => "Нет заводчика"}  %>
+               <%= text_field_tag :new_breeder_name, "", :class => "new-person-input" %>
+               <a href="" class="pull-right pet-new-person">Добавить нового</a>
              </div>
           </div>
 
@@ -80,6 +84,8 @@
              <label class="control-label">Питомник</label>
              <div class="controls">
                <%= f.select :kennel_id, Person.kennels.collect {|p| [ p.name, p.id ] }, { :include_blank => "Нет питомника"} %>
+               <%= text_field_tag :new_kennel_name, "", :class => "new-person-input" %>
+               <a href="" class="pull-right pet-new-person">Добавить новый</a>
              </div>
           </div>
 
