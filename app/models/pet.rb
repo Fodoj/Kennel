@@ -39,11 +39,6 @@ class Pet < ActiveRecord::Base
   scope :bitches, where(:sex => false)
   scope :my, where(:owned => true)
 
-  def parents
-    [mother, father]
-  end
-
-
   class << self
     def extend_parents(pets)
       elder = []
@@ -54,6 +49,10 @@ class Pet < ActiveRecord::Base
 
       elder
     end
+  end
+
+  def parents
+    [mother, father]
   end
 
   def descendants
@@ -89,12 +88,21 @@ class Pet < ActiveRecord::Base
     if breeder_name.present?
       self.update_attribute(:breeder, Person.create(:name => breeder_name))
       self.breeder.has_role "breeder"
-      puts self.breeder
     end
 
     if kennel_name.present?
       self.update_attribute(:kennel, Person.create(:name => kennel_name))
       self.kennel.has_role "kennel"
+    end
+  end
+
+  def assign_parents(mather_name, father_name)
+    if mather_name.present?
+      self.update_attribute(:mother, Pet.create(:name => mather_name, :sex => false))
+    end
+
+    if father_name.present?
+      self.update_attribute(:father, Pet.create(:name => father_name, :sex => true))
     end
   end
 

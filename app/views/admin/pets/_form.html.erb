@@ -95,6 +95,8 @@
              <label class="control-label">Мать</label>
              <div class="controls">
                <%= f.select :mother_id, @mothers.collect {|p| [ p.name, p.id ] }, { :include_blank => "Нет матери"}  %>
+               <%= text_field_tag :new_mother_name, "", :class => "new-person-input" %>
+               <a href="" class="pull-right pet-new-person">Добавить</a>
              </div>
           </div>
 
@@ -102,6 +104,8 @@
              <label class="control-label">Отец</label>
              <div class="controls">
                <%= f.select :father_id, @fathers.collect {|p| [ p.name, p.id ] }, { :include_blank => "Нет отца"} %>
+               <%= text_field_tag :new_father_name, "", :class => "new-person-input" %>
+               <a href="" class="pull-right pet-new-person">Добавить</a>
              </div>
           </div>
 

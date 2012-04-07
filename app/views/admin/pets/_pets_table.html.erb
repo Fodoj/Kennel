@@ -16,7 +16,7 @@
 
     <td><%= pet_sex(pet) %></td>
 
-    <td><%= pet.born.strftime("%d.%m.%y") %></td>
+    <td><%= pet.born.strftime("%d.%m.%y") if pet.born.present? %></td>
 
     <td><%= pet.color %></td>
 

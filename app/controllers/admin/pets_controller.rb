@@ -22,6 +22,7 @@ class Admin::PetsController < Admin::ApplicationController
 
     if @pet.save
       @pet.assign_persons(params[:new_owner_name], params[:new_breeder_name], params[:new_kennel_name])
+      @pet.assign_parents(params[:new_mother_name], params[:new_father_name])
       flash[:info] = "Добавлен питомец '#{@pet.name}'"
     end
 
@@ -37,6 +38,7 @@ class Admin::PetsController < Admin::ApplicationController
   def update
     if @pet.update_attributes(params[:pet])
       @pet.assign_persons(params[:new_owner_name], params[:new_breeder_name], params[:new_kennel_name])
+      @pet.assign_parents(params[:new_mother_name], params[:new_father_name])
       flash[:info] = "Питомец '#{@pet.name}' успешно обновлен"
     else
       flash[:error] = "Что-то пошло не так"
