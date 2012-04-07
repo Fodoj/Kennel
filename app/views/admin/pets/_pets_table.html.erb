@@ -22,7 +22,7 @@
 
     <td><%= pet.title %></td>
 
-    <td><%= pet.owner_name if pet.owner.present? %></td>
+    <td><%= pet_owner(pet) %></td>
 
     <td><%= pet.breeder_name if pet.breeder.present? %></td>
 

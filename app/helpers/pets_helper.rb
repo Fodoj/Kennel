@@ -4,6 +4,14 @@ module PetsHelper
     pet.sex ? "Кобель" : "Сука"
   end
 
+  def pet_owner(pet)
+    if pet.owned
+      OWNER_NAME
+    else
+      pet.owner_name if pet.owner.present?
+    end
+  end
+
   def active_admin_pets_menu(searcher)
     pets_strings_by_search(searcher, "my-pets", "puppy-pets", "all-pets")
   end
