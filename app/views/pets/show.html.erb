@@ -82,7 +82,7 @@
             <%= link_to pet_path(parent), :class => "span5 thumbnail" do %>
               <%= image_tag(parent.avatar.url(:pedigree_parent)) %>
               <div class="caption">
-                <h5><%= parent.name %></h5>
+                <h5 rel="tooltip" data-original-title="<%= parent.name %>"><%= parent.name %></h5>
                 <p>
                   <%= parent.color %>
                   <%= pet_sex(parent) %>

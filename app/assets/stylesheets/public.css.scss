@@ -371,8 +371,15 @@ section.container-thin {
   }
 }
 
+.pet-parents, .pet-grandparents, .pet-elders {
+  a.thumbnail:hover {
+    -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+    -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+    box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+  }
+}
 
-.pet-parents, .pet-grandparents, .pet-elders, .thumbnails-album, .puppies-preview-block, .pets-list {
+.thumbnails-album, .puppies-preview-block, .pets-list {
   .thumbnail:hover {
     -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
     -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
@@ -842,14 +849,34 @@ aside {
   display: none;
 }
 
+.pet-parents li {
+  margin: 0;
+}
+
 .pet-parents, .pet-grandparents, .pet-elders {
-  margin: 40px 0 40px 40px;
+  padding: 40px 0 40px 0;
+  margin: 0;
+}
+
+.pet-grandparents, .pet-elders {
+  li {
+    padding-left: 40px;
+  }
+}
+
+.pet-parents li:first-child, .pet-grandparents li:nth-child(2), .pet-elders li:nth-child(4) {
+  border-bottom: 1px dashed #c6c6c6;
 }
 
 .pet-parents {
   margin-left: 0;
   li {
-    margin: 0 0 90px 0;
+    &:first-child {
+      padding-bottom: 45px;
+    }
+    &:last-child {
+      padding-top: 45px;
+    }
     width: 380px;
     a {
       margin: 0;
@@ -861,7 +888,7 @@ aside {
   }
 }
 
-.pet-grandparents, .pet-elders, .pets-list, .thumbnails-album {
+.pet-parents, .pet-grandparents, .pet-elders, .pets-list, .thumbnails-album {
   .caption {
     overflow: hidden;
     white-space: nowrap;
@@ -869,14 +896,17 @@ aside {
 }
 
 .pet-grandparents {
-  width: 190px;
+  width: 230px;
   li {
     height: 170px;
     width: 190px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     margin-left: 0;
-    &:nth-child(2n) {
-      margin-bottom: 90px;
+    &:nth-child(2) {
+      padding-bottom: 45px;
+    }
+    &:nth-child(3) {
+      padding-top: 45px;
     }
     img {
       height: 96px;
@@ -890,13 +920,17 @@ aside {
   .caption {
     width: 110px;
   }
-  width: 280px;
+  width: 320px;
   li {
     height: 80px;
-    margin: 0 0 10px 0;;
+    margin: 0 0 11px 0;;
     width: 280px;
     &:nth-child(4n) {
-      margin-bottom: 90px;
+      padding-bottom: 44px;
+      margin: 0;
+    }
+    &:nth-child(5) {
+      padding-top: 45px;
     }
     img {
       width: 100px;
