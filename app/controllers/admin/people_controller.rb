@@ -34,7 +34,7 @@ class Admin::PeopleController < Admin::ApplicationController
 
   def update
     if @person.update_attributes(params[:person])
-      redirect_to admin_person_path(@person), notice: 'Person was successfully updated.'
+      redirect_to admin_people_path(:role => params[:role]), notice: 'Запись успешно отредактирована.'
     else
       render action: "edit"
     end

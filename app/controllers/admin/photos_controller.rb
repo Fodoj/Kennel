@@ -29,7 +29,8 @@ class Admin::PhotosController < Admin::ApplicationController
     else
       flash[:error] = "Что-то пошло не так"
     end
-    redirect_to admin_photos_path
+
+    redirect_to @photo.album.present? ? admin_album_path(@photo.album) : admin_photos_path
   end
 
   def destroy
