@@ -81,28 +81,28 @@ class Pet < ActiveRecord::Base
 
   def assign_persons(owner_name, breeder_name, kennel_name)
     if owner_name.present?
-      self.update_attribute(:owner, Person.create(:name => owner_name))
+      self.update_attribute(:owner, Person.find_or_create_by_name(owner_name))
       self.owner.has_role "owner"
     end
 
     if breeder_name.present?
-      self.update_attribute(:breeder, Person.create(:name => breeder_name))
+      self.update_attribute(:breeder, Person.find_or_create_by_name(breeder_name))
       self.breeder.has_role "breeder"
     end
 
     if kennel_name.present?
-      self.update_attribute(:kennel, Person.create(:name => kennel_name))
+      self.update_attribute(:kennel, Person.find_or_create_by_name(kennel_name))
       self.kennel.has_role "kennel"
     end
   end
 
   def assign_parents(mather_name, father_name)
     if mather_name.present?
-      self.update_attribute(:mother, Pet.create(:name => mather_name, :sex => false))
+      self.update_attribute(:mother, Pet.find_or_create_by_name_and_sex(mather_name, false))
     end
 
     if father_name.present?
-      self.update_attribute(:father, Pet.create(:name => father_name, :sex => true))
+      self.update_attribute(:father, Pet.find_or_create_by_name_and_sex(father_name, true))
     end
   end
 
