@@ -12,9 +12,7 @@ describe "Managing albmums" do
     fill_in "album_name", :with => "Прогулка с собаком"
     page.should have_content "Добавить фото"
     click_button "Сохранить"
-    current_path.should == admin_albums_path
-    page.should have_content("Прогулка с собаком")
-    page.should have_content("Пустой альбом")
+    current_path.should == admin_photos_path
   end
 
   it "should show photos counter" do
