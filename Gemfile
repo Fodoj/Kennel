@@ -16,7 +16,7 @@ gem 'capistrano'
 
 gem 'nested_form', :git => "git://github.com/ryanb/nested_form.git"
 
-gem 'rolify'
+gem 'rolify', '2.2.2'
 
 gem 'client_side_validations'
 

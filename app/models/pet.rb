@@ -83,18 +83,18 @@ class Pet < ActiveRecord::Base
   def assign_persons(owner_name, breeder_name, kennel_name)
     if owner_name.present?
       self.update_attribute(:owner, Person.create(:name => owner_name))
-      self.owner.add_role "owner"
+      self.owner.has_role "owner"
     end
 
     if breeder_name.present?
       self.update_attribute(:breeder, Person.create(:name => breeder_name))
-      self.breeder.add_role "breeder"
+      self.breeder.has_role "breeder"
       puts self.breeder
     end
 
     if kennel_name.present?
       self.update_attribute(:kennel, Person.create(:name => kennel_name))
-      self.kennel.add_role "kennel"
+      self.kennel.has_role "kennel"
     end
   end
 
