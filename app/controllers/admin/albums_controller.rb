@@ -22,7 +22,7 @@ class Admin::AlbumsController < Admin::ApplicationController
     if @album.save
       @album.assign_photos(params[:new_photos])
       @album.assign_pets(params[:album][:pet_ids])
-      redirect_to admin_albums_path
+      redirect_to params[:back_url] || admin_albums_path
     end
   end
 
@@ -33,7 +33,7 @@ class Admin::AlbumsController < Admin::ApplicationController
     else
       flash[:error] = "Что-то пошло не так"
     end
-    redirect_to admin_album_path(@album)
+    redirect_to params[:back_url] || admin_album_path(@album)
   end
 
   def destroy

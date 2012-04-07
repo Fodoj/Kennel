@@ -25,7 +25,7 @@ class Admin::PetsController < Admin::ApplicationController
       flash[:info] = "Добавлен питомец '#{@pet.name}'"
     end
 
-    redirect_to admin_pets_path
+    redirect_to params[:back_url] || admin_pets_path
   end
 
   def edit
@@ -41,7 +41,7 @@ class Admin::PetsController < Admin::ApplicationController
     else
       flash[:error] = "Что-то пошло не так"
     end
-    redirect_to admin_pets_path
+    redirect_to params[:back_url] || admin_pets_path
   end
 
   def destroy
