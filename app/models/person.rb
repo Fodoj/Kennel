@@ -1,5 +1,6 @@
 class Person < ActiveRecord::Base
-  rolify
+  include Rolify::Roles
+  #rolify
   has_and_belongs_to_many :roles, :join_table => :people_roles
   has_many :pets_of_breeder, :class_name => "Pet", :foreign_key => "breeder_id"
   has_many :pets_of_owner, :class_name => "Pet", :foreign_key => "owner_id"
