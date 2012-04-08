@@ -1,7 +1,5 @@
 <%= form_for [:admin, @person], :validate => true, :html => { :class => "form-horizontal" } do |f| %>
 
-  <%= hidden_field_tag :back_url, request.referer %>
-
   <div class="row">
       <div class="span7">
           <div class="control-group">

@@ -26,7 +26,7 @@ class Admin::PeopleController < Admin::ApplicationController
     role = params[:role]
     if @person.save
       @person.has_role role
-      redirect_to params[:back_url] || admin_pets_path, notice: 'Person was successfully created.'
+      redirect_to session[:back_url] || admin_pets_path, notice: 'Person was successfully created.'
     else
       render action: "new"
     end
@@ -34,7 +34,7 @@ class Admin::PeopleController < Admin::ApplicationController
 
   def update
     if @person.update_attributes(params[:person])
-      redirect_to params[:back_url] || admin_pets_path, notice: 'Запись успешно отредактирована.'
+      redirect_to session[:back_url] || admin_pets_path, notice: 'Запись успешно отредактирована.'
     else
       render action: "edit"
     end

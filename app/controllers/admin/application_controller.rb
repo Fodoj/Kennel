@@ -2,6 +2,7 @@ class Admin::ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'admin'
   before_filter :authenticate
+  before_filter :save_back_url, :only => [:new, :edit]
 
   protected
    def authenticate
@@ -10,5 +11,9 @@ class Admin::ApplicationController < ActionController::Base
         username == USER_ID && password == PASSWORD
       end
      end
+   end
+
+   def save_back_url
+     session[:back_url] = request.referer
    end
 end

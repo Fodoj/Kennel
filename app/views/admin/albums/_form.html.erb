@@ -1,11 +1,8 @@
 <%= nested_form_for [:admin, album], :validate => true, :html => { :class => "form-horizontal", :multipart => true  } do |f| %>
 
-  <%= hidden_field_tag :back_url, request.referer %>
-
   <div class="pull-right">
     <%= f.submit "Сохранить", :class => 'btn btn-primary btn-large' %>
   </div>
-
 
   <div class="control-group">
      <label class="control-label">Название</label>
