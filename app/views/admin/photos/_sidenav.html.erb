@@ -6,6 +6,9 @@
           <li class="<%== 'active' if active == 'all-photos' %>">
             <%= link_to "Фотографии", admin_photos_path %>
           </li>
+          <li class="<%== 'active' if active == 'slider-photos' %>">
+            <%= link_to "Слайдер", admin_photos_path(:search => {:on_main => true}) %>
+          </li>
           <li class="<%== 'active' if active == 'new-photo' %>">
             <%= link_to "Добавить фотографию", new_admin_photo_path %>
           </li>

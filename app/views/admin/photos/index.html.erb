@@ -1,8 +1,8 @@
 <div class="row">
-  <%= render "sidenav", :active => "all-photos" %>
+  <%= render "sidenav", :active => params[:search].present? ? "slider-photos" : "all-photos" %>
 
   <div class="span10">
-    <h1>Фотографии</h1>
+    <h1>Фотографии <%= "на главной" if params[:search].present? %></h1>
     <%= render "admin/shared/photos", :photos => @photos %>
     <%= paginate @photos %>
   </div>
