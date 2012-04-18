@@ -40,9 +40,43 @@
       <div class="row main-row">
          <%= f.fields_for :photos do |photo_form| %>
             <% if photo_form.object.image.present? %>
-              <div class="thumbnail span2 attached-thumb">
-                <%= photo_form.link_to_remove raw("<i class='icon-white icon-remove-circle'></i>") %>
-                <%= image_tag photo_form.object.image.url(:thumb) %>
+              <div class="span5 attached-row">
+                <div class="row">
+                  <div class="span2 thumbnail attached-thumb">
+                    <%= image_tag photo_form.object.image.url(:thumb) %>
+                    <%= photo_form.link_to_remove raw("<i class='icon-white icon-remove-circle'></i>") %>
+                  </div>
+                  <div class="span3">
+                    <%= photo_form.text_area :caption %>
+                  </div>
+                </div>
+                <div class="control-group row">
+                  <a class="pull-right" data-toggle="modal" href="#photo-<%= photo_form.object.id %>-modal" >Выбрать собак</a>
+                  <label class="control-label">Показывать на главной странице</label>
+                  <div class="controls">
+                    <%= photo_form.check_box :on_main %>
+                  </div>
+
+
+                  <div class="modal hide fade" id="photo-<%= photo_form.object.id %>-modal">
+                    <div class="modal-header">
+                      <h3>Выберите собак</h3>
+                    </div>
+                    <div class="modal-body">
+                      <% Pet.order("name ASC").all.each do |pet| %>
+                          <label class="checkbox">
+                            <%= check_box_tag "pets[#{photo_form.object.id}][]", pet.id, photo_form.object.pets.include?(pet), :id => dom_id(pet) %>
+                            <%= "#{pet.name} #{pet.title}" %>
+                          </label>
+                      <% end %>
+                    </div>
+                    <div class="modal-footer">
+                      <a href="#" class="btn btn-primary" data-dismiss="modal">Выбрать</a>
+                    </div>
+                  </div>
+
+
+                </div>
               </div>
             <% else %>
               <div class="control-group">
@@ -57,8 +91,8 @@
 
 <% end %>
 
+<!-- SUPER PHOTO UPLOADER START -->
 <%= form_tag uploader_admin_albums_path, :class => "form-horizontal", :id => "fileupload", :multipart => true  do %>
-      <!-- EXPERIMENT ALARM ALARM -->
         <div class="row">
           <div class="span10 fileupload-buttonbar">
             <h3 class="main-row">Загрузить фотографии</h3>
@@ -171,7 +205,6 @@
 
         });
       </script>
-      <!-- EXPERIMENT ALARM ALARM -->
-
 
 <% end %>
+<!-- SUPER PHOTO UPLOADER END -->

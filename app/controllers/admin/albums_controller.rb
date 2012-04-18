@@ -29,6 +29,9 @@ class Admin::AlbumsController < Admin::ApplicationController
   def update
     if @album.update_attributes(params[:album])
         @album.assign_photos(params[:new_photos])
+        params[:pets].each do |photo|
+          Photo.find(photo[0]).update_attribute(:pet_ids, photo[1])
+        end
         flash[:info] = "Альбом успешно обновлен"
     else
       flash[:error] = "Что-то пошло не так"
