@@ -5,6 +5,7 @@ class Album < ActiveRecord::Base
   accepts_nested_attributes_for :photos, :allow_destroy => true
 
   validates :name, :presence => true
+  validates :description, :length => {:maximum => 500}
 
   scope :event, where('post_id != 0')
 
