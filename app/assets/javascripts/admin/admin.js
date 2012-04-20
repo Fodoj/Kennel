@@ -3,6 +3,8 @@
 //= require ./plugins/jquery.dataset.js
 //= require ./plugins/jquery.wysiwyg.js
 //= require ./plugins/wysiwyg.link.js
+//= require ../plugins/jquery.mousewheel.js
+//= require ../plugins/jquery.jscrollpane.min.js
 //= require rails.validations
 //= require jquery_nested_form
 //= require bootstrap.js
@@ -52,7 +54,9 @@ $(function() {
       $("#pet_owned");
       $(this).hide();
       return false;
-    })
+    });
+
+
 });
 
 var check_owner = function() {

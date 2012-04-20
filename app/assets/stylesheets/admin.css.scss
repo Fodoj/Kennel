@@ -17,6 +17,11 @@ h2 {
   line-height: 36px;
 }
 
+.centered {
+  display: block;
+  margin: 0 auto !important;
+}
+
 #admin {
   background: #fafafa;
 }
@@ -194,4 +199,9 @@ a.thumbnail:hover {
   .controls {
     margin-left: 230px;
   }
+}
+
+.pets-modal-chooser {
+  height: 165px;
+  overflow-y: scroll;
 }

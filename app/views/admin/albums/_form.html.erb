@@ -47,11 +47,13 @@
                     <%= photo_form.link_to_remove raw("<i class='icon-white icon-remove-circle'></i>") %>
                   </div>
                   <div class="span3">
-                    <%= photo_form.text_area :caption %>
+                    <%= photo_form.text_area :caption, :placeholder => "Описание" %>
                   </div>
                 </div>
                 <div class="control-group row">
-                  <a class="pull-right" data-toggle="modal" href="#photo-<%= photo_form.object.id %>-modal" >Выбрать собак</a>
+                  <a class="pull-right" data-toggle="modal" href="#photo-<%= photo_form.object.id %>-modal" >
+                    Отметить питомцев
+                  </a>
                   <label class="control-label">Показывать на главной странице</label>
                   <div class="controls">
                     <%= photo_form.check_box :on_main %>
@@ -60,9 +62,10 @@
 
                   <div class="modal hide fade" id="photo-<%= photo_form.object.id %>-modal">
                     <div class="modal-header">
-                      <h3>Выберите собак</h3>
+                      <h3 class="main-row">Выберите собак</h3>
+                      <%= image_tag photo_form.object.image.url(:admin_thumb), :class => "thumbnail centered" %>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body pets-modal-chooser">
                       <% Pet.order("name ASC").all.each do |pet| %>
                           <label class="checkbox">
                             <%= check_box_tag "pets[#{photo_form.object.id}][]", pet.id, photo_form.object.pets.include?(pet), :id => dom_id(pet) %>
