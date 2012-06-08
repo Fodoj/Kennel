@@ -1,40 +1,44 @@
-<table class="table table-bordered">
-  <tr>
-    <th>Кличка</th>
-    <th>Пол</th>
-    <th>Дата рождения</th>
-    <th>Окрас</th>
-    <th>Титулы</th>
-    <th>Владелец</th>
-    <th>Заводчик</th>
-    <th>Питомник</th>
-    <th></th>
-  </tr>
-  <% @pets.each do |pet| %>
-  <tr>
-    <td><%= pet.name %></td>
+<table class="table table-bordered" id="table-pets">
+  <thead>
+    <tr>
+      <th><span>Кличка</span></th>
+      <th><span>Пол</span></th>
+      <th><span>ДР</span></th>
+      <th><span>Окрас</span></th>
+      <th><span>Титулы</span></th>
+      <th><span>Владелец</span></th>
+      <th><span>Заводчик</span></th>
+      <th><span>Питомник</span></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pets.each do |pet| %>
+    <tr>
+      <td><%= pet.name %></td>
 
-    <td><%= pet_sex(pet) %></td>
+      <td><%= pet_sex(pet) %></td>
 
-    <td><%= pet.born.strftime("%d.%m.%y") if pet.born.present? %></td>
+      <td><%= pet.born.strftime("%d.%m.%y") if pet.born.present? %></td>
 
-    <td><%= pet.color %></td>
+      <td><%= pet.color %></td>
 
-    <td><%= pet.title %></td>
+      <td><%= pet.title %></td>
 
-    <td><%= pet_owner(pet) %></td>
+      <td><%= pet_owner(pet) %></td>
 
-    <td><%= pet.breeder_name if pet.breeder.present? %></td>
+      <td><%= pet.breeder_name if pet.breeder.present? %></td>
 
-    <td><%= pet.kennel_name if pet.kennel.present? %></td>
+      <td><%= pet.kennel_name if pet.kennel.present? %></td>
 
-    <td class="double-actions">
-      <%= link_to raw("<i class='icon-camera'></i>"), admin_pet_path(pet), :class => "btn btn-small", :title => "Фотографии с питомцем '#{pet.name}'" %>
-      <%= link_to raw("<i class='icon-edit'></i>"),
-        edit_admin_pet_path(pet), :class => "btn btn-small", :title => "Редактировать питомца '#{pet.name}'" %>
-      <%= link_to raw("<i class='icon-remove'></i>"), admin_pet_path(pet), :method => :delete, :class => "btn btn-small", :title => "Удалить питомца 'Bobby'" %>
-    </td>
+      <td class="double-actions">
+        <%= link_to raw("<i class='icon-camera'></i>"), admin_pet_path(pet), :class => "btn btn-small", :title => "Фотографии с питомцем '#{pet.name}'" %>
+        <%= link_to raw("<i class='icon-edit'></i>"),
+          edit_admin_pet_path(pet), :class => "btn btn-small", :title => "Редактировать питомца '#{pet.name}'" %>
+        <%= link_to raw("<i class='icon-remove'></i>"), admin_pet_path(pet), :method => :delete, :class => "btn btn-small", :title => "Удалить питомца 'Bobby'" %>
+      </td>
 
-  </tr>
-  <% end %>
+    </tr>
+    <% end %>
+  </tbody>
 </table>

@@ -99,18 +99,17 @@ h2 {
       }
     }
   }
-  .sorted {
-    &.asc, &.desc {
-      span {
-        padding-left: 15px;
-      }
+
+  .asc, .desc {
+    span {
+      padding-left: 15px;
     }
-    &.asc span {
-      background: image-url("asc.png") left no-repeat;
-    }
-    &.desc span {
-      background: image-url("desc.png") left no-repeat;
-    }
+  }
+  .asc span {
+    background: image-url("asc.png") left no-repeat;
+  }
+  .desc span {
+    background: image-url("desc.png") left no-repeat;
   }
 
 .main-row {
@@ -204,4 +203,15 @@ a.thumbnail:hover {
 .pets-modal-chooser {
   height: 165px;
   overflow-y: scroll;
+}
+
+/* PETS TABLE STYLING
+============================================= */
+
+#table-pets {
+  th {
+    text-decoration: underline;
+    cursor: pointer;
+    text-align: center;
+  }
 }

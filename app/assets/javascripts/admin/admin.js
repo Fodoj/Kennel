@@ -3,6 +3,7 @@
 //= require ./plugins/jquery.dataset.js
 //= require ./plugins/jquery.wysiwyg.js
 //= require ./plugins/wysiwyg.link.js
+//= require ./plugins/jquery.tablesorter.min.js
 //= require ../plugins/jquery.mousewheel.js
 //= require ../plugins/jquery.jscrollpane.min.js
 //= require rails.validations
@@ -56,6 +57,11 @@ $(function() {
       return false;
     });
 
+    //Sort pets tables
+    $("#table-pets").tablesorter({
+      cssAsc: "asc",
+      cssDesc: "desc"
+    });
 
 });
 
