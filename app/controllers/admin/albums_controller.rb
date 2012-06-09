@@ -6,7 +6,7 @@ class Admin::AlbumsController < Admin::ApplicationController
     if params[:sort]
       @albums = Album.sorted(params[:sort]).page params[:page]
     else
-      @albums = Album.order("created_at DESC").page params[:page]
+      @albums = Album.order("id DESC").page params[:page]
     end
   end
 

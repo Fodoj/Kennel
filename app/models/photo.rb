@@ -12,19 +12,19 @@ class Photo < ActiveRecord::Base
     :thumb => "160x120#",
     :pet_title => "380x255#"
     }
-  validates :caption, :length => { :maximum => 140}
-  validates_attachment_presence :image
-  validates_presence_of :image
-
-  paginates_per 54
-
   has_many :pet_photos
   has_many :pets, :through => :pet_photos
   belongs_to :album
 
+  validates :caption, :length => { :maximum => 140}
+  validates_attachment_presence :image
+  validates_presence_of :image
+
   scope :unsorted, where(:album_id => nil)
   scope :main, where(:on_main => true)
   scope :with_album, where('album_id != 0')
+
+  paginates_per 54
 
   def to_jq_upload
     {

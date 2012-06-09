@@ -6,9 +6,9 @@
     </div>
     <div class="mega-holder-content">
       <div class="mega-holder-inner ridus clearfix">
-            <%= link_to(image_tag(@photos.first.image.url(:large)), photo_path(@photos.first)) unless @photos.empty? %>
+            <%= link_to(image_tag(@fresh_photo.image.url(:large)), photo_path(@fresh_photo)) if @fresh_photo %>
 
-            <% @photos.last(18).each_slice(2) do |pair| %>
+            <% @photos.each_slice(2) do |pair| %>
               <div class="ridus-block">
                 <% pair.each do |photo| %>
                   <%= link_to image_tag(photo.image.url(:medium)), photo_path(photo) %>

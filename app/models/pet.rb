@@ -1,6 +1,4 @@
 class Pet < ActiveRecord::Base
-  before_save :trim_texts
-
   has_many :pet_photos
   has_many :photos, :through => :pet_photos
 
@@ -8,21 +6,6 @@ class Pet < ActiveRecord::Base
   belongs_to :father, :class_name => "Pet"
   has_many :children_of_father, :class_name => "Pet", :foreign_key => 'father_id'
   has_many :children_of_mother, :class_name => "Pet", :foreign_key => 'mother_id'
-
-  accepts_nested_attributes_for :photos, :allow_destroy => true
-
-  belongs_to :owner, :class_name => "Person"
-  delegate :name, :to => :owner, :prefix => true
-  accepts_nested_attributes_for :owner
-
-
-  belongs_to :breeder, :class_name => "Person"
-  delegate :name, :to => :breeder, :prefix => true
-
-  belongs_to :kennel, :class_name => "Person"
-  delegate :name, :to => :kennel, :prefix => true
-
-  validates :name, :presence => true
 
   has_attached_file :avatar, :styles => {
     :large => "600x600",
@@ -33,6 +16,21 @@ class Pet < ActiveRecord::Base
     :pedigree_grandparent => "168x96#",
     :pedigree_elder => "100x68#",
     :thumb => "172x140#" }, :default_url => "missing_thumb.png"
+
+  belongs_to :owner, :class_name => "Person"
+  belongs_to :breeder, :class_name => "Person"
+  belongs_to :kennel, :class_name => "Person"
+
+  accepts_nested_attributes_for :photos, :allow_destroy => true
+  accepts_nested_attributes_for :owner
+
+  delegate :name, :to => :owner, :prefix => true
+  delegate :name, :to => :breeder, :prefix => true
+  delegate :name, :to => :kennel, :prefix => true
+
+  validates :name, :presence => true
+
+  before_save :trim_texts
 
   scope :dogs, where(:sex => true)
   scope :puppies, where(:puppy => true)
@@ -56,13 +54,7 @@ class Pet < ActiveRecord::Base
   end
 
   def descendants
-    descendants = self.children
-
-    children.each do |child|
-      descendants += child.children
-    end
-
-    descendants
+    children + children.map(&:children).flatten
   end
 
   def children
@@ -70,8 +62,7 @@ class Pet < ActiveRecord::Base
   end
 
   def next_photo(photo)
-    photo = photos.where("photo_id > ?", photo.id).first
-    return photo.nil? ? photos.first : photo
+    photos.where("photo_id > ?", photo.id).first || photos.first
   end
 
   def prev_photo(photo)
@@ -79,30 +70,28 @@ class Pet < ActiveRecord::Base
     return photo.nil? ? photos.first : photo
   end
 
-  def assign_persons(owner_name, breeder_name, kennel_name)
-    if owner_name.present?
-      self.update_attribute(:owner, Person.find_or_create_by_name(owner_name))
-      self.owner.has_role "owner"
-    end
 
-    if breeder_name.present?
-      self.update_attribute(:breeder, Person.find_or_create_by_name(breeder_name))
-      self.breeder.has_role "breeder"
-    end
+  def assign_person(person_type, person_name)
+    return unless person_type.present? & person_name.present?
 
-    if kennel_name.present?
-      self.update_attribute(:kennel, Person.find_or_create_by_name(kennel_name))
-      self.kennel.has_role "kennel"
+    person = Person.find_or_create_by_name(person_name)
+    update_attribute(person_type, person)
+    person.has_role(person_type)
+  end
+
+  def assign_persons(persons = {})
+    persons.each do |person_type, person_name|
+      assign_person(person_type, person_name)
     end
   end
 
   def assign_parents(mather_name, father_name)
     if mather_name.present?
-      self.update_attribute(:mother, Pet.find_or_create_by_name_and_sex(mather_name, false))
+      update_attribute(:mother, Pet.find_or_create_by_name_and_sex(mather_name, false))
     end
 
     if father_name.present?
-      self.update_attribute(:father, Pet.find_or_create_by_name_and_sex(father_name, true))
+      update_attribute(:father, Pet.find_or_create_by_name_and_sex(father_name, true))
     end
   end
 
