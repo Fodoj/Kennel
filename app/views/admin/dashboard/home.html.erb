@@ -5,32 +5,21 @@
     </p>
 </div>
 
-<div class="row">
+<div class="row dashboard-columns">
 
-  <div class="span4">
-    <div class="well">
-      <ul class="nav nav-list">
-          <li class="nav-header">Фотографии</li>
-          <li>
-            <%= link_to "Посмотреть все", admin_photos_path %>
-          </li>
-          <li>
-            <%= link_to "Добавить", new_admin_photo_path %>
-          </li>
-        </ul>
-    </div>
-  </div>
+  <%= render "admin/photos/sidenav" %>
+  <%= render "admin/posts/sidenav" %>
+  <%= render "admin/pets/sidenav" %>
 
-  <div class="span4">
-    <div class="well">
-
-    </div>
-  </div>
-
-  <div class="span4">
-    <div class="well">
-
-    </div>
+  <div class="span6">
+    <div class="thumbnail">
+    <%= link_to image_tag(@random_photo.image.url(:large)), edit_admin_photo_path(@random_photo) %>
+    <figcaption class="caption">
+              <p>
+                <%= caption(@random_photo) %>
+              </p>
+     </figcaption>
+   </div>
   </div>
 
 </div>

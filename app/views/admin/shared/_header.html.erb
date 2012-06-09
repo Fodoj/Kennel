@@ -1,7 +1,7 @@
 <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">Питомник CMS</a>
+      <%= link_to "Питомник CMS", admin_path, :class => "brand" %>
       <ul class="nav nav-pills">
         <li class="<%== 'active' if current_page?(admin_albums_path) %>"><!-- FIXME -->
           <%= link_to "Фотографии", admin_albums_path %>
