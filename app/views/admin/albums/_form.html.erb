@@ -62,6 +62,7 @@
 
                   <div class="modal hide fade" id="photo-<%= photo_form.object.id %>-modal">
                     <div class="modal-header">
+                      <a type="button" class="close" data-dismiss="modal">×</a>
                       <h3 class="main-row">Выберите собак</h3>
                       <%= image_tag photo_form.object.image.url(:admin_thumb), :class => "thumbnail centered" %>
                     </div>

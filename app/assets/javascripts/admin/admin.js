@@ -10,6 +10,8 @@
 //= require jquery_nested_form
 //= require bootstrap.js
 $(function() {
+
+    //Update sex hidden field before form submit
     $(".pet-form").submit(function() {
       form = $(this);
       form.find('.pet-sex-value').val(
@@ -22,6 +24,8 @@ $(function() {
       check_owner();
     });
 
+
+    //Posts wyiwyg text editor
     $(".editor").wysiwyg({
       controls: {
         copy: false,
@@ -44,18 +48,18 @@ $(function() {
         increaseFontSize: {visible:  true },
         decreaseFontSize: {visible:  true }
       }
-
     });
+
 
     //Show new person form on pet new/edit page
     $('.pet-new-person').click(function(e) {
       var holder = $(this).closest('.controls');
       holder.find('select').hide();
       holder.find('input').show();
-      $("#pet_owned");
       $(this).hide();
       return false;
     });
+
 
     //Sort pets tables
     $("#table-pets").tablesorter({
@@ -63,6 +67,29 @@ $(function() {
       cssDesc: "desc"
     });
 
+
+    //Post photos chooser
+    $(".photos-chooser .choosable").toggle(
+      function() {
+        var that = $(this);
+        that.addClass("choosed");
+        that.closest(".choosable-container").find('input').attr('checked', true);
+      },
+      function() {
+        var that = $(this);
+        that.removeClass("choosed");
+        that.closest(".choosable-container").find('input').attr('checked', false);
+      }
+    );
+
+    $(".show-photos-chooser").click(function() {
+      $(this).closest(".controls").find('select').remove();
+    });
+
+    $("#photos-chooser-modal").on('hide', function() {
+        var choosed_count = $(".choosed").length;
+        $(".show-photos-chooser").text("Выбрать фотографии ("+choosed_count+")")
+    });
 });
 
 var check_owner = function() {

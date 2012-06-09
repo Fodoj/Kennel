@@ -3,7 +3,11 @@ class Admin::AlbumsController < Admin::ApplicationController
   before_filter :find_album, :except => [:index, :new, :create, :uploader]
 
   def index
-    @albums = Album.sorted(params[:sort]).page params[:page]
+    if params[:sort]
+      @albums = Album.sorted(params[:sort]).page params[:page]
+    else
+      @albums = Album.order("created_at DESC").page params[:page]
+    end
   end
 
   def show

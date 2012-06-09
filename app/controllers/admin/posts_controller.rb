@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 class Admin::PostsController < Admin::ApplicationController
   before_filter :find_post, :except => [:index, :new, :create]
+  before_filter :find_photos, :only => [:edit, :new]
 
   def index
       @posts = Post.page params[:page]
@@ -18,13 +19,15 @@ class Admin::PostsController < Admin::ApplicationController
 
   def create
     @post = Post.new(params[:post])
-    @post.save
-
+    if @post.save
+        @post.assign_album(params[:photo_ids])
+    end
     redirect_to admin_posts_path
   end
 
   def update
     if @post.update_attributes(params[:post])
+        @post.assign_album(params[:photo_ids])
         flash[:info] = "Запись успешно обновлена"
     else
       flash[:error] = "Что-то пошло не так"
@@ -40,5 +43,9 @@ class Admin::PostsController < Admin::ApplicationController
   private
   def find_post
     @post = Post.find(params[:id])
+  end
+
+  def find_photos
+    @photos = Photo.order("created_at DESC")
   end
 end

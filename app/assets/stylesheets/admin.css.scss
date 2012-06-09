@@ -5,6 +5,7 @@
  *= require plugins/jquery.fileupload-ui.css
 */
 
+
 p {
   margin: 0 0 9px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -200,18 +201,61 @@ a.thumbnail:hover {
   }
 }
 
-.pets-modal-chooser {
-  height: 165px;
-  overflow-y: scroll;
-}
-
 .dashboard-columns {
   .well {
     height: 306px;
   }
 }
 
-/* PETS TABLE STYLING
+.controls.span3 {
+  select {
+    width: 270px;
+  }
+  margin-left: 20px;
+}
+
+.choosable-container {
+  .thumbnail {
+    cursor: pointer;
+  }
+  input {
+    display: none;
+  }
+}
+
+.choosed {
+  background: #08C;
+}
+
+.show-photos-chooser {
+  padding-top: 5px;
+}
+
+#post_preview {
+  width: 670px;
+}
+
+/* MODALS
+============================================= */
+
+#photos-chooser-modal {
+  margin: -250px 0 0 -408px;
+  max-height: 560px;
+  width: 816px;
+  .photos-chooser-modal-body {
+    height: 414px;
+    overflow-y: scroll;
+  }
+}
+
+.pets-modal-chooser {
+  height: 165px;
+  overflow-y: scroll;
+}
+
+
+
+/* PETS TABLE
 ============================================= */
 
 #table-pets {

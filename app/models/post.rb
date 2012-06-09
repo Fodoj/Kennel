@@ -30,6 +30,14 @@ class Post < ActiveRecord::Base
     end
   end
 
+  def assign_album(photo_ids)
+    if photo_ids && !photo_ids.empty?
+      album = Album.find_or_create_by_name(title)
+      album.update_attribute(:photo_ids, photo_ids)
+      self.update_attribute(:album, album)
+    end
+  end
+
   private
     def has_photo?
       photo.present?

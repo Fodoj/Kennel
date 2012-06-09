@@ -36,7 +36,6 @@
       <div class="control-group">
         <label class="control-label">Собаки на фото</label>
         <div class="controls">
-          <%= hidden_field_tag "photo[pet_ids][]", nil %>
           <% Pet.all.each do |pet| %>
               <label class="checkbox">
                 <%= check_box_tag "photo[pet_ids][]", pet.id, photo.pets.include?(pet), :id => dom_id(pet) %>

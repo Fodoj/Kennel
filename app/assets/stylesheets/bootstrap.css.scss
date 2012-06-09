@@ -3354,3 +3354,12 @@ button.btn.small, input[type="submit"].btn.small {
   overflow: hidden;
 }
 
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
