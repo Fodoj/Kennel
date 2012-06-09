@@ -14,8 +14,9 @@ Kennel::Application.routes.draw do
     resources :photos
   end
 
+  match 'admin' => 'admin/dashboard#home', :as => :admin
+
   namespace :admin do
-    match 'admin' => 'dashboard#home', :as => :admin
     root :to => "dashboard#home"
     resources :photos
     resources :posts
