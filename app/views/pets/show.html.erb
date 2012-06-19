@@ -25,7 +25,7 @@
         <dd><%= pet_sex(@pet) %></dd>
 
         <dt>Дата рождения:</dt>
-        <dd><%= @pet.born.strftime("%d.%m.%y") %></dd>
+        <dd><%= @pet.born.strftime("%d.%m.%y") if @pet.born %></dd>
 
         <dt>Окрас:</dt>
         <dd><%= @pet.color %></dd>
@@ -37,10 +37,10 @@
         <dd><%= pet_owner(@pet) %></dd>
 
         <dt>Заводчик:</dt>
-        <dd><%= @pet.breeder_name if @pet.breeder.present?%></dd>
+        <dd><%= @pet.breeder_name if @pet.breeder %></dd>
 
         <dt>Питомник:</dt>
-        <dd><%= @pet.kennel_name if @pet.kennel.present?%></dd>
+        <dd><%= @pet.kennel_name if @pet.kennel %></dd>
       </dl>
     </div>
   </section>
