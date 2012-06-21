@@ -9,6 +9,8 @@ class Album < ActiveRecord::Base
   validates :description, :length => {:maximum => 500}
 
   scope :event, where('post_id != 0')
+  scope :hidden, where(:hidden => true)
+  scope :visible, where(:hidden => false)
 
   def assign_pets(pet_ids)
     if pet_ids

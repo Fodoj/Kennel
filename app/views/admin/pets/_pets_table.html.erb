@@ -35,7 +35,9 @@
         <%= link_to raw("<i class='icon-camera'></i>"), admin_pet_path(pet), :class => "btn btn-small", :title => "Фотографии с питомцем '#{pet.name}'" %>
         <%= link_to raw("<i class='icon-edit'></i>"),
           edit_admin_pet_path(pet), :class => "btn btn-small", :title => "Редактировать питомца '#{pet.name}'" %>
-        <%= link_to raw("<i class='icon-remove'></i>"), admin_pet_path(pet), :method => :delete, :class => "btn btn-small", :title => "Удалить питомца 'Bobby'" %>
+        <%= link_to raw("<i class='icon-eye-open'></i>"),
+          pet_path(pet), :class => "btn btn-small", :title => "Посмотреть питомца '#{pet.name}' на сайте" %>
+        <%= link_to raw("<i class='icon-remove'></i>"), admin_pet_path(pet), :method => :delete, :class => "btn btn-small", :title => "Удалить питомца 'Bobby'", :confirm => "Вы уверены?" %>
       </td>
 
     </tr>

@@ -15,8 +15,10 @@
         </div>
 
         <div class="post-actions">
+          <%= link_to raw("<i class='icon-eye-open'></i>"),
+            post_path(post), :class => "btn btn-small", :title => "Посмотреть пост '#{post.title}' на сайте" %>
           <%= link_to "Редактировать", edit_admin_post_path(post), :class => "btn btn-small" %>
-          <%= link_to "Удалить", admin_post_path(post), :method => :delete, :class => "btn btn-danger btn-small" %>
+          <%= link_to "Удалить", admin_post_path(post), :method => :delete, :class => "btn btn-danger btn-small", :confirm => "Вы уверены?" %>
         </div>
       </div>
     </li>

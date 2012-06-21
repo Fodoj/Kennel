@@ -33,7 +33,7 @@ class Post < ActiveRecord::Base
   def assign_album(photo_ids)
     if photo_ids && !photo_ids.empty?
       album = Album.find_or_create_by_name(title)
-      album.update_attribute(:photo_ids, photo_ids)
+      album.update_attributes(:photo_ids => photo_ids, :hidden => true)
       self.update_attribute(:album, album)
     end
   end

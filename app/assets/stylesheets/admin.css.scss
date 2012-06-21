@@ -23,6 +23,10 @@ h2 {
   margin: 0 auto !important;
 }
 
+.cleared {
+  clear: both;
+}
+
 #admin {
   background: #fafafa;
 }
@@ -95,7 +99,7 @@ h2 {
       margin-bottom: 40px;
       .post-actions {
         position: absolute;
-        left: 240px;
+        left: 210px;
         bottom: 0;
       }
     }
@@ -115,6 +119,14 @@ h2 {
 
 .main-row {
   margin-bottom: 15px;
+}
+
+.root-link {
+  padding: 10px 10px 11px;
+  line-height: 23px;
+  text-transform: uppercase;
+  color: #999;
+  font-size: 0.7em;
 }
 
 .pull-right.actions {

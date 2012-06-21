@@ -90,6 +90,12 @@ $(function() {
         var choosed_count = $(".choosed").length;
         $(".show-photos-chooser").text("Выбрать фотографии ("+choosed_count+")")
     });
+
+
+    //Remove modal if photo is removed from album
+    $(".remove-photo-link").click(function() {
+      $(this).closest(".attached-row").find(".modal").remove();
+    });
 });
 
 var check_owner = function() {

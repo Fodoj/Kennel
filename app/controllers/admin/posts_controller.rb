@@ -4,7 +4,7 @@ class Admin::PostsController < Admin::ApplicationController
   before_filter :find_photos, :only => [:edit, :new]
 
   def index
-      @posts = Post.page params[:page]
+      @posts = Post.order("created_at DESC").page params[:page]
   end
 
   def show

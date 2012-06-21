@@ -4,7 +4,7 @@ class AlbumsController < ApplicationController
   def index
     @photos = Photo.order('id DESC').last(19)
     @fresh_photo, @photos = @photos.first, @photos.last(18)
-    @albums = Album.sorted(params[:sort]).page params[:page]
+    @albums = Album.visible
   end
 
   def show

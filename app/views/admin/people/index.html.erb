@@ -17,7 +17,7 @@
             <td class="span3"><%= person.pets.count %></td>
             <td class="double-actions">
               <%= link_to raw("<i class='icon-edit'></i>"), edit_admin_person_path(person, :role => params[:role]), :class => "btn btn-small" %>
-              <%= link_to raw("<i class='icon-remove'></i>"), admin_person_path(person), confirm: 'Вы уверены?', :method => :delete, :class => "btn btn-small" %>
+              <%= link_to raw("<i class='icon-remove'></i>"), admin_person_path(person), confirm: 'Вы уверены?', :method => :delete, :class => "btn btn-small", :confirm => "Вы уверены?" %>
             </td>
           </tr>
         <% end %>

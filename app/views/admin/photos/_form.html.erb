@@ -54,6 +54,7 @@
 
   <div class="form-actions">
     <%= f.submit "Сохранить", :class => 'btn btn-primary' %>
+    <%= link_to "Отмена", session[:back_url], :class => "btn btn-small" %>
   </div>
 
 <% end %>
