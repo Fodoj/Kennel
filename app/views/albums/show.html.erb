@@ -11,7 +11,7 @@
     <% end %>
     <% @photos.each_slice(10).reverse_each do |photos_block| %>
       <div class="clearfix photo-block-<%= photos_block.count %>">
-        <%= composer_block(photos_block) %>
+        <%= composer_block(photos_block, nil, @album) %>
       </div>
     <% end %>
   </div>

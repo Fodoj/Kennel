@@ -18,9 +18,9 @@ describe "Managing albmums" do
   it "should show photos counter" do
       album = Factory(:album, :name => "Прогулка с собаком")
       3.times do
-        Factory(:photo,
-                :image => File.new("#{Rails.root}/db/sample/images/samplimg.jpg"),
-                :album => album)
+        pho = Factory(:photo,
+                :image => File.new("#{Rails.root}/db/sample/images/samplimg.jpg"))
+        pho.albums << album
       end
       visit admin_albums_path
       page.should have_content("3")

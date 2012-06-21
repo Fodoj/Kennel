@@ -6,10 +6,10 @@
       <div class="hider hider-bottom"></div>
       <div class="thumbnails-scroller">
         <ul class="thumbnails">
-          <% if @post.album.present? %>
+          <% if @album %>
             <% @post.photos.each do |photo| %>
               <li class="span3">
-                <%= link_to photo_path(photo), :class => "thumbnail" do %>
+                <%= link_to album_photo_path(@album, photo), :class => "thumbnail" do %>
                   <%= image_tag(photo.image.url(:thumb)) %>
                 <% end %>
               </li>

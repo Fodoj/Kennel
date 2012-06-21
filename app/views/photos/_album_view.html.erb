@@ -4,7 +4,7 @@
       <% photos.each do |pho| %>
         <li class="span2">
           <% if pho != photo %>
-            <%= link_to image_tag(pho.image.url(:thumb)), photo_path(pho), :class => "thumbnail" %>
+            <%= link_to image_tag(pho.image.url(:thumb)), album_photo_path(album, pho), :class => "thumbnail" %>
           <% else %>
             <%= image_tag pho.image.url(:thumb), :class => "thumbnail photo-current" %>
             <div class="photo-current-overlay"></div>
@@ -17,9 +17,9 @@
 
   <a name="photo"></a>
 <section class="container photo-container container-thin">
-  <%= link_to("", photo_path(photo.prev_photo) + "#photo", :class => "photo-arrow photo-prev") if album.present? %>
+  <%= link_to("", photo_path(photo.prev_photo(album)) + "#photo", :class => "photo-arrow photo-prev") if album.present? %>
   <%= image_tag photo.image.url(:large), :class => "photo-full" %>
-  <%= link_to("", photo_path(photo.next_photo) + "#photo", :class => "photo-arrow photo-next") if album.present? %>
+  <%= link_to("", photo_path(photo.next_photo(album)) + "#photo", :class => "photo-arrow photo-next") if album.present? %>
 </section>
 
 <div class="container">

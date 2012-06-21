@@ -21,7 +21,8 @@ class Post < ActiveRecord::Base
   paginates_per 20
 
   def cover
-    photo || first_album_photo
+    return photo if photo.present?
+    first_album_photo
   end
 
   def first_album_photo

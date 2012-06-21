@@ -9,7 +9,7 @@
         <ul>
           <% @photos.each do |photo| %>
             <li style="background: url('<%= photo.image.url(:slider) %>') center 0 no-repeat;">
-              <%= link_to "", photo_path(photo) %>
+              <%= link_to "", album_photo_path(photo.primary_album, photo) %>
             </li>
           <% end %>
         </ul>

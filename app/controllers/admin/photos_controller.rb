@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 class Admin::PhotosController < Admin::ApplicationController
   before_filter :find_photo, :except => [:index, :new, :create]
+  before_filter :find_albums, :only => [:new, :edit]
 
   def index
       @photos = Photo.where(params[:search]).order('created_at DESC').page params[:page]
@@ -41,5 +42,9 @@ class Admin::PhotosController < Admin::ApplicationController
   private
   def find_photo
     @photo = Photo.find(params[:id])
+  end
+
+  def find_albums
+    @albums = Album.all
   end
 end

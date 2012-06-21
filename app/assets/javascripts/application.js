@@ -7,6 +7,7 @@
 
 $(function() {
 
+
   //Photos scroller on blog post page
   var thumbnails_scroller = $('.thumbnails-scroller');
   if (thumbnails_scroller.length != 0) {
@@ -14,6 +15,7 @@ $(function() {
       autoReinitialise: true
     });
   }
+
 
   //Photos scroller on photo viewer page
   var photo_album_previews = $('.photo-album-container ul');
@@ -29,9 +31,11 @@ $(function() {
 
     var api = photo_album_container.data('jsp');
 
+
     //Scroll to opened photo on load
     api.scrollToX(
       $('.photo-current').parent().position().left - 372, true);
+
 
     //Horizontal scrolling for mouse wheel
     photo_album_container.bind(
@@ -44,10 +48,11 @@ $(function() {
     );;
   }
 
+
   //Main page slider
   $('#slider-inner ul').kwicks({
-		max : 567,
-		spacing : 0
+    max : 567,
+    spacing : 0
   });
 
 
@@ -66,22 +71,27 @@ $(function() {
       return false;
   });
 
+
   //Tooltip everything that moves
   $("[rel=tooltip]").tooltip();
+
 
   //Pet page avatar switcher on thumb hover
   $('.pet-avatar-switcher').click(
       function() {
         var new_photo = $(this).data('title-photo');
+        var new_full_photo = $(this).data('title-photo-full');
         var new_thumb = $(this).find('img').attr('src');
         var avatar = $('.photo-pet-avatar');
+        var avatar_link = avatar.parent();
 
         $(this).data('title-photo', avatar.attr('src'));
+        $(this).data('title-photo-full', avatar_link.attr('href'));
         $(this).find('img').attr('src', avatar.data('thumb-photo'));
-
 
         avatar.attr('src', new_photo);
         avatar.data('thumb-photo', new_thumb);
+        avatar_link.attr('href', new_full_photo);
         return false;
       }
   );

@@ -10,7 +10,7 @@
         <li class='thumbnail'>
           <%= link_to image_tag(photo.image.url(:thumb)), pet_photo_path(@pet, photo),
             :class => "pet-avatar-switcher",
-            :data => { :title_photo => photo.image.url(:pet_title)} %>
+            :data => { :title_photo => photo.image.url(:pet_title), :title_photo_full => photo.image.url(:original)} %>
         </li>
       <% end %>
     </ul>

@@ -15,6 +15,13 @@
       </p>
     <% end %>
 
+    <% unless @photo.albums.count <= 1 %>
+      <p class="photo-pets-list">
+        Так же это фото есть в альбомах:
+        <%= raw @photo.albums.where("name != '#{@album.name}'").map{ |a| link_to(a.name, album_path(a))}.join(", ") %>
+      </p>
+    <% end %>
+
     <p>
       <%= @photo.caption %>
     </p>

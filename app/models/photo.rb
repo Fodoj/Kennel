@@ -14,15 +14,15 @@ class Photo < ActiveRecord::Base
     }
   has_many :pet_photos
   has_many :pets, :through => :pet_photos
-  belongs_to :album
+  has_and_belongs_to_many :albums, :uniq => true
+  belongs_to :primary_album, :class_name => "Album"
 
   validates :caption, :length => { :maximum => 140}
   validates_attachment_presence :image
   validates_presence_of :image
 
-  scope :unsorted, where(:album_id => nil)
+  scope :unsorted, where(:album_id => nil) #FIXME
   scope :main, where(:on_main => true)
-  scope :with_album, where('album_id != 0')
 
   paginates_per 54
 
@@ -38,15 +38,15 @@ class Photo < ActiveRecord::Base
     }
   end
 
-  def next_photo
+  def next_photo(album)
     photos = album.photos.order('id ASC')
-    photo = photos.where("id > ?", id).first
+    photo = photos.where("photo_id > ?", id).first
     return photo.nil? ? photos.first : photo
   end
 
-  def prev_photo
+  def prev_photo(album)
     photos = album.photos.order('id DESC')
-    photo = photos.where("id < ?", id).first
+    photo = photos.where("photo_id < ?", id).first
     return photo.nil? ? photos.first : photo
   end
 end

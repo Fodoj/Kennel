@@ -12,19 +12,11 @@
       </div>
 
       <div class="control-group">
-         <label class="control-label">Альбом</label>
-         <div class="controls">
-           <%= f.select :album_id, Album.all.collect {|p| [ p.name, p.id ] }, { :prompt => "Без альбома"} %>
-         </div>
-      </div>
-
-      <div class="control-group">
          <label class="control-label">Показывать на главной странице</label>
          <div class="controls">
            <%= f.check_box :on_main %>
          </div>
       </div>
-
 
       <div class="control-group">
          <label class="control-label">Файл</label>
