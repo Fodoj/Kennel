@@ -88,7 +88,10 @@ $(function() {
 
     $("#photos-chooser-modal").on('hide', function() {
         var choosed_count = $(".choosed").length;
-        $(".show-photos-chooser").text("Выбрать фотографии ("+choosed_count+")")
+        $(".show-photos-chooser").text("Выбрать фотографии ("+choosed_count+")");
+        if (choosed_count > 0) {
+          $(".pets-chooser").remove();
+        }
     });
 
 

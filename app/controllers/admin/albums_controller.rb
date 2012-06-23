@@ -18,6 +18,7 @@ class Admin::AlbumsController < Admin::ApplicationController
 
   def new
     @album = Album.new
+    @photos = Photo.all
   end
 
   def create
@@ -64,7 +65,8 @@ class Admin::AlbumsController < Admin::ApplicationController
   end
 
   private
-  def find_album
-    @album = Album.find(params[:id])
-  end
+    def find_album
+      @album = Album.find(params[:id])
+      @photos = Photo.all - @album.photos
+    end
 end
