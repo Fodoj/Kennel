@@ -13,3 +13,4 @@ coverage/
 *.swp
 rails_best_practices_output.html
 config/database.yml
+config/newrelic.yml

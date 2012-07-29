@@ -80,8 +80,12 @@ before "deploy:assets:precompile", :copy_database_config
 task :copy_database_config, roles => :app do
   db_config = "#{shared_path}/database.yml"
   run "cp #{db_config} #{release_path}/config/database.yml"
+  #copy admin creds
   admin_config = "#{shared_path}/admin_credentials.rb"
   run "cp #{admin_config} #{release_path}/config/initializers/admin_credentials.rb"
+  #also copy newrelic
+  nr_config = "#{shared_path}/newrelic.yml"
+  run "cp #{nr_config} #{release_path}/config/newrelic.yml"
 end
 
 ## --- Ниже этого места ничего менять скорее всего не нужно ---
