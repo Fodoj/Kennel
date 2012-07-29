@@ -12,6 +12,7 @@ class PhotoSweeper < ActionController::Caching::Sweeper
     if photo.on_main
       expire_fragment('home_page_slider')
     end
+    expire_fragment('great_ridus_block')
   end
 
   def after_save(photo)

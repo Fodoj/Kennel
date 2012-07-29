@@ -53,7 +53,7 @@ role :db,             deploy_server, :primary => true
 
 
 # Следующие строки необходимы, т.к. ваш проект использует rvm.
-set :rvm_ruby_string, "1.9.2"
+set :rvm_ruby_string, "1.9.3"
 set :rake,            "rvm use #{rvm_ruby_string} do bundle exec rake"
 set :bundle_cmd,      "rvm use #{rvm_ruby_string} do bundle"
 
