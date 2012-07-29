@@ -39,9 +39,21 @@
       </div>
     </div>
 
-    <div class="span5">
-       <%= image_tag photo.image.url(:medium), :class => "thumbnail pull-right" unless photo.new_record? %>
-    </div>
+    <% unless photo.new_record? %>
+      <div class="span5">
+         <%= image_tag photo.image.url(:medium), :class => "thumbnail pull-right main-row" %>
+         <div class="pull-right cleared">
+           <% if !@photo.albums.empty? %>
+             <h4>Фото находится в альбомах:</h4>
+              <ul class="pull-right cleared unstyled">
+                <% @photo.albums.each do |album| %>
+                  <li><%= link_to album.name, admin_album_path(album) %></li>
+                <% end %>
+              </ul>
+            <% end %>
+         </div>
+      </div>
+    <% end %>
 </div>
 
   <div class="form-actions">

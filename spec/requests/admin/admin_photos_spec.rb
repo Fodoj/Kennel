@@ -14,7 +14,7 @@ describe "Managing photos" do
   end
 
   it "should be able to edit photo, with dogs" do
-    Factory(:photo, :image => File.new("#{Rails.root}/db/sample/images/samplimg.jpg"))
+    Factory(:photo)
     Factory(:pet, :name => "Bobby")
     visit admin_photos_path
     click_link "Редактировать"

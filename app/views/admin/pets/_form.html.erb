@@ -67,7 +67,7 @@
              <div class="controls">
                <%= f.select  :owner_id, Person.owners.collect {|p| [ p.name, p.id ] }, { :include_blank => "Нет владельца"} %>
                <%= text_field_tag :new_owner_name, "", :class => "new-person-input" %>
-               <a href="" class="pull-right pet-new-person">Добавить нового</a>
+               <a href="" class="pull-right pet-new-person" id="new-owner-link">Добавить нового</a>
              </div>
           </div>
 
@@ -76,7 +76,7 @@
              <div class="controls">
                <%= f.select :breeder_id, Person.breeders.collect {|p| [ p.name, p.id ] }, { :include_blank => "Нет заводчика"}  %>
                <%= text_field_tag :new_breeder_name, "", :class => "new-person-input" %>
-               <a href="" class="pull-right pet-new-person">Добавить нового</a>
+               <a href="" class="pull-right pet-new-person" id="new-breeder-link">Добавить нового</a>
              </div>
           </div>
 
@@ -85,7 +85,7 @@
              <div class="controls">
                <%= f.select :kennel_id, Person.kennels.collect {|p| [ p.name, p.id ] }, { :include_blank => "Нет питомника"} %>
                <%= text_field_tag :new_kennel_name, "", :class => "new-person-input" %>
-               <a href="" class="pull-right pet-new-person">Добавить новый</a>
+               <a href="" class="pull-right pet-new-person" id="new-kennel-link">Добавить новый</a>
              </div>
           </div>
 
@@ -94,7 +94,7 @@
              <div class="controls">
                <%= f.select :mother_id, @mothers.collect {|p| [ p.name, p.id ] }, { :include_blank => "Нет матери"}  %>
                <%= text_field_tag :new_mother_name, "", :class => "new-person-input" %>
-               <a href="" class="pull-right pet-new-person">Добавить</a>
+               <a href="" class="pull-right pet-new-person" id="new-mother-link">Добавить</a>
              </div>
           </div>
 
@@ -103,7 +103,7 @@
              <div class="controls">
                <%= f.select :father_id, @fathers.collect {|p| [ p.name, p.id ] }, { :include_blank => "Нет отца"} %>
                <%= text_field_tag :new_father_name, "", :class => "new-person-input" %>
-               <a href="" class="pull-right pet-new-person">Добавить</a>
+               <a href="" class="pull-right pet-new-person" id="new-father-link">Добавить</a>
              </div>
           </div>
 

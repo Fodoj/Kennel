@@ -4,7 +4,7 @@ class CreatePets < ActiveRecord::Migration
       t.string :name
       t.string :color
       t.datetime :born
-      t.boolean :sex
+      t.boolean :sex, :default => true
       t.string :title
       t.integer :owner_id
       t.integer :breeder_id

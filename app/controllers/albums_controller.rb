@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 class AlbumsController < ApplicationController
 
+  caches_page :show
+  
   def index
-    @photos = Photo.order('id DESC').last(19)
+    @photos = Photo.order('id DESC').first(19)
     @fresh_photo, @photos = @photos.first, @photos.last(18)
     @albums = Album.visible
   end

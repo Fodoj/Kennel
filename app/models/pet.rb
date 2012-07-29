@@ -2,10 +2,13 @@ class Pet < ActiveRecord::Base
   has_many :pet_photos
   has_many :photos, :through => :pet_photos
 
+  belongs_to :owner, :class_name => "Person"
+  belongs_to :breeder, :class_name => "Person"
+  belongs_to :kennel, :class_name => "Person"
+
   belongs_to :mother, :class_name => "Pet"
   belongs_to :father, :class_name => "Pet"
-  has_many :children_of_father, :class_name => "Pet", :foreign_key => 'father_id'
-  has_many :children_of_mother, :class_name => "Pet", :foreign_key => 'mother_id'
+  has_many :children, :class_name => "Pet"
 
   has_attached_file :avatar, :styles => {
     :large => "600x600",
@@ -17,10 +20,6 @@ class Pet < ActiveRecord::Base
     :pedigree_elder => "100x68#",
     :thumb => "172x140#" }, :default_url => "missing_thumb.png"
 
-  belongs_to :owner, :class_name => "Person"
-  belongs_to :breeder, :class_name => "Person"
-  belongs_to :kennel, :class_name => "Person"
-
   accepts_nested_attributes_for :photos, :allow_destroy => true
   accepts_nested_attributes_for :owner
 
@@ -29,13 +28,13 @@ class Pet < ActiveRecord::Base
   delegate :name, :to => :kennel, :prefix => true
 
   validates :name, :presence => true
-
-  before_save :trim_texts
+  validate :parents_gender
 
   scope :dogs, where(:sex => true)
   scope :puppies, where(:puppy => true)
   scope :bitches, where(:sex => false)
   scope :my, where(:owned => true)
+
 
   class << self
     def extend_parents(pets)
@@ -58,7 +57,7 @@ class Pet < ActiveRecord::Base
   end
 
   def children
-     children_of_mother + children_of_father
+    Pet.find(:all, :conditions => ['father_id=? or mother_id=?', id, id])
   end
 
   def next_photo(photo)
@@ -96,8 +95,8 @@ class Pet < ActiveRecord::Base
   end
 
   private
-    def trim_texts
-      [self.description].each(&:strip!) if description.present?
+    def parents_gender
+      errors.add(:mother, "Кобель не может быть матерью") if mother && mother.sex
+      errors.add(:father, "Сука не может быть отцом") if father && !father.sex
     end
-
 end

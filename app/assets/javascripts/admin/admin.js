@@ -11,6 +11,9 @@
 //= require bootstrap.js
 $(function() {
 
+    //Tooltip everything that moves
+    $("[rel=tooltip]").tooltip();
+
     //Update sex hidden field before form submit
     $(".pet-form").submit(function() {
       form = $(this);

@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 class Admin::AlbumsController < Admin::ApplicationController
   before_filter :find_album, :except => [:index, :new, :create, :uploader]
+  cache_sweeper :photo_sweeper, :album_sweeper
 
   def index
+    @albums = params[:hidden] == "true" ? Album.hidden : Album.visible
     if params[:sort]
-      @albums = Album.sorted(params[:sort]).page params[:page]
+      @albums = @albums.sorted(params[:sort]).page params[:page]
     else
-      @albums = Album.order("id DESC").page params[:page]
+      @albums = @albums.order("id DESC").page params[:page]
     end
   end
 

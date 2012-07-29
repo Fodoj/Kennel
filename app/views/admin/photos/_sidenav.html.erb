@@ -9,14 +9,18 @@
           <li class="<%== 'active' if active == 'slider-photos' %>">
             <%= link_to "Слайдер", admin_photos_path(:search => {:on_main => true}) %>
           </li>
-          <li class="<%== 'active' if active == 'new-photo' %>">
-            <%= link_to "Добавить фотографию", new_admin_photo_path %>
-          </li>
           <li class="<%== 'active' if active == 'all-albums' %>">
             <%= link_to "Альбомы", admin_albums_path %>
           </li>
+          <li class="<%== 'active' if active == 'tech-albums' %>">
+            <%= link_to "Технические альбомы", admin_albums_path(:hidden => true) %>
+          </li>
+          <li class="divider"></li>
           <li class="<%== 'active' if active == 'new-album' %>">
             <%= link_to "Добавить альбом", new_admin_album_path %>
+          </li>
+          <li class="<%== 'active' if active == 'new-photo' %>">
+            <%= link_to "Добавить фотографию", new_admin_photo_path %>
           </li>
         </ul>
     </nav>

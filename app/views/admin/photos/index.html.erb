@@ -2,6 +2,8 @@
   <%= render "sidenav", :active => params[:search].present? ? "slider-photos" : "all-photos" %>
 
   <div class="span10">
+  	<%= link_to "Добавить фотографию", new_admin_photo_path, :class => "btn pull-right" %>
+
     <h1>Фотографии <%= "на главной" if params[:search].present? %></h1>
     <%= render "admin/shared/photos", :photos => @photos %>
     <%= paginate @photos %>

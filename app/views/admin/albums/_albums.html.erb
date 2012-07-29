@@ -1,0 +1,27 @@
+<ul class="thumbnails">
+    <% albums.each do |album| %>
+        <li class="span3">
+          <figure class="thumbnail thumbnail-album">
+            <% if album.photos.empty? %>
+              <div class="no-image">Пустой альбом</div>
+            <% else %>
+              <%= link_to admin_album_path(album) do %>
+                <span class="photos-counter"><%= album.photos.count %></span>
+                <%= image_tag album.photos.first.image.url(:admin_thumb) %>
+              <% end %>
+            <% end %>
+            <figcaption class="caption">
+              <p>
+                <%= album.name %>
+              </p>
+              <p>
+                <%= link_to raw("<i class='icon-eye-open'></i>"),
+                  album_path(album), :class => "btn btn-small", :title => "Посмотреть альбом '#{album.name}' на сайте" %>
+                <%= link_to "Редактировать", edit_admin_album_path(album), :class => "btn btn-small" %>
+                <%= link_to "Удалить", admin_album_path(album), :method => :delete, :class => "btn btn-danger btn-small", :confirm => "Вы уверены?" %>
+              </p>
+            </figcaption>
+          </figure>
+        </li>
+    <% end %>
+  </ul>

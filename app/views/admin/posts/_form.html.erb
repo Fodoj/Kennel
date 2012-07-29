@@ -33,7 +33,7 @@
 
          <div class="modal hide fade" id="photos-chooser-modal">
            <div class="modal-header">
-             <a type="button" class="close" data-dismiss="modal">×</a>
+             <a type="button" class="close" data-dismiss="modal" id="close_photos_modal">×</a>
              <h3>Выберите фотографии</h3>
            </div>
            <div class="modal-body photos-chooser-modal-body">
@@ -43,7 +43,7 @@
                  <li class="choosable-container">
                   <%= check_box_tag "photo_ids[]", photo.id, false, :id => dom_id(photo) %>
                   <div class="thumbnail choosable">
-                    <%= image_tag photo.image.url(:thumb) %>
+                    <%= image_tag photo.image.url(:thumb), :id => "photo_#{photo.id}" %>
                   </div>
                 </li>
                <% end %>

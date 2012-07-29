@@ -7,25 +7,27 @@
   <% end %>
 
 
-  <section class="container photo-description container-thin">
-    <% unless @photo.pets.empty? %>
-      <p class="photo-pets-list">
-        На этой фотографии присутствуют:
-        <%= raw @photo.pets.map{ |p| link_to(p.name, pet_path(p))}.join(", ") %>
-      </p>
-    <% end %>
+  <% cache("photos_description_#{@photo.id}") do %>
+    <section class="container photo-description container-thin">
+      <% unless @photo.pets.empty? %>
+        <p class="photo-pets-list">
+          На этой фотографии присутствуют:
+          <%= raw @photo.pets.map{ |p| link_to(p.name, pet_path(p))}.join(", ") %>
+        </p>
+      <% end %>
 
-    <% unless @photo.albums.count <= 1 %>
-      <p class="photo-pets-list">
-        Так же это фото есть в альбомах:
-        <%= raw @photo.albums.where("name != '#{@album.name}'").map{ |a| link_to(a.name, album_path(a))}.join(", ") %>
-      </p>
-    <% end %>
+      <% unless @photo.albums.count <= 1 %>
+        <p class="photo-pets-list">
+          Так же это фото есть в альбомах:
+          <%= raw @photo.albums.where("name != '#{@album.name}'").map{ |a| link_to(a.name, album_path(a))}.join(", ") %>
+        </p>
+      <% end %>
 
-    <p>
-      <%= @photo.caption %>
-    </p>
-  </section>
+      <p>
+        <%= @photo.caption %>
+      </p>
+    </section>
+  <% end %>
 
 </div>
 

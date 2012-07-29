@@ -4,5 +4,6 @@ FactoryGirl.define do
   factory :photo do
     event_id 1
     caption "MyText"
+    image File.new("#{Rails.root}/db/sample/images/samplimg.jpg")
   end
 end

@@ -5,5 +5,6 @@ FactoryGirl.define do
     title "MyString"
     album_id 1
     body "MyText"
+    preview "Preview"
   end
 end

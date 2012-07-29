@@ -7,8 +7,12 @@ class Admin::PetsController < Admin::ApplicationController
   end
 
   def show
-    @albums_photos = @pet.photos.with_album.group_by(&:album)
-    @unsorted_photos = @pet.photos.unsorted
+    unless @pet.photos.empty?
+      @albums_photos = @pet.photos.with_album.group_by(&:album)
+      @unsorted_photos = @pet.photos.unsorted
+    else
+      @albums_photos = @unsorted_photos = []
+    end
   end
 
   def new

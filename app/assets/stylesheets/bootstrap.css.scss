@@ -3363,3 +3363,10 @@ button.btn.small, input[type="submit"].btn.small {
 	height: 0;
 }
 
+.nav-list .divider {
+  height: 1px;
+  margin: 8px 1px;
+  overflow: hidden;
+  background-color: #E5E5E5;
+  border-bottom: 1px solid white;
+}

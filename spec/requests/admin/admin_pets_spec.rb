@@ -73,4 +73,34 @@ describe "Managing pets" do
       page.should have_content "SlaveDog"
       page.should have_content "SlavePuppy"
     end
+
+    it "adds new persons and parents from pet path", :js => true do
+      visit admin_pets_path
+      click_link "Добавить питомца"
+      fill_in "pet_name", :with => "Bobby"
+      fill_in "pet_title", :with => "The Destroyer"
+      fill_in "pet_color", :with => "Bloody hell"
+      find("#new-owner-link").click
+      fill_in "new_owner_name", :with => "Billy"
+
+      find("#new-breeder-link").click
+      fill_in "new_breeder_name", :with => "Johny"
+
+      find("#new-kennel-link").click
+      fill_in "new_kennel_name", :with => "Chinarose"
+
+      find("#new-mother-link").click
+      fill_in "new_mother_name", :with => "Bomb"
+
+      find("#new-father-link").click
+      fill_in "new_father_name", :with => "Rocket"
+
+      click_button "Сохранить"
+
+      page.should have_content("Billy")
+      page.should have_content("Johny")
+      page.should have_content("Bomb")
+      page.should have_content("Rocket")
+      page.should have_content("Chinarose")
+    end
 end

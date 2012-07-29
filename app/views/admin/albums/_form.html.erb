@@ -19,6 +19,15 @@
      </div>
   </div>
 
+
+  <div class="control-group">
+     <label class="control-label">Технический альбом</label>
+     <div class="controls">
+       <%= f.check_box :hidden %>
+      <p class="help-block">технические альбомы не отображаются в галерее</p>
+     </div>
+  </div>
+
   <% if album.new_record? %>
     <div class="control-group pets-chooser">
       <label class="control-label">Собаки в альбоме</label>
@@ -46,7 +55,8 @@
                 <div class="row">
                   <div class="span2 thumbnail attached-thumb">
                     <%= image_tag photo_form.object.image.url(:thumb) %>
-                    <%= photo_form.link_to_remove raw("<i class='icon-white icon-remove-circle'></i>"), :class => "remove-photo-link" %>
+                    <%= photo_form.link_to_remove raw("<i class='icon-white icon-remove-circle' rel='tooltip', data-original-title='Убрать фото из альбома'></i>"),
+                      :class => "remove-photo-link" %>
                   </div>
                   <div class="span3">
                     <%= photo_form.text_area :caption, :placeholder => "Описание" %>
@@ -92,7 +102,7 @@
               </div>
             <% end %>
          <% end %>
-        <a href="#photos-chooser-modal" class="pull-left show-photos-chooser cleared" data-toggle="modal">Выбрать фотографии</a>
+        <a href="#photos-chooser-modal" class="pull-left show-photos-chooser cleared" data-toggle="modal">Выбрать загруженные фотографии</a>
         </div>
     </div>
 

@@ -2,6 +2,7 @@
 class Admin::PostsController < Admin::ApplicationController
   before_filter :find_post, :except => [:index, :new, :create]
   before_filter :find_photos, :only => [:edit, :new]
+  after_filter :expire_cache, :only => [:update, :destroy]
 
   def index
       @posts = Post.order("created_at DESC").page params[:page]
@@ -47,5 +48,9 @@ class Admin::PostsController < Admin::ApplicationController
 
   def find_photos
     @photos = Photo.order("created_at DESC")
+  end
+
+  def expire_cache
+    expire_page :controller => '/posts', :action => 'show'
   end
 end

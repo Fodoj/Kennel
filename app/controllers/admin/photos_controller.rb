@@ -2,6 +2,7 @@
 class Admin::PhotosController < Admin::ApplicationController
   before_filter :find_photo, :except => [:index, :new, :create]
   before_filter :find_albums, :only => [:new, :edit]
+  cache_sweeper :photo_sweeper
 
   def index
       @photos = Photo.where(params[:search]).order('created_at DESC').page params[:page]

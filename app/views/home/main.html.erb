@@ -6,13 +6,15 @@
     </div>
     <div class="mega-holder-content">
       <div class="mega-holder-inner" id="slider-inner">
-        <ul>
-          <% @photos.each do |photo| %>
-            <li style="background: url('<%= photo.image.url(:slider) %>') center 0 no-repeat;">
-              <%= link_to "", photo_path(photo) %>
-            </li>
-          <% end %>
-        </ul>
+        <% cache('home_page_slider') do %>
+          <ul>
+              <% @photos.each do |photo| %>
+                <li style="background: url('<%= photo.image.url(:slider) %>') center 0 no-repeat;">
+                  <%= link_to "", photo_path(photo) %>
+                </li>
+              <% end %>
+          </ul>
+        <% end %>
       </div>
     </div>
   </div>

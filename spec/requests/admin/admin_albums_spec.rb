@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'spec_helper'
 
-describe "Managing albmums" do
+describe "Managing albums" do
 
   before do
     visit admin_photos_path
