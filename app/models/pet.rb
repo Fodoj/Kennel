@@ -50,7 +50,7 @@ class Pet < ActiveRecord::Base
   end
 
   def parents
-    [mother, father]
+    [father, mother]
   end
 
   def descendants

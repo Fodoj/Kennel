@@ -11,15 +11,7 @@
     <div class="row">
       <div class="span10">
 
-        <% unless @unsorted_photos.empty? %>
-          <h3>Фотографии без альбома</h3>
-          <%= render "admin/shared/photos", :photos => @unsorted_photos %>
-        <% end %>
-
-        <% @albums_photos.each do |album, photos| %>
-          <h3><%= link_to album.name, admin_album_path(album) %></h3>
-          <%= render "admin/shared/photos", :photos => photos %>
-        <% end %>
+        <%= render  "admin/shared/photos", :photos => @photos %>
 
       </div>
     </div>

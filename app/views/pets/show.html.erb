@@ -31,7 +31,7 @@
         <dd><%= @pet.color %></dd>
 
         <dt>Титулы:</dt>
-        <dd><%= @pet.title %></dd>
+        <dd rel="tooltip" data-original-title="<%= @pet.title %>"><%= @pet.title %></dd>
 
         <dt>Владелец:</dt>
         <dd><%= pet_owner(@pet) %></dd>

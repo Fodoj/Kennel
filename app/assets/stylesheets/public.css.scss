@@ -829,12 +829,24 @@ aside {
   height: 265px;
   width: 400px;
   margin-bottom: 0;
+  position: relative;
   dl {
     margin: 10px;
     font-size: 1.2em;
     dt, dd {
       line-height: 28px;
     }
+  }
+  &:after {
+    position: absolute;
+    content: "";
+    right: -30px;
+    top: 0;
+    bottom: 0;
+    -moz-box-shadow:    -35px 0px 10px rgba(243, 243, 243, 0.75);
+    -webkit-box-shadow: -35px 0px 10px rgba(243, 243, 243, 0.75);
+    box-shadow:         -35px 0px 10px rgba(243, 243, 243, 0.75);
+    width: 30px;
   }
 }
 
