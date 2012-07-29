@@ -1,0 +1,15 @@
+<div class="patterned-block"></div>
+<section class="container container-thin">
+
+  <%= hidden_field_tag "", "", 'data-save-url' => admin_static_page_url(@static_page), :id => "edit_link" %>
+
+  <% cache do %>
+    <div class="span12 post-body page-body">
+      <h1 id="static_page_name" data-mercury="simple"><%= @static_page.name %></h1>
+      <div id="static_page_content"  data-mercury="full">
+        <%= raw(@static_page.content) %>
+      </div>
+    </div>
+  <% end %>
+
+</section>

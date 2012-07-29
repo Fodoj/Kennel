@@ -24,6 +24,7 @@ end
 gem 'jquery-rails'
 gem 'unicorn'
 gem 'sorted'
+gem 'mercury-rails'
 
 group :development, :test do
   gem 'forgery'

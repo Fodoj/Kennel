@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120621202159) do
+ActiveRecord::Schema.define(:version => 20120729184853) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -124,5 +124,13 @@ ActiveRecord::Schema.define(:version => 20120621202159) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "static_pages", :force => true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

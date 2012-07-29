@@ -1,0 +1,41 @@
+<%= form_for [:admin, static_page], :validate => true, :html => { :class => "form-horizontal" } do |f| %>
+
+<div class="row">
+
+  	  <% if static_page.new_record? %>
+  	  <div class="alert alert-info span9">
+        Вы сможете отредактировать содержимое страницы после её создания
+      </div>
+      <% end %>
+
+      <div class="control-group">
+         <label class="control-label">Заголовок</label>
+         <div class="controls">
+           <%= f.text_field :name, :class => "input-xlarge"  %>
+         </div>
+      </div>
+
+      <div class="control-group">
+         <label class="control-label">Ссылка</label>
+         <div class="controls">
+           <%= f.text_field :slug, :class => "input-xlarge"  %>
+          <p class="help-block">используйте только латинские символы и нижнее подчёркивание (пр.: 'about', 'about_us')</p>
+         </div>
+      </div>
+
+      <% unless static_page.new_record? %>
+        <div class="control-group">
+           <label class="control-label">Содержимое</label>
+           <div class="controls">
+             <%= link_to "Открыть редактор", static_page_path(:path => static_page.slug, :show_editor => true), :class => "btn" %>
+           </div>
+        </div>
+      <% end %>
+</div>
+
+<div class="form-actions">
+  <%= f.submit "Сохранить", :class => 'btn btn-primary' %>
+  <%= link_to "Отмена", session[:back_url], :class => "btn btn-small" %>
+</div>
+
+<% end %>

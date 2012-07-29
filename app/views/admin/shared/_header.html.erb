@@ -12,6 +12,9 @@
         <li class="<%== 'active' if current_page?(admin_posts_path) %>">
           <%= link_to "Блог", admin_posts_path %>
         </li>
+        <li class="<%== 'active' if current_page?(admin_static_pages_path) %>">
+          <%= link_to "Страницы", admin_static_pages_path %>
+        </li>
       </ul>
       <%= link_to "На сайт", root_path, :class => "pull-right root-link" %>
     </div>

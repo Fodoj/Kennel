@@ -45,7 +45,7 @@ describe Pet do
                      :mother => anothergrandmother,  :father => anothergrandfather)
     pet = Factory(:pet, :name => "Child", :sex => true, :mother => mother, :father => father)
 
-    pet.parents.should eql [mother, father]
+    pet.parents.should eql [father, mother]
     extended_parents = Pet.extend_parents(pet.parents)
     extended_parents.count.should eql 4
     extended_parents.should include(anothergrandfather, anothergrandmother, grandfather, grandmother)

@@ -1,0 +1,34 @@
+<div class="row">
+  <%= render "sidenav", :active => "all-pages" %>
+
+  <div class="span10">
+    <h1>Страницы</h1>
+    <table class="table table-bordered" id="table-pets">
+  <thead>
+    <tr>
+      <th><span>Заголовок</span></th>
+      <th><span>Ссылка</span></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @static_pages.each do |page| %>
+    <tr>
+      <td><%= page.name %></td>
+      <td><%= page.slug %></td>
+
+      <td class="double-actions">
+        <%= link_to raw("<i class='icon-edit'></i>"),
+          edit_admin_static_page_path(page), :class => "btn btn-small", :title => "Редактировать страницу '#{page.name}'" %>
+        <%= link_to raw("<i class='icon-eye-open'></i>"),
+          static_page_path(:path => page.slug), :class => "btn btn-small", :title => "Посмотреть страницу '#{page.name}' на сайте" %>
+        <%= link_to raw("<i class='icon-remove'></i>"), admin_static_page_path(page), :method => :delete, :class => "btn btn-small", :title => "Удалить страницу '#{page.name}'", :confirm => "Вы уверены?" %>
+      </td>
+
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+  </div>
+</div>

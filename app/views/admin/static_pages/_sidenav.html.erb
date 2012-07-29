@@ -1,0 +1,15 @@
+<% active ||= '' %>
+<div class="span2">
+    <nav class="well" style="padding: 8px 0;">
+        <ul class="nav nav-list">
+          <li class="nav-header">Страницы</li>
+          <li class="<%== 'active' if active == 'all-pages' %>">
+            <%= link_to "Все страницы", admin_static_pages_path %>
+          </li>
+          <li class="divider"></li>
+          <li class="<%== 'active' if active == 'new-page' %>">
+            <%= link_to "Добавить страницу", new_admin_static_page_path %>
+          </li>
+        </ul>
+    </nav>
+</div>

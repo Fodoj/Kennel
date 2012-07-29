@@ -15,7 +15,7 @@ describe "Managing static pages" do
     current_path.should == admin_static_pages_path
     page.should have_content "Про чау"
     click_link "Редактировать страницу 'Про чау'"
-    page.should have_content "Редактировать содержимое страницы"
+    page.should have_content "Открыть редактор"
   end
 
 end
