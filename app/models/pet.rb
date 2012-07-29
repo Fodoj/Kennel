@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class Pet < ActiveRecord::Base
   has_many :pet_photos
   has_many :photos, :through => :pet_photos
