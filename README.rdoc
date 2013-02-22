@@ -1,1 +1,4 @@
 == Stay tuned
+
+--Setup
+To setup Kennel make rake db:seed
