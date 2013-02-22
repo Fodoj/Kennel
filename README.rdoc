@@ -2,4 +2,4 @@
 
 === Setup
 
-To setup Kennel make rake db:seed
+To setup Kennel make <tt>rake db:seed</tt>
