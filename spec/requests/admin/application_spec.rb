@@ -1,32 +1,28 @@
 # -*- coding: utf-8 -*-
 require 'spec_helper'
 
-class Admin::CohortTest < ActionDispatch::IntegrationTest
-  def basic_auth(name, password)
-    if page.driver.respond_to?(:basic_auth)
-      page.driver.basic_auth(name, password)
-    elsif page.driver.respond_to?(:basic_authorize)
-      page.driver.basic_authorize(name, password)
-    elsif page.driver.respond_to?(:browser) && page.driver.browser.respond_to?(:basic_authorize)
-      page.driver.browser.basic_authorize(name, password)
-    else
-      raise "I don't know how to log in!"
-    end
-  end
+describe "Admin authenticate" do
 
-  test "should block access without invalid HTTP auth" do
-    visit '/admin'
+  it "should not be able enter to admin page" do
+    Factory( :person, :name => ROOT_USER)
+    Factory( :photo, :id => 1, :caption => "Test image", :image_file_name => "samplimg.jpg", :image_content_type => "image/jpeg", :image_file_size => 8387, :on_main => false )
 
+    ENV["RAILS_ENV"] = 'development'
+    visit admin_path
     assert_equal 401, page.status_code
+    ENV["RAILS_ENV"] = 'test'
+
   end
 
-  test "should show the page" do
-    basic_auth('edavis', 'password')
+  it "should be able login to admin dash" do
+    Factory( :person, :name => ROOT_USER)
+    Factory( :photo, :id => 1, :caption => "Test image", :image_file_name => "samplimg.jpg", :image_content_type => "image/jpeg", :image_file_size => 8387, :on_main => false )
 
-    visit '/admin'
-
+    ENV["RAILS_ENV"] = 'development'
+    page.driver.browser.authorize ROOT_USER, ROOT_PASSWORD
+    visit admin_path
     assert_equal 200, page.status_code
-    assert has_content?("Cohorts")
-  end
+    ENV["RAILS_ENV"] = 'test'
 
+  end
 end

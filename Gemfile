@@ -41,4 +41,6 @@ group :development, :test do
   gem 'email_spec'
   gem "launchy"
   gem 'spork'
+  gem 'guard-spork'
+
 end
