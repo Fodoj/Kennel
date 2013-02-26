@@ -19,7 +19,7 @@ describe "Admin authenticate" do
     Factory( :photo, :id => 1, :caption => "Test image", :image_file_name => "samplimg.jpg", :image_content_type => "image/jpeg", :image_file_size => 8387, :on_main => false )
 
     ENV["RAILS_ENV"] = 'development'
-    page.driver.browser.authorize ROOT_USER, ROOT_PASSWORD
+    page.driver.browser.authorize ROOT_USER, '1'
     visit admin_path
     assert_equal 200, page.status_code
     ENV["RAILS_ENV"] = 'test'
