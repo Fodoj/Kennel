@@ -35,6 +35,7 @@ Kennel::Application.routes.draw do
     resources :pets
     resources :people
     resources :static_pages
+    resources :settings
   end
 
   match '/pages/*path', :to => 'static_content#show', :via => :get, :as => 'static_page'

@@ -43,5 +43,6 @@ group :development, :test do
   gem "launchy"
   gem 'spork'
   gem 'guard-spork'
+  gem 'awesome_print'
 
 end
