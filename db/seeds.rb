@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-roles = Role.create( [{ name: "owner"}, { name: "breeder"}, { name: "kennel"}] )
+roles = Role.create( [{ name: "owner"}, { name: "breeder"}, { name: "kennel"}, { name: 'my_kennel' }] )
 
 Person.create :name => ROOT_USER
 
