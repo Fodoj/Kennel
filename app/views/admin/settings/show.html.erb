@@ -1,41 +1,9 @@
 <h1>Настройки</h1>
-<%= form_for @my_kennel, :url => {:action => 'update'}, :html => { :class => "form-horizontal" }  do |f| %>
 
-    <div class="row">
-      <div class="span5">
-        <div class="control-group">
-          <label class="control-label">Название питомника</label>
-          <div class="controls">
-            <%= f.text_field :name  %>
-          </div>
-        </div>
-
-        <div class="control-group">
-          <label class="control-label">Адрес</label>
-          <div class="controls">
-            <%= f.text_field :city  %>
-          </div>
-        </div>
-
-        <div class="control-group">
-          <label class="control-label">Телефон</label>
-          <div class="controls">
-            <%= f.text_field :phone  %>
-          </div>
-        </div>
-
-        <div class="control-group">
-          <label class="control-label">E-mail</label>
-          <div class="controls">
-            <%= f.text_field :email  %>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="form-actions">
-            <%= f.submit "Сохранить", :class => 'btn btn-primary' %>
-          </div>
-        </div>
-      </div>
-    </div>
+<%= form_tag 'settings/update' do %>
+  <%= label_tag :site_name, 'New name:' %>
+  <%= text_field_tag :site_name, @site_name %>
+  <%= label_tag :adress, 'Adress:' %>
+  <%= text_field_tag :adress, @adress %>
+  <%= submit_tag("Save") %>
 <% end %>
