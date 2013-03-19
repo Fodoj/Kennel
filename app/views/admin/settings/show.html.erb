@@ -24,6 +24,17 @@
          <div class="controls">
             <%= check_box_tag :subscribe_send,'', checked=@subscribe_send %>
          </div>
+    </div>
+
+    <br>
+
+    <div class="control-group">      
+          <label class="control-label">Логин админа:</label>
+          <%= text_field_tag :admin_login, @admin_login, :class=>"controls" %>
+    </div>
+    <div class="control-group">
+          <label class="control-label">Пароль (в BCrypt):</label>
+          <%= text_field_tag :admin_password, @admin_password, :class=>"controls" %>
     </div>    
           
   </div>

@@ -6,6 +6,8 @@ class Admin::SettingsController < Admin::ApplicationController
     @owner_name=AdminSettings.owner_name
     @phone_number=AdminSettings.phone_number
     @subscribe_send=AdminSettings.subscribe_send
+    @admin_login=AdminSettings.admin_login
+    @admin_password=AdminSettings.admin_password
   end
 
   def update
@@ -15,6 +17,8 @@ class Admin::SettingsController < Admin::ApplicationController
     AdminSettings.adress=params[:adress]
     AdminSettings.owner_name=params[:owner_name]
     AdminSettings.phone_number=params[:phone_number]
+    AdminSettings.admin_login=params[:admin_login]
+    AdminSettings.admin_password=params[:admin_password]
     params[:subscribe_send] ? AdminSettings.subscribe_send=true : AdminSettings.subscribe_send=false
     
     if true #todo validate
