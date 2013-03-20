@@ -1,6 +1,6 @@
 require 'singleton';
 
-class StoreSettings
+class SiteSettings
   include Singleton
 
   attr_reader :config
@@ -14,9 +14,9 @@ class StoreSettings
     name = method.to_s.gsub('=', '')
     if @config.has_key? name
       if method.to_s =~ /=$/
-        set_setting(name, args.first)
+        set(name, args.first)
       else
-        get_setting(name)        
+        get(name)        
       end
     else
       super
@@ -25,11 +25,11 @@ class StoreSettings
 
   private
 
-  def get_setting(name)
+  def get(name)
     @config[name]
   end
 
-  def set_setting(name, val)
+  def set(name, val)
     @config[name]=val
     File.open(@@path, 'w') do |file|
       file.write(YAML.dump(@config))

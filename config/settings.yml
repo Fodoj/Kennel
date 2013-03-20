@@ -1,8 +1,8 @@
 ---
-site_name: 
-owner_name: 
-phone_number: 
-adress: 
-subscribe_send: false
-admin_login: 
-admin_password: 
+site_name: TestPhrase
+owner_name: test22
+phone_number: test42
+adress: test32
+subscribe_send: true
+admin_login: root
+admin_password: $2a$10$sd66SJyZxCVjavZ2Cz3s1OsuoFawJ4Pyu/GPc98mj8k0ahSp.feQW
