@@ -1,3 +1,3 @@
 class SiteSetting < ActiveRecord::Base
-  store :settings, accessors: [ :site_name, :adress ]
+  store :settings
 end
