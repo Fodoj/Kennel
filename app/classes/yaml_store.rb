@@ -2,14 +2,14 @@ module SiteSettings
   class YamlStore
     @@path=Rails.root.join('config/settings.yml')
 
-    def self.load()
-      YAML::load(File.read(@@path))
+    def self.set(name, val)
+      config=YAML::load(File.read(@@path))
+      config[name]=val
+      File.open(@@path, 'w') {|f| f.write(YAML.dump(config))}
     end
 
-    def self.dump(config)
-      File.open(@@path, 'w') do |file|
-        file.write(YAML.dump(config))
-      end
+    def self.get(name)
+      YAML::load(File.read(@@path))[name]
     end
   end
 end

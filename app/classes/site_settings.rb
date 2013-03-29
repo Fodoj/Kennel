@@ -1,5 +1,6 @@
-require 'singleton';
+require 'singleton'
 require 'yaml_store'
+require 'store_store'
 
 module SiteSettings
   class Settings 
