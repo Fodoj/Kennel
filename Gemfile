@@ -30,7 +30,7 @@ gem 'mercury-rails'
 group :development, :test do
   gem 'forgery'
   gem 'populator'
-  gem 'ruby-debug19'
+  # gem 'ruby-debug19'
   gem 'unicorn'
   gem 'factory_girl_rails'
   gem 'capybara'
@@ -46,5 +46,6 @@ group :development, :test do
   gem 'awesome_print'
   gem "better_errors"
   gem "binding_of_caller"
-
+  gem 'debugger'
+  gem 'preferences_boxer', :git => "git@github.com:taichiman/preferences_boxer.git"
 end
