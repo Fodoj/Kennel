@@ -1,0 +1,11 @@
+---
+site_name: test1
+owner_name: test2
+phone_number: test44
+adress: test33
+subscribe_send: true
+admin_login: root
+admin_password: $2a$10$sd66SJyZxCVjavZ2Cz3s1OsuoFawJ4Pyu/GPc98mj8k0ahSp.feQW
+my: 1
+den: 1000
+_de: 10

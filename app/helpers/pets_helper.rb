@@ -6,7 +6,7 @@ module PetsHelper
 
   def pet_owner(pet)
     if pet.owned
-      OWNER_NAME
+      OWNER_NAME      #todo_den
     else
       pet.owner_name if pet.owner.present?
     end

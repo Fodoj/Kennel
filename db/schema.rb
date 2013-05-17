@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(:version => 20120729184853) do
   create_table "albums", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.integer  "post_id"
-    t.boolean  "hidden"
+    t.boolean  "hidden",      :default => false
   end
 
   create_table "albums_photos", :force => true do |t|
@@ -69,13 +69,13 @@ ActiveRecord::Schema.define(:version => 20120729184853) do
     t.string   "name"
     t.string   "color"
     t.datetime "born"
-    t.boolean  "sex"
+    t.boolean  "sex",                 :default => true
     t.string   "title"
     t.integer  "owner_id"
     t.integer  "breeder_id"
     t.integer  "kennel_id"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.integer  "mother_id"
     t.integer  "father_id"
     t.string   "avatar_file_name"
@@ -98,7 +98,6 @@ ActiveRecord::Schema.define(:version => 20120729184853) do
     t.datetime "image_updated_at"
     t.integer  "primary_album_id"
     t.boolean  "on_main"
-    t.string   "name"
   end
 
   create_table "posts", :force => true do |t|

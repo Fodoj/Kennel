@@ -10,6 +10,7 @@ gem 'capistrano'
 gem 'nested_form', :git => "git://github.com/ryanb/nested_form.git"
 gem 'rolify', '2.2.2'
 gem 'client_side_validations'
+gem 'bcrypt-ruby'
 
 
 group :assets do
@@ -29,7 +30,7 @@ gem 'mercury-rails'
 group :development, :test do
   gem 'forgery'
   gem 'populator'
-  gem 'ruby-debug19'
+  # gem 'ruby-debug19'
   gem 'unicorn'
   gem 'factory_girl_rails'
   gem 'capybara'
@@ -41,4 +42,11 @@ group :development, :test do
   gem 'email_spec'
   gem "launchy"
   gem 'spork'
+  gem 'guard-spork'
+  gem 'awesome_print'
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem 'debugger'
+  # gem 'preferences_boxer', :git => "git@github.com:taichiman/preferences_boxer.git"
+  gem 'preferences_boxer', :path=> '/home/densom/rails/gems/preferences_boxer'
 end

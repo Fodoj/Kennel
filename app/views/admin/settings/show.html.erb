@@ -1,0 +1,48 @@
+<h1>Настройки</h1>
+
+<%= form_tag 'settings/update', :class => "form-horizontal" do %>
+<div class="row">
+  <div class="span6">
+    <div class="control-group">
+          <label class="control-label">Название сайта:</label>
+          <%= text_field_tag :site_name, @site_name, :class=>"controls" %>
+    </div>
+    <div class="control-group">
+          <label class="control-label">Имя владельца:</label>
+          <%= text_field_tag :owner_name, @owner_name, :class=>"controls" %>
+    </div>
+    <div class="control-group">      
+          <label class="control-label">Адрес:</label>
+          <%= text_field_tag :adress, @adress, :class=>"controls" %>
+    </div>
+    <div class="control-group">
+          <label class="control-label">Телефон:</label>
+          <%= text_field_tag :phone_number, @phone_number, :class=>"controls" %>
+    </div>
+    <div class="control-group"> 
+        <label class="control-label">Посылать рассылку:</label>
+         <div class="controls">
+            <%= check_box_tag :subscribe_send,'', checked=@subscribe_send %>
+         </div>
+    </div>
+
+    <br>
+
+    <div class="control-group">      
+          <label class="control-label">Логин админа:</label>
+          <%= text_field_tag :admin_login, @admin_login, :class=>"controls" %>
+    </div>
+    <div class="control-group">
+          <label class="control-label">Пароль (в BCrypt):</label>
+          <%= text_field_tag :admin_password, @admin_password, :class=>"controls" %>
+    </div>    
+          
+  </div>
+</div>
+
+<div class="form-actions">
+  <%= submit_tag "Сохранить", :class => 'btn btn-primary' %>
+  <%= link_to "Отмена", :admin, :class => "btn btn-small" %>
+</div>
+
+<% end %>
