@@ -8,7 +8,7 @@ Spork.prefork do
         require 'rspec/autorun'
         require 'capybara/rspec'
         require Rails.root.join('db','seeds')
-
+        
         Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
         RSpec.configure do |config|
