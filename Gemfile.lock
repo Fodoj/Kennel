@@ -4,8 +4,9 @@ GIT
   specs:
     nested_form (0.2.2)
 
-PATH
-  remote: /home/densom/rails/gems/preferences_boxer
+GIT
+  remote: git@github.com:taichiman/preferences_boxer.git
+  revision: cc63bf58a8167e67f3381e6bdf002dd4707094fd
   specs:
     preferences_boxer (0.1.0)
 
