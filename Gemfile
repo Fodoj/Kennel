@@ -18,7 +18,6 @@ group :assets do
   gem 'coffee-rails'
   gem "bourbon", "~> 1.4.0"
   gem 'execjs'
-  gem 'therubyracer'
   gem 'uglifier', '>= 1.0.3'
 end
 
@@ -26,6 +25,8 @@ gem 'jquery-rails'
 gem 'unicorn'
 gem 'sorted'
 gem 'mercury-rails'
+
+gem 'preferences_boxer', :git => "git@github.com:taichiman/preferences_boxer.git"
 
 group :development, :test do
   gem 'forgery'
@@ -47,6 +48,4 @@ group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
   gem 'debugger'
-  # gem 'preferences_boxer', :git => "git@github.com:taichiman/preferences_boxer.git"
-  gem 'preferences_boxer', :path=> '/home/densom/rails/gems/preferences_boxer'
 end

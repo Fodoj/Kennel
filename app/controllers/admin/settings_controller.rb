@@ -1,13 +1,13 @@
 class Admin::SettingsController < Admin::ApplicationController
 
   def show
-    @site_name=AdminSettings.site_name
-    @adress=AdminSettings.adress
-    @owner_name=AdminSettings.owner_name
-    @phone_number=AdminSettings.phone_number
-    @subscribe_send=AdminSettings.subscribe_send
-    @admin_login=AdminSettings.admin_login
-    @admin_password=AdminSettings.admin_password
+    @site_name = AdminSettings.site_name
+    @adress = AdminSettings.adress
+    @owner_name = AdminSettings.owner_name
+    @phone_number = AdminSettings.phone_number
+    @subscribe_send = AdminSettings.subscribe_send
+    @admin_login = AdminSettings.admin_login
+    @admin_password = AdminSettings.admin_password
   end
 
   def update
