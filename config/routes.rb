@@ -5,7 +5,7 @@ Kennel::Application.routes.draw do
     match 'snippets/:name/options' => "mercury#snippet_options"
     match 'snippets/:name/preview' => "mercury#snippet_preview"
   end
-  
+
   root :to => "home#main"
 
   resources :pets do
@@ -21,6 +21,8 @@ Kennel::Application.routes.draw do
   end
 
   match 'admin' => 'admin/dashboard#home', :as => :admin
+  match 'admin/settings' => 'admin/settings#show' , :as => :admin_settings
+  match 'admin/settings/update' => 'admin/settings#update'
 
   namespace :admin do
     root :to => "dashboard#home"

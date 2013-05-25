@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 class Admin::ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'admin'
@@ -8,7 +10,7 @@ class Admin::ApplicationController < ActionController::Base
    def authenticate
      unless ENV["RAILS_ENV"] == 'test'
       authenticate_or_request_with_http_basic do |username, password|
-        username == USER_ID && password == PASSWORD
+        username == AdminSettings.admin_login && BCrypt::Password.new(AdminSettings.admin_password) == password
       end
      end
    end

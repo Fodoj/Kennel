@@ -1,1 +1,5 @@
 == Stay tuned
+
+=== Setup
+
+To setup Kennel make <tt>rake db:seed</tt>
