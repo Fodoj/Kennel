@@ -6,7 +6,8 @@ module PetsHelper
 
   def pet_owner(pet)
     if pet.owned
-      OWNER_NAME      #todo_den
+      AdminSettings.owner_name # taichiman: There may be 'if' with bug
+      # OWNER_NAME
     else
       pet.owner_name if pet.owner.present?
     end
